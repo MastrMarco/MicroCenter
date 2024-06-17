@@ -7,7 +7,42 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pagine\Arduino.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pagine\Connessione.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pagine\Impostazioni.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Immagini_Icone\Icone_SVG\Icone.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pagine\Arduino.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pagine\Connessione.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pagine\Impostazioni.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Stile_Elementi\StileBottoneToggle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Stile_Elementi\StileBottoni.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Temi\TemaChiaro.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Temi\TemaScuro.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

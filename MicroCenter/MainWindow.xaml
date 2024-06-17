@@ -5,8 +5,161 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MicroCenter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MicroCenter" 
+        Height="550" 
+        Width="1020"
+        
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        Background="Transparent" 
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        WindowState="Normal"
+        >
 
-    </Grid>
+    <Border x:Name="ContenitoreForm" CornerRadius="10" Background="{DynamicResource PrimaryBackgroundColor}" Opacity="1">
+
+
+        <Grid>
+
+
+            <Border     
+x:Name="BarraAppList"
+CornerRadius="10" 
+Padding="0,55,0,0"              
+Background="{DynamicResource SecundaryBackgroundColor}" MouseDown="BarraSuperiore_MouseDown"
+                Width="60"
+                HorizontalAlignment="Left">
+                <Grid >
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="45"/>
+                    </Grid.RowDefinitions>
+
+
+                    <Button x:Name="btnImpostazioni" Grid.Row="0"
+                       Style="{StaticResource IconButtonsForms}" 
+                       Content="{DynamicResource Impostazioni}"
+                      Click="btnImpostazioni_Click"
+                        />
+
+                    <Button x:Name="btnConnessione" Grid.Row="1"
+Style="{StaticResource IconButtonsForms}" 
+Content="{DynamicResource Connessione}"
+                     Click="btnConnessione_Click"
+ />
+
+                    <Button x:Name="btnProject" Grid.Row="2"
+Style="{StaticResource IconButtonsForms}" 
+Content="{DynamicResource Arduino}"  
+                      Click="btnArduino_Click"
+ />
+
+
+                </Grid>
+            </Border>
+
+
+
+
+            <Border     
+x:Name="BarraInferirore"
+CornerRadius="10"
+Background="{DynamicResource SecundaryBackgroundColor}"
+                Height="35"
+                Width="940"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                Margin="60,0,0,9">
+                
+                <Grid >
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <Path  Stretch="Uniform" VerticalAlignment="Center" Fill="{DynamicResource PrimaryBlueColor}" Height="30" Data="{DynamicResource IconaSoft}" />
+
+
+                </Grid>
+            </Border>
+
+
+
+             <!--Start: Frame Container-->
+
+            <Border Background="{DynamicResource SecundaryBackgroundColor}"
+                    Width="935"
+                    Height="450"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="60,0,0,5"
+                    CornerRadius="10">
+                <Frame x:Name="frameContent"
+                    NavigationUIVisibility="Hidden"
+        Padding="10,0,10,0">
+                </Frame>
+            </Border>
+            
+             <!--End: Frame Container--> 
+            
+
+
+
+
+
+
+
+            <Border     
+x:Name="BarraSuperiore"
+CornerRadius="10" 
+Padding="0" 
+Background="{DynamicResource TertiaryBackgroundColor}" MouseDown="BarraSuperiore_MouseDown"
+                Height="35"
+                VerticalAlignment="Top">
+                <Grid >
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="35"/>
+                        <ColumnDefinition Width="35"/>
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <Path  Stretch="Uniform" Margin="0,0,0,0" VerticalAlignment="Center" Fill="{DynamicResource PrimaryBlueColor}" Height="20" Data="{DynamicResource IconaSoft}" />
+
+                    <Button x:Name="btnClose" Grid.Column="3"
+                       Style="{StaticResource IconButtonsStyle}" 
+                       Content="{DynamicResource Chiudi}" 
+                       Click="btnClose_Click" 
+                       Tag="IsCloseButton"
+               />
+
+
+                    <Button x:Name="btnNascondi" Grid.Column="2"
+                       Style="{StaticResource IconButtonsStyle}" 
+                       Content="{DynamicResource Nascondi}" 
+                       Click="btnNascondi_Click"
+                        Tag="IsButtonBarTop"
+                />
+
+                </Grid>
+            </Border>
+
+        </Grid>
+
+
+   
+
+    </Border>
 </Window>

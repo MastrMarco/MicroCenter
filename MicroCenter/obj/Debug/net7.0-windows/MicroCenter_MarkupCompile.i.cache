@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\marco\Desktop\MicroCenter\MicroCenter\obj\Debug\net7.0-windows\
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net7.0-windows\
 MicroCenter
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\marco\Desktop\MicroCenter\MicroCenter\App.xaml
-11407045341
+D:\ProgettiGitHub\MicroCenter\MicroCenter\App.xaml
+9224373470
 
-61889229215
+10-2074236954
 1981027666656
-MainWindow.xaml;
+Immagini_Icone\Icone_SVG\Icone.xaml;MainWindow.xaml;Pagine\Arduino.xaml;Pagine\Connessione.xaml;Pagine\Impostazioni.xaml;Stile_Elementi\StileBottoneToggle.xaml;Stile_Elementi\StileBottoni.xaml;Temi\TemaChiaro.xaml;Temi\TemaScuro.xaml;
 
-False
+True
 
