@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace MicroCenter.Temi
 {
-    class ControllerTemi
+    internal class ControllerTemi
     {
 
         public static ThemeTypes CurrentTheme { get; set; }
@@ -23,14 +23,10 @@ namespace MicroCenter.Temi
             set { Application.Current.Resources.MergedDictionaries[0] = value; }
         }
 
-        private static void ChangeTheme(Uri uri)
-        {
-            ThemeDictionary = new ResourceDictionary() { Source = uri };
-        }
 
         public static void SetTheme(ThemeTypes theme)
         {
-            string themeName = null;
+            string? themeName = null;
             CurrentTheme = theme;
             switch (theme)
             {
@@ -44,6 +40,11 @@ namespace MicroCenter.Temi
                     ChangeTheme(new Uri($"Temi/{themeName}.xaml", UriKind.Relative));
             }
             catch { }
+        }
+
+        private static void ChangeTheme(Uri uri)
+        {
+            ThemeDictionary = new ResourceDictionary() { Source = uri };
         }
 
 

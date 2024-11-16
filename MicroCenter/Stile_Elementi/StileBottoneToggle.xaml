@@ -2,37 +2,44 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- Start: ToggleButtonStyle -->
-    <Style x:Key="ToggleButtonStyle" TargetType="{x:Type ToggleButton}">
-        <Setter Property="Background" Value="{DynamicResource SecundaryWhiteColor}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryWhiteColor}"/>
-        <Setter Property="Height" Value="20"/>
-        <Setter Property="Width" Value="35"/>
-        <Setter Property="MaxHeight" Value="20"/>
-        <Setter Property="MaxWidth" Value="35"/>
+    <Style x:Key="ToggleButtonStyle"
+           TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background"
+                Value="{DynamicResource SecundaryWhiteColor}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryWhiteColor}" />
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Width"
+                Value="35" />
+        <Setter Property="MaxHeight"
+                Value="20" />
+        <Setter Property="MaxWidth"
+                Value="35" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Grid>
                         <Border x:Name="Border"
-                              Background="{TemplateBinding Background}"
-                              CornerRadius="7"
-                              Height="14"
-                              Width="35"
-                              VerticalAlignment="Center"
-                              HorizontalAlignment="Center">
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="7"
+                                Height="14"
+                                Width="35"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
                             <!-- Optional -->
                             <!--<Border.Effect>
                               <DropShadowEffect ShadowDepth="0.5" Opacity=".2"/>
                           </Border.Effect>-->
                         </Border>
                         <Ellipse x:Name="Ellipse"
-                                   Height="20"
-                                   Width="20"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Left"
-                                   Fill="{DynamicResource TertiaryWhiteColor}"
-                                   Stroke="{TemplateBinding BorderBrush}"
-                                   StrokeThickness="3">
+                                 Height="20"
+                                 Width="20"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Left"
+                                 Fill="{DynamicResource TertiaryWhiteColor}"
+                                 Stroke="{TemplateBinding BorderBrush}"
+                                 StrokeThickness="3">
                             <!-- Optional -->
                             <!--<Ellipse.Effect>
                               <DropShadowEffect ShadowDepth="0.5" Opacity=".2"/>
@@ -45,41 +52,101 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation Storyboard.TargetName="Border"
-                                                      Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                      To="#C2D1FC" Duration="0:0:0.2"/>
+                                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                    To="#C2D1FC"
+                                                    Duration="0:0:0.2" />
                                     <ThicknessAnimation Storyboard.TargetName="Ellipse"
-                                                          Storyboard.TargetProperty="Margin"
-                                                          To="15 0 0 0" Duration="0:0:0.2"/>
+                                                        Storyboard.TargetProperty="Margin"
+                                                        To="15 0 0 0"
+                                                        Duration="0:0:0.2" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
+
+
+
                         <!-- EventTrigger UnChecked -->
                         <EventTrigger RoutedEvent="Unchecked">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation Storyboard.TargetName="Border"
-                                                      Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                      To="#CECECE" Duration="0:0:0.2"/>
+                                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                    To="#CECECE"
+                                                    Duration="0:0:0.2" />
                                     <ThicknessAnimation Storyboard.TargetName="Ellipse"
-                                                          Storyboard.TargetProperty="Margin"
-                                                          To="0 0 0 0" Duration="0:0:0.2"/>
+                                                        Storyboard.TargetProperty="Margin"
+                                                        To="0 0 0 0"
+                                                        Duration="0:0:0.2" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
 
-                        <Trigger Property="IsChecked" Value="True">
+                        <Trigger Property="IsChecked"
+                                 Value="True">
                             <Setter TargetName="Ellipse"
-                                  Property="Fill"
-                                  Value="{DynamicResource SecundaryBlueColor}"/>
+                                    Property="Fill"
+                                    Value="{DynamicResource SecundaryBlueColor}" />
                             <Setter TargetName="Ellipse"
-                                 Property="Stroke"
-                                 Value="{DynamicResource PrimaryTextColor}"/>
+                                    Property="Stroke"
+                                    Value="{DynamicResource PrimaryTextColor}" />
                         </Trigger>
+
+
+
+
+
+
+
+
+
+                        <!-- DataTrigger for MSM -->
+                        <DataTrigger Binding="{Binding ElementName=Themes, Path=Tag}"
+                                     Value="Scuro">
+
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="Border"
+                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                        To="#C2D1FC"
+                                                        Duration="0:0:0.0" />
+                                        <ThicknessAnimation Storyboard.TargetName="Ellipse"
+                                                            Storyboard.TargetProperty="Margin"
+                                                            To="15 0 0 0"
+                                                            Duration="0:0:0.0" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+
+
+                            <Setter TargetName="Ellipse"
+                                    Property="Fill"
+                                    Value="{DynamicResource SecundaryBlueColor}" />
+
+                            <Setter TargetName="Ellipse"
+                                    Property="Stroke"
+                                    Value="{DynamicResource PrimaryTextColor}" />
+
+                            <Setter Property="IsChecked"
+                                    Value="True" />
+
+                        </DataTrigger>
+
+
+
+
+
+
+
+
+
+
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
     <!-- End: ToggleButtonStyle -->
-    
+
 </ResourceDictionary>

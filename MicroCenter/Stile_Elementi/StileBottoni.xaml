@@ -3,41 +3,69 @@
 
 
     <!-- Start: Button | Minimize | Close -->
-    <Style x:Key="IconButtonsStyle" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="25"/>
-        <Setter Property="Width" Value="25"/>
+    <Style x:Key="IconButtonsStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Height"
+                Value="25" />
+        <Setter Property="Width"
+                Value="25" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Name="bd" CornerRadius="8" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
-                        <Path Name="ico" Data="{TemplateBinding Content}"
-                         Fill="{DynamicResource PrimaryTextColor}" Height="10" Width="10" Stretch="Uniform"/>
+                    <Border Name="bd"
+                            CornerRadius="8"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Path Name="ico"
+                              Data="{TemplateBinding Content}"
+                              Fill="{DynamicResource PrimaryTextColor}"
+                              Height="10"
+                              Width="10"
+                              Stretch="Uniform" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource SecundaryBackgroundColor}"/>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    Value="{DynamicResource SecundaryBackgroundColor}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="True"/>
-                                <Condition Property="Tag" Value="IsCloseButton"/>
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
+                                <Condition Property="Tag"
+                                           Value="IsCloseButton" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{DynamicResource PrimaryRedColor}"/>
-                            <Setter TargetName="ico" Property="Fill" Value="#FFFFFF"/>
+                            <Setter Property="Background"
+                                    Value="{DynamicResource PrimaryRedColor}" />
+                            <Setter TargetName="ico"
+                                    Property="Fill"
+                                    Value="#FFFFFF" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="True"/>
-                                <Condition Property="Tag" Value="IsButtonBarTop"/>
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
+                                <Condition Property="Tag"
+                                           Value="IsButtonBarTop" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{DynamicResource TertiaryBlueColor}"/>
-                            <Setter TargetName="ico" Property="Fill" Value="#FFFFFF"/>
+                            <Setter Property="Background"
+                                    Value="{DynamicResource TertiaryBlueColor}" />
+                            <Setter TargetName="ico"
+                                    Property="Fill"
+                                    Value="#FFFFFF" />
                         </MultiTrigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="ico" Property="Fill" Value="{DynamicResource TertiaryTextColor}"/>
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="ico"
+                                    Property="Fill"
+                                    Value="{DynamicResource TertiaryTextColor}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -48,42 +76,70 @@
 
 
 
-    <Style  x:Key="IconButtonsForms" TargetType="{x:Type Button}">
+    <!--Stile bottoni Menu verticale-->
+    <Style  x:Key="IconButtonsForms"
+            TargetType="{x:Type Button}">
 
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="45"/>
-        <Setter Property="Width" Value="45"/>
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Height"
+                Value="45" />
+        <Setter Property="Width"
+                Value="45" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
 
-                    <Border Name="bd" CornerRadius="8" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
-                        <Path Name="ico" Data="{TemplateBinding Content}" Fill="{DynamicResource PrimaryTextColor}" Height="30" Width="30" Stretch="Uniform"/>
+                    <Border Name="bd"
+                            CornerRadius="8"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Path Name="ico"
+                              Data="{TemplateBinding Content}"
+                              Fill="{DynamicResource PrimaryTextColor}"
+                              Height="30"
+                              Width="30"
+                              Stretch="Uniform" />
 
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource SecundaryBackgroundColor}"/>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    Value="{DynamicResource SecundaryBackgroundColor}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{DynamicResource TertiaryBackgroundColor}"/>
-                            <Setter TargetName="ico" Property="Fill" Value="{DynamicResource TertiaryTextColor}"/>
-                           
+                            <Setter Property="Background"
+                                    Value="{DynamicResource TertiaryBackgroundColor}" />
+                            <Setter TargetName="ico"
+                                    Property="Fill"
+                                    Value="{DynamicResource TertiaryTextColor}" />
+
                         </MultiTrigger>
-                        <Trigger Property="IsPressed" Value="True">
+                        <!--<Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="ico" Property="Fill" Value="{DynamicResource TertiaryTextColor}"/>
+                        </Trigger>-->
+
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="ico"
+                                    Property="Fill"
+                                    Value="{DynamicResource PrimaryRedColor}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
-                    
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
+    <!--Fine Stile bottoni Menu verticale-->
 
 </ResourceDictionary>

@@ -7,10 +7,10 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Temi/TemaChiaro.xaml"/>
-                <ResourceDictionary Source="/Immagini_Icone/Icone_SVG/Icone.xaml"/>
-                <ResourceDictionary Source="/Stile_Elementi/StileBottoni.xaml"/>
-                <ResourceDictionary Source="/Stile_Elementi/StileBottoneToggle.xaml"/>
+                <ResourceDictionary Source="/Temi/TemaChiaro.xaml" />
+                <ResourceDictionary Source="/Immagini_Icone/Icone_SVG/Icone.xaml" />
+                <ResourceDictionary Source="/Stile_Elementi/StileBottoni.xaml" />
+                <ResourceDictionary Source="/Stile_Elementi/StileBottoneToggle.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
