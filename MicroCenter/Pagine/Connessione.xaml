@@ -9,42 +9,15 @@
       d:DesignWidth="900"
       Title="Connessione">
 
-    <!--<Grid Background="#f1f3f5">
-        
-        
-        <TextBlock Text="Connessione"
-                   FontFamily="ubuntu"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Foreground="#FFB197FC"
-                   FontSize="60"
-                   FontWeight="Bold" />
-        
-        
-        <ComboBox x:Name="SerialPortComboBox"
-                  Height="50"
-                  Width="100"/>
-
-    </Grid>-->
-
 
 
     <Border Background="{DynamicResource SecundaryBackgroundColor}"
             CornerRadius="10">
 
-        <!--<Border.BitmapEffect>
-            <DropShadowBitmapEffect ShadowDepth="0"
-                                 Direction="0"
-                                 Color="#5B8DEF"
-                                 Softness="0.8"/>
-        </Border.BitmapEffect>-->
+
 
         <Grid>
 
-            <!--<Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>-->
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
@@ -163,8 +136,6 @@
                     </Grid>
                 </Border>
             </Grid>-->
-
-
             <!--Icone Linck-->
             <!--<Grid Grid.Row="0"
                   Grid.Column="2">
@@ -335,12 +306,6 @@ Content="{DynamicResource Telegram}"
             </Grid>-->
 
 
-
-
-
-
-
-
             <!--Donazioni Linck-->
             <!--<Grid Grid.Row="1"
                   Grid.Column="2">
@@ -420,17 +385,6 @@ Content="{DynamicResource Telegram}"
                     </Grid>
                 </Border>
             </Grid>-->
-
-
-
-
-
-
-
-
-
-
-
 
             <!--Informazioni Linck-->
             <!--<Grid Grid.Row="1"
@@ -517,57 +471,101 @@ Content="{DynamicResource Telegram}"
             <Grid Grid.Row="0"
                   Grid.Column="1">
 
-                <Border CornerRadius="16"
-                        Width="170"
-                        Height="150"
-                        Background="{DynamicResource TertiaryBackgroundColor}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-
-                    <!--<Border.BitmapEffect>
-                        <DropShadowBitmapEffect ShadowDepth="0"
-                            Direction="0"
-                            Color="#5B8DEF"
-                            Softness="0.8"/>
-                    </Border.BitmapEffect>-->
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
+                <Border Background="{DynamicResource TertiaryBackgroundColor}"
+                        CornerRadius="8">
 
 
 
-                        <!--<Label Grid.Row="0"
-                                Content="Lingua App" 
-                                FontSize="20" 
-                                FontWeight="Bold" 
-                                Foreground="{DynamicResource PrimaryTextColor}" 
-                                HorizontalAlignment="Center" 
-                                VerticalAlignment="Center"/>-->
+                    <Border CornerRadius="16"
+                            Margin="0,14,16,0"
+                            Width="468"
+                            Height="150"
+                            Background="{DynamicResource TertiaryBackgroundColor}"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top">
+
+                        <Border.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="0"
+                                                    Direction="0"
+                                                    Color="#5B8DEF"
+                                                    Softness="0.2" />
+                        </Border.BitmapEffect>
 
 
 
-                        <ComboBox Grid.Row="1"
-                                  x:Name="SerialPortComboBox"
-                                  Height="50"
-                                  Width="100" />
 
 
-                        <!--<Label Grid.Row="2"
-                                Content="Seleziona Lingua" 
-                                FontSize="12" 
-                                FontWeight="Bold" 
-                                Foreground="{DynamicResource TertiaryTextColor}" 
-                                HorizontalAlignment="Center" 
-                                VerticalAlignment="Center"/>-->
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="40" />
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0"
+                                       Name="LabSerialPoert"
+                                       Content="SerialPort"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource PrimaryTextColor}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" />
 
 
 
-                    </Grid>
+                                <ComboBox Style="{StaticResource ModernComboBoxStyle}"
+                                          ItemContainerStyle="{StaticResource ModernComboBoxItemStyle}"
+                                          Grid.Row="1"
+                                          x:Name="SerialPortComboBox"
+                                          Height="40"
+                                          Width="100" />
+
+
+                                <Label Grid.Row="2"
+                                       Name="LabCOM"
+                                       Content="Seleziona COM port"
+                                       FontSize="12"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource TertiaryTextColor}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" />
+
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+
+                                <Button x:Name="btnConnetti"
+                                    Style="{StaticResource IconButtonsForms}"
+                                    Content="{DynamicResource YouTube}"
+                                    Click="btnIconaConnetti">
+                                    <Button.ToolTip>
+                                        <Label Name="LabToolTipConnetti"
+                                               Content="C/N" />
+                                    </Button.ToolTip>
+                                </Button>
+
+                            </Grid>
+
+
+
+
+                        </Grid>
+
+
+
+                    </Border>
+
+
+
+
                 </Border>
             </Grid>
 

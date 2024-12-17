@@ -39,6 +39,9 @@
     <Page Update="Stile_Elementi\StileBottoni.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Stile_Elementi\StileComboBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Temi\TemaChiaro.xaml">
       <SubType>Designer</SubType>
     </Page>

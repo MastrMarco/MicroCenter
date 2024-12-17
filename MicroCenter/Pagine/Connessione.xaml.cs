@@ -69,27 +69,9 @@ namespace MicroCenter.Pagine
 
         }
 
+        private void btnIconaConnetti(object sender, RoutedEventArgs e)
+        {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
     }
 }

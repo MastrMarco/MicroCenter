@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="/Immagini_Icone/Icone_SVG/Icone.xaml" />
                 <ResourceDictionary Source="/Stile_Elementi/StileBottoni.xaml" />
                 <ResourceDictionary Source="/Stile_Elementi/StileBottoneToggle.xaml" />
+                <ResourceDictionary Source="/Stile_Elementi/StileComboBox.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
