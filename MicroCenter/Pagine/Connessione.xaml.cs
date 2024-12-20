@@ -1,20 +1,8 @@
-﻿using MicroCenter.Collegamenti_WEB;
-using System;
-using System.Collections.Generic;
+﻿using MicroCenter.Classi;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Management;
+using System.Windows.Threading;
 
 namespace MicroCenter.Pagine
 {
@@ -24,16 +12,24 @@ namespace MicroCenter.Pagine
     public partial class Connessione : Page
     {
 
-        // MainWindow ClasseSerialPort = new MainWindow();
-        // private MainWindow _MainWindow;
+
+        private SerialPort _serialPort;
+        public string com_Name_set;
+
 
         public Connessione()
         {
             InitializeComponent();
 
-
             _ = LoadAvailableCH340PortsAsync();
         }
+
+
+
+
+
+
+
 
 
 
@@ -64,14 +60,71 @@ namespace MicroCenter.Pagine
             }
 
             if (SerialPortComboBox.Items.Count > 0)
-            SerialPortComboBox.SelectedIndex = 0; // Se ci sono elementi, seleziona il primo
+                SerialPortComboBox.SelectedIndex = 0; // Se ci sono elementi, seleziona il primo
 
 
         }
+
+
 
         private void btnIconaConnetti(object sender, RoutedEventArgs e)
         {
-
+            _serialPort = new SerialPort
+            {
+                PortName = com_Name_set,
+                BaudRate = 115200,
+                Parity = Parity.None,
+                DataBits = 8,
+                StopBits = StopBits.One,
+                Handshake = Handshake.None,
+                ReadTimeout = 500,
+                WriteTimeout = 500
+            };
+            _serialPort.DataReceived += SerialPort_DataReceived;
+            _serialPort.Open();
+            //_serialPort.Close();
         }
+
+        private void SerialPortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            com_Name_set = SerialPortComboBox.SelectedItem.ToString();
+        }
+
+
+
+
+        SerialParser EncodeSeralData = new SerialParser();
+
+        private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                // Leggi i dati dalla seriale
+                //string data = _serialPort.ReadExisting().ToString();
+
+                // Legge i dati dalla seriale
+                var SerialDatiRicevuto = _serialPort.ReadLine().ToString();
+               
+                var ParsData = EncodeSeralData.ParseString(SerialDatiRicevuto);
+
+
+                // Aggiorna la UI con i dati ricevuti
+                Dispatcher.Invoke(() =>
+                {
+                    if(TxSerialText.Text == "SerialPort")
+                    TxSerialText.Text = ParsData[0][4].ToString();
+                });
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+
+
+
+
+
     }
 }

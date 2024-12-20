@@ -14,7 +14,7 @@ namespace MicroCenter
 
 
         // Legge gli elementi Seriali USB connessi e da il Nome, Descrizione, Creatore, ....
-        public static string? GetPortDescription(string portName)
+        public static string GetPortDescription(string portName)
         {
             try
             {
@@ -28,7 +28,6 @@ namespace MicroCenter
             }
             catch (Exception ex)
             {
-                // Console.WriteLine($"Errore nella lettura della descrizione per {portName}: {ex.Message}");
                 MessageBox.Show(ex.Message);
             }
 

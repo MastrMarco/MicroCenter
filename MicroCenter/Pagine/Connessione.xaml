@@ -25,6 +25,11 @@
                 <ColumnDefinition Width="200" />
             </Grid.ColumnDefinitions>
 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
 
 
 
@@ -526,7 +531,8 @@ Content="{DynamicResource Telegram}"
                                           Grid.Row="1"
                                           x:Name="SerialPortComboBox"
                                           Height="40"
-                                          Width="100" />
+                                          Width="100"
+                                          SelectionChanged="SerialPortComboBox_SelectionChanged" />
 
 
                                 <Label Grid.Row="2"
@@ -543,9 +549,9 @@ Content="{DynamicResource Telegram}"
                             <Grid Grid.Column="1">
 
                                 <Button x:Name="btnConnetti"
-                                    Style="{StaticResource IconButtonsForms}"
-                                    Content="{DynamicResource YouTube}"
-                                    Click="btnIconaConnetti">
+                                        Style="{StaticResource IconButtonsForms}"
+                                        Content="{DynamicResource YouTube}"
+                                        Click="btnIconaConnetti">
                                     <Button.ToolTip>
                                         <Label Name="LabToolTipConnetti"
                                                Content="C/N" />
@@ -556,6 +562,80 @@ Content="{DynamicResource Telegram}"
 
 
 
+
+                        </Grid>
+
+
+
+                    </Border>
+
+
+
+
+                </Border>
+            </Grid>
+
+
+
+
+            <!--Seleziona Null-->
+            <Grid Grid.Row="1"
+                  Grid.Column="1">
+
+                <Border Background="{DynamicResource TertiaryBackgroundColor}"
+                        CornerRadius="8">
+
+
+
+                    <Border CornerRadius="16"
+                            Margin="0,14,16,0"
+                            Width="468"
+                            Height="150"
+                            Background="{DynamicResource TertiaryBackgroundColor}"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top">
+
+                        <Border.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="0"
+                                                    Direction="0"
+                                                    Color="#5B8DEF"
+                                                    Softness="0.2" />
+                        </Border.BitmapEffect>
+
+
+
+
+
+                        <Grid>
+
+
+
+                            <Grid Grid.Column="0">
+
+
+                                <!--<Label Grid.Row="1"
+                                       Name="LabSerialText"
+                                       Content="SerialPort"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource PrimaryTextColor}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" />-->
+
+                                <TextBlock Grid.Row="1"
+                                           Name="TxSerialText"
+                                           Text="SerialPort"
+                                           FontSize="16"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource PrimaryTextColor}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center">
+
+                                </TextBlock>
+
+
+
+                            </Grid>
 
                         </Grid>
 
@@ -607,10 +687,6 @@ Content="{DynamicResource Telegram}"
                       Foreground="{DynamicResource PrimaryTextColor}" 
                       HorizontalAlignment="Center" 
                       VerticalAlignment="Center"/>-->
-
-
-
-
 
 
             <!--<Label Grid.Row="2"
@@ -745,11 +821,6 @@ Content="{DynamicResource Telegram}"
                       HorizontalAlignment="Center" 
                       VerticalAlignment="Center"/>-->
 
-
-
-
-
-
             <!--<Label Grid.Row="2"
                       Content="Seleziona Lingua" 
                       FontSize="12" 
@@ -804,11 +875,6 @@ Content="{DynamicResource Telegram}"
                       HorizontalAlignment="Center" 
                       VerticalAlignment="Center"/>-->
 
-
-
-
-
-
             <!--<Label Grid.Row="2"
                       Content="Seleziona Lingua" 
                       FontSize="12" 
@@ -823,20 +889,6 @@ Content="{DynamicResource Telegram}"
                     </Grid>
                 </Border>
             </Grid>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
