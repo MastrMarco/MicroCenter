@@ -195,7 +195,16 @@
             <!--Seleziona Centrale-->
             <Grid Grid.Column="1">
 
-
+                <Border CornerRadius="8"
+                        Background="{DynamicResource TertiaryBackgroundColor}"
+                        Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="4"
+                                          ShadowDepth="0"
+                                          Color="#5B8DEF" />
+                    </Border.Effect>
+                </Border>
+                
                 <Border Background="{DynamicResource TertiaryBackgroundColor}"
                         CornerRadius="8"
                         Margin="10">
@@ -207,79 +216,97 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
+
+
                         <!--Sezione Alta-->
-                        <Border CornerRadius="16"
-                                Margin="0,14,16,0"
-                                Width="400"
+                        <Border Grid.Row="0"
+                                CornerRadius="8"
+                                Margin="10"
+                                Width="410"
                                 Height="150"
                                 Background="{DynamicResource TertiaryBackgroundColor}"
-                                HorizontalAlignment="Right"
+                                HorizontalAlignment="Center"
                                 VerticalAlignment="Top">
-
-
-
-                            <!--<Border.BitmapEffect>
-                            <DropShadowBitmapEffect ShadowDepth="0"
-                                                    Direction="0"
-                                                    Color="#5B8DEF"
-                                                    Softness="0.2" />
-                        </Border.BitmapEffect>-->
-
-
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8"
+                                                  ShadowDepth="0"
+                                                  Color="#5B8DEF" />
+                            </Border.Effect>
+                        </Border>
+                        <Border Grid.Row="0"
+                           CornerRadius="8"
+                                Margin="10"
+                                Width="410"
+                                Height="150"
+                                Background="{DynamicResource TertiaryBackgroundColor}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="top">
 
 
 
                             <Grid Grid.Row="0">
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
 
-                                <Grid Grid.Column="0">
+                                <!--Titolo-->
+                                <Border Grid.Row="0"
+                                        CornerRadius="8"
+                                        Width="410"
+                                        Height="36.6"
+                                        Background="{DynamicResource TertiaryBackgroundColor}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="16"
+                                                          ShadowDepth="0"
+                                                          Color="#5B8DEF" />
+                                    </Border.Effect>
+                                </Border>
+                                <Border Grid.Row="0"
+                                        CornerRadius="8"
+                                        Width="410"
+                                        Height="Auto"
+                                        Background="{DynamicResource TertiaryBackgroundColor}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top">
 
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="60" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="40" />
-                                    </Grid.RowDefinitions>
 
-                                    <Label Grid.Row="0"
-                                           Name="LabSerialPoert"
-                                           Content="SerialPort"
+                                    <Label Name="LabTSerialPort"
+                                           Content="Seleziona Dispositivo"
                                            FontSize="20"
                                            FontWeight="Bold"
                                            Foreground="{DynamicResource PrimaryTextColor}"
                                            HorizontalAlignment="Center"
-                                           VerticalAlignment="Center" />
+                                           VerticalAlignment="Top" />
+
+                                </Border>
+                                <!--Titolo-->
+
+                                <!--Connetti-->
+                                <Grid Grid.Row="1">
 
 
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                             
 
                                     <ComboBox Style="{StaticResource ModernComboBoxStyle}"
                                               ItemContainerStyle="{StaticResource ModernComboBoxItemStyle}"
-                                              Grid.Row="1"
                                               x:Name="SerialPortComboBox"
                                               Height="40"
-                                              Width="100"
+                                              Width="150"
                                               SelectionChanged="SerialPortComboBox_SelectionChanged" />
 
 
-                                    <Label Grid.Row="2"
-                                           Name="LabCOM"
-                                           Content="Seleziona COM port"
-                                           FontSize="12"
-                                           FontWeight="Bold"
-                                           Foreground="{DynamicResource TertiaryTextColor}"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center" />
-
-                                </Grid>
-
-                                <Grid Grid.Column="1">
-
-                                    <Button x:Name="btnConnetti"
+                                    <Button Grid.Column="1"
+                                            x:Name="btnConnetti"
                                             Style="{StaticResource IconButtonsForms}"
-                                            Content="{DynamicResource YouTube}"
+                                            Content="{DynamicResource Arduino}"
                                             Click="btnIconaConnetti">
                                         <Button.ToolTip>
                                             <Label Name="LabToolTipConnetti"
@@ -288,15 +315,12 @@
                                     </Button>
 
                                 </Grid>
-
-
-
+                                <!--Connetti-->
 
                             </Grid>
 
-
-
                         </Border>
+                        <!--Sezione Alta-->
 
 
 
@@ -348,6 +372,7 @@
 
 
                         </Grid>
+                        <!--Sezione Bassa-->
 
 
                     </Grid>
