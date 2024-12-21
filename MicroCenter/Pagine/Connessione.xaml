@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MicroCenter.Pagine"
       mc:Ignorable="d"
       d:DesignHeight="450"
-      d:DesignWidth="900"
+      d:DesignWidth="935"
       Title="Connessione">
 
 
@@ -20,875 +20,424 @@
 
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200" />
-                <ColumnDefinition Width="500" />
-                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="450" />
+                <ColumnDefinition Width="235" />
             </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
 
 
 
 
+            <!--Seleziona Sinistra-->
+            <Grid  Grid.Column="0">
 
-            <!--Seleziona Tema-->
-            <!--<Grid Grid.Row="0"
-                  Grid.Column="0">
-
-                <Border CornerRadius="16"
-                        Width="170"
-                        Height="150"
-                        Background="{DynamicResource TertiaryBackgroundColor}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-
-                    <Border.BitmapEffect>
-                        <DropShadowBitmapEffect ShadowDepth="0"
-                                                Direction="0"
-                                                Color="#5B8DEF"
-                                                Softness="0.8" />
-                    </Border.BitmapEffect>
+                <Border CornerRadius="8"
+                        Margin="10,10,0,10">
 
                     <Grid>
 
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
+                            <RowDefinition Height="160" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
                         </Grid.RowDefinitions>
 
-
-
-                        <Label Grid.Row="0"
-                               Name="LabTema"
-                               Content="Tema"
-                               FontSize="20"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource PrimaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-
-
-                        <Border Grid.Row="1"
-                                CornerRadius="18"
-                                Width="150"
-                                Height="50"
+                        <!--Sezione Alta-->
+                        <Border CornerRadius="8"
+                                Width="230"
+                                Height="150"
                                 Background="{DynamicResource TertiaryBackgroundColor}"
                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Margin="0 0 0 0">
-
-                            <Border.BitmapEffect>
-                                <DropShadowBitmapEffect ShadowDepth="0"
-                                                        Direction="0"
-                                                        Color="#5B8DEF"
-                                                        Softness="0.5" />
-                            </Border.BitmapEffect>
+                                VerticalAlignment="top">
 
 
-                            <StackPanel Orientation="Horizontal"
+
+                            <!--<Border.BitmapEffect>
+            <DropShadowBitmapEffect ShadowDepth="0"
+                                    Direction="0"
+                                    Color="#5B8DEF"
+                                    Softness="0.2" />
+        </Border.BitmapEffect>-->
+
+
+
+
+
+                            <Grid Grid.Row="0">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <!--<Label Grid.Row="0"
+                                           Name="LabSerialPoert"
+                                           Content="SerialPort"
+                                           FontSize="20"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource PrimaryTextColor}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />-->
+
+
+
+                                    <!--<ComboBox Style="{StaticResource ModernComboBoxStyle}"
+                                              ItemContainerStyle="{StaticResource ModernComboBoxItemStyle}"
+                                              Grid.Row="1"
+                                              x:Name="SerialPortComboBox"
+                                              Height="40"
+                                              Width="100"
+                                              SelectionChanged="SerialPortComboBox_SelectionChanged" />-->
+
+
+                                    <!--<Label Grid.Row="2"
+                                           Name="LabCOM"
+                                           Content="Seleziona COM port"
+                                           FontSize="12"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource TertiaryTextColor}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />-->
+
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+
+                                    <!--<Button x:Name="btnConnetti"
+                                            Style="{StaticResource IconButtonsForms}"
+                                            Content="{DynamicResource YouTube}"
+                                            Click="btnIconaConnetti">
+                                        <Button.ToolTip>
+                                            <Label Name="LabToolTipConnetti"
+                                                   Content="C/N" />
+                                        </Button.ToolTip>
+                                    </Button>-->
+
+                                </Grid>
+
+
+
+
+                            </Grid>
+
+
+
+                        </Border>
+
+
+                        <!--Sezione Bassa-->
+                        <Grid Grid.Row="1">
+
+                            <Border Background="{DynamicResource TertiaryBackgroundColor}"
+                                    CornerRadius="8"
+                                    Width="230"
+                                    Height="270">
+
+
+
+                                <Border CornerRadius="16"
+                                        Width="150"
+                                        Height="150"
+                                        Background="{DynamicResource TertiaryBackgroundColor}"
                                         HorizontalAlignment="Center"
-                                        Height="50"
-                                        Width="110">
+                                        VerticalAlignment="Center">
 
-                                <Path Data="{DynamicResource Sole}"
-                                      Height="25"
-                                      Width="25"
-                                      Stretch="UniformToFill"
-                                      Fill="{DynamicResource PrimaryYellowColor}"
-                                      VerticalAlignment="Center" />
+                                    <!--<Border.BitmapEffect>
+                        <DropShadowBitmapEffect ShadowDepth="0"
+                                                Direction="0"
+                                                Color="#5B8DEF"
+                                                Softness="0.2" />
+                    </Border.BitmapEffect>-->
 
-                                <ToggleButton x:Name="Themes"
-                                              Tag="Bianco"
-                                              IsChecked="False"
-                                              Click="Themes_Click"
-                                              Style="{DynamicResource ToggleButtonStyle}"
-                                              Margin="10 0 10 0">
-                                    <ToggleButton.ToolTip>
-                                        <Label Name="LabToolTipTema"
-                                               Content="Stato Tema" />
-                                    </ToggleButton.ToolTip>
-                                </ToggleButton>
 
-                                <Path Data="{DynamicResource Luna}"
-                                      Height="25"
-                                      Width="25"
-                                      Stretch="Fill"
-                                      Fill="{DynamicResource PrimaryWhiteColor}"
-                                      VerticalAlignment="Center" />
-                            </StackPanel>
+                                    <!--<TextBlock Grid.Row="1"
+                                               Name="TxSerialText"
+                                               Text="SerialPort"
+                                               FontSize="16"
+                                               FontWeight="Bold"
+                                               Foreground="{DynamicResource PrimaryTextColor}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center">
+
+                                    </TextBlock>-->
+
+
+
+
+                                </Border>
+
+
+                            </Border>
+
+
+
+
+
+                        </Grid>
+
+
+                    </Grid>
+
+                </Border>
+
+
+            </Grid>
+
+
+            <!--Seleziona Centrale-->
+            <Grid Grid.Column="1">
+
+
+                <Border Background="{DynamicResource TertiaryBackgroundColor}"
+                        CornerRadius="8"
+                        Margin="10">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!--Sezione Alta-->
+                        <Border CornerRadius="16"
+                                Margin="0,14,16,0"
+                                Width="400"
+                                Height="150"
+                                Background="{DynamicResource TertiaryBackgroundColor}"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top">
+
+
+
+                            <!--<Border.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="0"
+                                                    Direction="0"
+                                                    Color="#5B8DEF"
+                                                    Softness="0.2" />
+                        </Border.BitmapEffect>-->
+
+
+
+
+
+                            <Grid Grid.Row="0">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="40" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0"
+                                           Name="LabSerialPoert"
+                                           Content="SerialPort"
+                                           FontSize="20"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource PrimaryTextColor}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+
+
+
+                                    <ComboBox Style="{StaticResource ModernComboBoxStyle}"
+                                              ItemContainerStyle="{StaticResource ModernComboBoxItemStyle}"
+                                              Grid.Row="1"
+                                              x:Name="SerialPortComboBox"
+                                              Height="40"
+                                              Width="100"
+                                              SelectionChanged="SerialPortComboBox_SelectionChanged" />
+
+
+                                    <Label Grid.Row="2"
+                                           Name="LabCOM"
+                                           Content="Seleziona COM port"
+                                           FontSize="12"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource TertiaryTextColor}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+
+                                    <Button x:Name="btnConnetti"
+                                            Style="{StaticResource IconButtonsForms}"
+                                            Content="{DynamicResource YouTube}"
+                                            Click="btnIconaConnetti">
+                                        <Button.ToolTip>
+                                            <Label Name="LabToolTipConnetti"
+                                                   Content="C/N" />
+                                        </Button.ToolTip>
+                                    </Button>
+
+                                </Grid>
+
+
+
+
+                            </Grid>
+
+
+
+                        </Border>
+
+
+
+                        <!--Sezione Bassa-->
+                        <Grid Grid.Row="1">
+
+                            <Border Background="{DynamicResource TertiaryBackgroundColor}"
+                                    CornerRadius="8">
+
+
+
+                                <Border CornerRadius="16"
+                                        Margin="0,14,16,0"
+                                        Width="400"
+                                        Height="150"
+                                        Background="{DynamicResource TertiaryBackgroundColor}"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top">
+
+                                    <!--<Border.BitmapEffect>
+                                        <DropShadowBitmapEffect ShadowDepth="0"
+                                                                Direction="0"
+                                                                Color="#5B8DEF"
+                                                                Softness="0.2" />
+                                    </Border.BitmapEffect>-->
+
+
+                                    <TextBlock Grid.Row="1"
+                                               Name="TxSerialText"
+                                               Text="SerialPort"
+                                               FontSize="16"
+                                               FontWeight="Bold"
+                                               Foreground="{DynamicResource PrimaryTextColor}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center">
+
+                                    </TextBlock>
+
+
+
+
+                                </Border>
+
+
+                            </Border>
+
+
+
+
+
+                        </Grid>
+
+
+                    </Grid>
+
+                </Border>
+            </Grid>
+
+
+            <!--Seleziona Destra-->
+            <Grid  Grid.Column="2">
+
+                <Border CornerRadius="8"
+                        Margin="0,10,10,10">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!--Sezione 0-->
+                        <Border Grid.Row="0"
+                                CornerRadius="8"
+                                Width="205"
+                                Height="70"
+                                Background="{DynamicResource TertiaryBackgroundColor}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="top">
+
+
+                        </Border>
+
+                        <!--Sezione 1-->
+                        <Border Grid.Row="1"
+                                CornerRadius="8"
+                                Width="205"
+                                Height="70"
+                                Background="{DynamicResource TertiaryBackgroundColor}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="top">
+
+                        </Border>
+
+                        <!--Sezione 2-->
+                        <Border Grid.Row="2"
+                                CornerRadius="8"
+                                Width="205"
+                                Height="70"
+                                Background="{DynamicResource TertiaryBackgroundColor}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="top">
+
+                        </Border>
+
+                        <!--Sezione 3-->
+                        <Border Grid.Row="3"
+                                CornerRadius="8"
+                                Width="205"
+                                Height="70"
+                                Background="{DynamicResource TertiaryBackgroundColor}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="top">
+
+                        </Border>
+
+                        <!--Sezione 4-->
+                        <Border Grid.Row="4"
+                                CornerRadius="8"
+                                Width="205"
+                                Height="70"
+                                Background="{DynamicResource TertiaryBackgroundColor}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="top">
+
                         </Border>
 
 
 
 
 
-                        <Label Grid.Row="2"
-                               Name="LabTemaInfo"
-                               Content="Modifica il Colore"
-                               FontSize="12"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource TertiaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-
-
                     </Grid>
-                </Border>
-            </Grid>-->
-            <!--Icone Linck-->
-            <!--<Grid Grid.Row="0"
-                  Grid.Column="2">
-
-                <Border CornerRadius="16"
-                        Width="170"
-                        Height="150"
-                        Background="{DynamicResource TertiaryBackgroundColor}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-
-                    <Border.BitmapEffect>
-                        <DropShadowBitmapEffect ShadowDepth="0"
-                                                Direction="0"
-                                                Color="#5B8DEF"
-                                                Softness="0.8" />
-                    </Border.BitmapEffect>
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-
-
-
-                        <Label Grid.Row="0"
-                               Name="LabNomeApp"
-                               Content="MicroCenter"
-                               FontSize="20"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource PrimaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-                        <Grid Grid.Row="1">
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <Button x:Name="btnLinckGitHub"
-                                    Grid.Column="0"
-                                    Style="{StaticResource IconButtonsForms}"
-                                    Content="{DynamicResource GitHub}"
-                                    Click="btnIconaGitHub">
-                                <Button.ToolTip>
-                                    <Label Name="LabToolTipGitHub"
-                                           Content="GitHub" />
-                                </Button.ToolTip>
-                            </Button>
-
-
-                            <Button x:Name="btnLinckYoutube"
-                                    Grid.Column="1"
-                                    Style="{StaticResource IconButtonsForms}"
-                                    Content="{DynamicResource YouTube}"
-                                    Click="btnIconaYouTube">
-                                <Button.ToolTip>
-                                    <Label Name="LabToolTipYouTube"
-                                           Content="YouTube" />
-                                </Button.ToolTip>
-                            </Button>
-
-
-                            <Button x:Name="btnLinckTelegram"
-                                    Grid.Column="2"
-                                    Style="{StaticResource IconButtonsForms}"
-                                    Content="{DynamicResource Telegram}"
-                                    Click="btnIconaTelegram">
-                                <Button.ToolTip>
-                                    <Label Name="LabToolTipTelegram"
-                                           Content="Telegram" />
-                                </Button.ToolTip>
-                            </Button>
-
-                        </Grid>
-
-
-                        <Label Grid.Row="2"
-                               Name="LabInfoCreatore"
-                               Content="Info Creatore"
-                               FontSize="12"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource TertiaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-
-
-                    </Grid>
-                </Border>
-            </Grid>-->
-
-            <!--Seleziona Lingua-->
-            <!--<Grid Grid.Row="0"
-                  Grid.Column="4">
-
-                <Border CornerRadius="16"
-                        Width="170"
-                        Height="150"
-                        Background="{DynamicResource TertiaryBackgroundColor}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-
-                    <Border.BitmapEffect>
-                        <DropShadowBitmapEffect ShadowDepth="0"
-                                                Direction="0"
-                                                Color="#5B8DEF"
-                                                Softness="0.8" />
-                    </Border.BitmapEffect>
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-
-
-
-                        <Label Grid.Row="0"
-                               Name="LabLingiaApp"
-                               Content="Lingua App"
-                               FontSize="20"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource PrimaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-
-                        -->
-            <!--<Button x:Name="btnLinckTelegram" Grid.Row="1"
-Style="{StaticResource IconButtonsForms}" 
-Content="{DynamicResource Telegram}" 
-/>-->
-            <!--
-                        <ComboBox x:Name="SetLingua"
-                                  Grid.Row="1"
-                                  Height="30"
-                                  Width="120"
-                                  SelectionChanged="SetLingua_SelectedIndexChanged">
-
-                        </ComboBox>
-
-
-
-
-
-                        <Label Grid.Row="2"
-                               Name="LabLingaAppInfo"
-                               Content="Seleziona Lingua"
-                               FontSize="12"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource TertiaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-
-
-                    </Grid>
-                </Border>
-            </Grid>-->
-
-
-            <!--Donazioni Linck-->
-            <!--<Grid Grid.Row="1"
-                  Grid.Column="2">
-
-                <Border CornerRadius="16"
-                        Width="170"
-                        Height="150"
-                        Background="{DynamicResource TertiaryBackgroundColor}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-
-                    <Border.BitmapEffect>
-                        <DropShadowBitmapEffect ShadowDepth="0"
-                                                Direction="0"
-                                                Color="#5B8DEF"
-                                                Softness="0.8" />
-                    </Border.BitmapEffect>
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-
-
-
-                        <Label Grid.Row="0"
-                               Name="LabDonazioni"
-                               Content="Donazioni"
-                               FontSize="20"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource PrimaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-                        <Grid Grid.Row="1">
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-
-
-
-                            <Button x:Name="btnLinckDonazioni"
-                                    Grid.Column="1"
-                                    Style="{StaticResource IconButtonsForms}"
-                                    Content="{DynamicResource Donazione_Ko_Fi}"
-                                    Click="btnIconaDonazioni">
-                                <Button.ToolTip>
-                                    <Label Name="LabToolTipKo_Fi"
-                                           Content="Ko-Fi" />
-                                </Button.ToolTip>
-                            </Button>
-
-
-
-
-                        </Grid>
-
-
-                        <Label Grid.Row="2"
-                               Name="LabDonazioniInfo"
-                               Content="Supporta con un Caffè"
-                               FontSize="12"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource TertiaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-
-
-                    </Grid>
-                </Border>
-            </Grid>-->
-
-            <!--Informazioni Linck-->
-            <!--<Grid Grid.Row="1"
-                  Grid.Column="4">
-
-                <Border CornerRadius="16"
-                        Width="170"
-                        Height="150"
-                        Background="{DynamicResource TertiaryBackgroundColor}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-
-                    <Border.BitmapEffect>
-                        <DropShadowBitmapEffect ShadowDepth="0"
-                                                Direction="0"
-                                                Color="#5B8DEF"
-                                                Softness="0.8" />
-                    </Border.BitmapEffect>
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-
-
-
-                        <Label Grid.Row="0"
-                               Name="LabInformazioni"
-                               Content="Informazioni"
-                               FontSize="20"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource PrimaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-                        <Grid Grid.Row="1">
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-
-
-
-                            <Button x:Name="btnLinckInformazioni"
-                                    Grid.Column="1"
-                                    Style="{StaticResource IconButtonsForms}"
-                                    Content="{DynamicResource Informazioni}" />
-
-
-
-
-                        </Grid>
-
-
-                        <Label Grid.Row="2"
-                               Name="LabInformazioniInfo"
-                               Content="Info Sorgente"
-                               FontSize="12"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource TertiaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-
-
-                    </Grid>
-                </Border>
-            </Grid>-->
-
-
-
-
-
-
-
-
-            <!--Seleziona Null-->
-            <Grid Grid.Row="0"
-                  Grid.Column="1">
-
-                <Border Background="{DynamicResource TertiaryBackgroundColor}"
-                        CornerRadius="8">
-
-
-
-                    <Border CornerRadius="16"
-                            Margin="0,14,16,0"
-                            Width="468"
-                            Height="150"
-                            Background="{DynamicResource TertiaryBackgroundColor}"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top">
-
-                        <Border.BitmapEffect>
-                            <DropShadowBitmapEffect ShadowDepth="0"
-                                                    Direction="0"
-                                                    Color="#5B8DEF"
-                                                    Softness="0.2" />
-                        </Border.BitmapEffect>
-
-
-
-
-
-                        <Grid>
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <Grid Grid.Column="0">
-
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="60" />
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="40" />
-                                </Grid.RowDefinitions>
-
-                                <Label Grid.Row="0"
-                                       Name="LabSerialPoert"
-                                       Content="SerialPort"
-                                       FontSize="20"
-                                       FontWeight="Bold"
-                                       Foreground="{DynamicResource PrimaryTextColor}"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center" />
-
-
-
-                                <ComboBox Style="{StaticResource ModernComboBoxStyle}"
-                                          ItemContainerStyle="{StaticResource ModernComboBoxItemStyle}"
-                                          Grid.Row="1"
-                                          x:Name="SerialPortComboBox"
-                                          Height="40"
-                                          Width="100"
-                                          SelectionChanged="SerialPortComboBox_SelectionChanged" />
-
-
-                                <Label Grid.Row="2"
-                                       Name="LabCOM"
-                                       Content="Seleziona COM port"
-                                       FontSize="12"
-                                       FontWeight="Bold"
-                                       Foreground="{DynamicResource TertiaryTextColor}"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center" />
-
-                            </Grid>
-
-                            <Grid Grid.Column="1">
-
-                                <Button x:Name="btnConnetti"
-                                        Style="{StaticResource IconButtonsForms}"
-                                        Content="{DynamicResource YouTube}"
-                                        Click="btnIconaConnetti">
-                                    <Button.ToolTip>
-                                        <Label Name="LabToolTipConnetti"
-                                               Content="C/N" />
-                                    </Button.ToolTip>
-                                </Button>
-
-                            </Grid>
-
-
-
-
-                        </Grid>
-
-
-
-                    </Border>
-
-
-
 
                 </Border>
+
+
             </Grid>
-
-
-
-
-            <!--Seleziona Null-->
-            <Grid Grid.Row="1"
-                  Grid.Column="1">
-
-                <Border Background="{DynamicResource TertiaryBackgroundColor}"
-                        CornerRadius="8">
-
-
-
-                    <Border CornerRadius="16"
-                            Margin="0,14,16,0"
-                            Width="468"
-                            Height="150"
-                            Background="{DynamicResource TertiaryBackgroundColor}"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top">
-
-                        <Border.BitmapEffect>
-                            <DropShadowBitmapEffect ShadowDepth="0"
-                                                    Direction="0"
-                                                    Color="#5B8DEF"
-                                                    Softness="0.2" />
-                        </Border.BitmapEffect>
-
-
-
-
-
-                        <Grid>
-
-
-
-                            <Grid Grid.Column="0">
-
-
-                                <!--<Label Grid.Row="1"
-                                       Name="LabSerialText"
-                                       Content="SerialPort"
-                                       FontSize="20"
-                                       FontWeight="Bold"
-                                       Foreground="{DynamicResource PrimaryTextColor}"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center" />-->
-
-                                <TextBlock Grid.Row="1"
-                                           Name="TxSerialText"
-                                           Text="SerialPort"
-                                           FontSize="16"
-                                           FontWeight="Bold"
-                                           Foreground="{DynamicResource PrimaryTextColor}"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center">
-
-                                </TextBlock>
-
-
-
-                            </Grid>
-
-                        </Grid>
-
-
-
-                    </Border>
-
-
-
-
-                </Border>
-            </Grid>
-
-            <!--Seleziona Null-->
-            <!--<Grid Grid.Row="0"
-                  Grid.Column="3">
-
-                <Border CornerRadius="16"
-                        Width="170"
-                        Height="150"
-                        Background="{DynamicResource TertiaryBackgroundColor}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-
-                    -->
-            <!--<Border.BitmapEffect>
-              <DropShadowBitmapEffect ShadowDepth="0"
-                  Direction="0"
-                  Color="#5B8DEF"
-                  Softness="0.8"/>
-          </Border.BitmapEffect>-->
-            <!--
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-
-
-
-                        -->
-            <!--<Label Grid.Row="0"
-                      Content="Lingua App" 
-                      FontSize="20" 
-                      FontWeight="Bold" 
-                      Foreground="{DynamicResource PrimaryTextColor}" 
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Center"/>-->
-
-
-            <!--<Label Grid.Row="2"
-                      Content="Seleziona Lingua" 
-                      FontSize="12" 
-                      FontWeight="Bold" 
-                      Foreground="{DynamicResource TertiaryTextColor}" 
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Center"/>-->
-            <!--
-
-
-
-                    </Grid>
-                </Border>
-            </Grid>-->
-
-            <!--Seleziona Null-->
-            <!--<Grid Grid.Row="1"
-                  Grid.Column="0">
-
-                <Border CornerRadius="16"
-                        Width="170"
-                        Height="150"
-                        Background="{DynamicResource TertiaryBackgroundColor}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-
-                    <Border.BitmapEffect>
-                        <DropShadowBitmapEffect ShadowDepth="0"
-                                                Direction="0"
-                                                Color="#5B8DEF"
-                                                Softness="0.8" />
-                    </Border.BitmapEffect>
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-
-
-
-                        -->
-            <!--<Label Grid.Row="0"
-                               Name="l"
-                               Content="Informazioni"
-                               FontSize="20"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource PrimaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
-
-                        <Grid Grid.Row="1">
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-
-
-
-                            <Button x:Name="lll"
-                                    Grid.Column="1"
-                                    Style="{StaticResource IconButtonsForms}"
-                                    Content="{DynamicResource Informazioni}" />
-
-
-
-
-                        </Grid>
-
-
-                        <Label Grid.Row="2"
-                               Name="lm"
-                               Content="Info Sorgente"
-                               FontSize="12"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource TertiaryTextColor}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />-->
-            <!--
-
-
-
-                    </Grid>
-
-                </Border>
-
-            </Grid>-->
-
-            <!--Seleziona Null-->
-            <!--<Grid Grid.Row="1"
-                  Grid.Column="1">
-
-                <Border CornerRadius="16"
-                        Width="170"
-                        Height="150"
-                        Background="{DynamicResource TertiaryBackgroundColor}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-
-                    -->
-            <!--<Border.BitmapEffect>
-              <DropShadowBitmapEffect ShadowDepth="0"
-                  Direction="0"
-                  Color="#5B8DEF"
-                  Softness="0.8"/>
-          </Border.BitmapEffect>-->
-            <!--
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-
-
-
-                        -->
-            <!--<Label Grid.Row="0"
-                      Content="Lingua App" 
-                      FontSize="20" 
-                      FontWeight="Bold" 
-                      Foreground="{DynamicResource PrimaryTextColor}" 
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Center"/>-->
-
-            <!--<Label Grid.Row="2"
-                      Content="Seleziona Lingua" 
-                      FontSize="12" 
-                      FontWeight="Bold" 
-                      Foreground="{DynamicResource TertiaryTextColor}" 
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Center"/>-->
-            <!--
-
-
-
-                    </Grid>
-                </Border>
-            </Grid>-->
-
-            <!--Seleziona Null-->
-            <!--<Grid Grid.Row="1"
-                  Grid.Column="3">
-
-                <Border CornerRadius="16"
-                        Width="170"
-                        Height="150"
-                        Background="{DynamicResource TertiaryBackgroundColor}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-
-                    -->
-            <!--<Border.BitmapEffect>
-              <DropShadowBitmapEffect ShadowDepth="0"
-                  Direction="0"
-                  Color="#5B8DEF"
-                  Softness="0.8"/>
-          </Border.BitmapEffect>-->
-            <!--
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-
-
-
-                        -->
-            <!--<Label Grid.Row="0"
-                      Content="Lingua App" 
-                      FontSize="20" 
-                      FontWeight="Bold" 
-                      Foreground="{DynamicResource PrimaryTextColor}" 
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Center"/>-->
-
-            <!--<Label Grid.Row="2"
-                      Content="Seleziona Lingua" 
-                      FontSize="12" 
-                      FontWeight="Bold" 
-                      Foreground="{DynamicResource TertiaryTextColor}" 
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Center"/>-->
-            <!--
-
-
-
-                    </Grid>
-                </Border>
-            </Grid>-->
 
 
 

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\ProgettiGitHub\\MicroCenter\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\pagine\\connessione.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\connessione.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\pagine\\connessione.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\connessione.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,11 +22,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Connessione.xaml",
+              "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml",
+              "RelativeDocumentMoniker": "MicroCenter\\Pagine\\Connessione.xaml",
+              "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml",
+              "RelativeToolTip": "MicroCenter\\Pagine\\Connessione.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-21T14:12:24.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "SerialParser.cs",
               "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\SerialParser.cs",
               "RelativeDocumentMoniker": "MicroCenter\\Classi\\SerialParser.cs",
@@ -35,13 +51,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Connessione.xaml.cs",
               "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml.cs",
               "RelativeDocumentMoniker": "MicroCenter\\Pagine\\Connessione.xaml.cs",
               "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml.cs",
               "RelativeToolTip": "MicroCenter\\Pagine\\Connessione.xaml.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAgwHIAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAQwFMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T19:25:04.669Z",
               "EditorCaption": ""

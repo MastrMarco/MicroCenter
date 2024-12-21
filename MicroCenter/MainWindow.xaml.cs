@@ -23,6 +23,8 @@ namespace MicroCenter
         public MainWindow()
         {
             InitializeComponent();
+            btnConnessione_Click(null,null);
+
         }
 
 
