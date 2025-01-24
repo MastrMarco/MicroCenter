@@ -19,6 +19,7 @@
         <Grid>
 
 
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="250" />
                 <ColumnDefinition Width="450" />
@@ -42,6 +43,10 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
+
+
+
+
                         <!--Sezione Alta-->
                         <Border CornerRadius="8"
                                 Width="230"
@@ -59,76 +64,132 @@
                                     Softness="0.2" />
         </Border.BitmapEffect>-->
 
-
-
-
-
                             <Grid Grid.Row="0">
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
 
-                                <Grid Grid.Column="0">
 
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
 
-                                    <!--<Label Grid.Row="0"
-                                           Name="LabSerialPoert"
-                                           Content="SerialPort"
+                                <Grid Grid.Row="0">
+                                    <Label Name="LabTinfoSoft"
+                                           Content="Dispositivo"
                                            FontSize="20"
                                            FontWeight="Bold"
                                            Foreground="{DynamicResource PrimaryTextColor}"
                                            HorizontalAlignment="Center"
-                                           VerticalAlignment="Center" />-->
-
-
-
-                                    <!--<ComboBox Style="{StaticResource ModernComboBoxStyle}"
-                                              ItemContainerStyle="{StaticResource ModernComboBoxItemStyle}"
-                                              Grid.Row="1"
-                                              x:Name="SerialPortComboBox"
-                                              Height="40"
-                                              Width="100"
-                                              SelectionChanged="SerialPortComboBox_SelectionChanged" />-->
-
-
-                                    <!--<Label Grid.Row="2"
-                                           Name="LabCOM"
-                                           Content="Seleziona COM port"
-                                           FontSize="12"
-                                           FontWeight="Bold"
-                                           Foreground="{DynamicResource TertiaryTextColor}"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center" />-->
-
-                                </Grid>
-
-                                <Grid Grid.Column="1">
-
-                                    <!--<Button x:Name="btnConnetti"
-                                            Style="{StaticResource IconButtonsForms}"
-                                            Content="{DynamicResource YouTube}"
-                                            Click="btnIconaConnetti">
-                                        <Button.ToolTip>
-                                            <Label Name="LabToolTipConnetti"
-                                                   Content="C/N" />
-                                        </Button.ToolTip>
-                                    </Button>-->
-
+                                           VerticalAlignment="Top" />
                                 </Grid>
 
 
+
+
+
+
+                                <Grid Grid.Row="1">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+
+                                        <TextBlock Grid.Row="0"
+                                                   Name="LaVerSoft"
+                                                   Text="X.XX V"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="{DynamicResource PrimaryTextColor}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center">
+
+                                        </TextBlock>
+
+                                        <TextBlock Grid.Row="1"
+                                                   Name="LaVerTipo"
+                                                   Text="X"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="{DynamicResource PrimaryTextColor}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center">
+
+                                        </TextBlock>
+
+                                        <TextBlock Grid.Row="2"
+                                                   Name="LaTempScheda"
+                                                   Text="X °C"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="{DynamicResource PrimaryTextColor}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center">
+
+                                        </TextBlock>
+
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+
+                                        <TextBlock Grid.Row="0"
+                                                   Name="LaV1"
+                                                   Text="X.XX V"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="{DynamicResource PrimaryTextColor}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center">
+
+                                        </TextBlock>
+
+                                        <TextBlock Grid.Row="1"
+                                                   Name="LaV2"
+                                                   Text="X.XX V"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="{DynamicResource PrimaryTextColor}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center">
+
+                                        </TextBlock>
+
+                                        <TextBlock Grid.Row="2"
+                                                   Name="LaVref"
+                                                   Text="X.XX V"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="{DynamicResource PrimaryTextColor}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center">
+
+                                        </TextBlock>
+
+                                    </Grid>
+
+
+
+
+                                </Grid>
 
 
                             </Grid>
-
-
 
                         </Border>
 
@@ -204,7 +265,7 @@
                                           Color="#5B8DEF" />
                     </Border.Effect>
                 </Border>
-                
+
                 <Border Background="{DynamicResource TertiaryBackgroundColor}"
                         CornerRadius="8"
                         Margin="10">
@@ -234,7 +295,7 @@
                             </Border.Effect>
                         </Border>
                         <Border Grid.Row="0"
-                           CornerRadius="8"
+                                CornerRadius="8"
                                 Margin="10"
                                 Width="410"
                                 Height="150"
@@ -293,7 +354,7 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                             
+
 
                                     <ComboBox Style="{StaticResource ModernComboBoxStyle}"
                                               ItemContainerStyle="{StaticResource ModernComboBoxItemStyle}"

@@ -49,3 +49,16 @@ D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes
 D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\win\lib\net8.0\System.Management.dll
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\MicroCenter.csproj.AssemblyReference.cache
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\MicroCen.17B5DC79.Up2Date
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\System.CodeDom.dll
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\android-arm\native\libSystem.IO.Ports.Native.so
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\android-arm64\native\libSystem.IO.Ports.Native.so
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\android-x64\native\libSystem.IO.Ports.Native.so
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\android-x86\native\libSystem.IO.Ports.Native.so
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\linux-bionic-arm64\native\libSystem.IO.Ports.Native.so
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\linux-bionic-x64\native\libSystem.IO.Ports.Native.so
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\linux-musl-arm\native\libSystem.IO.Ports.Native.so
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\linux-musl-arm64\native\libSystem.IO.Ports.Native.so
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\linux-musl-x64\native\libSystem.IO.Ports.Native.so
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\maccatalyst-arm64\native\libSystem.IO.Ports.Native.dylib
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\maccatalyst-x64\native\libSystem.IO.Ports.Native.dylib
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\Stile_Elementi\StileComboBox.baml
