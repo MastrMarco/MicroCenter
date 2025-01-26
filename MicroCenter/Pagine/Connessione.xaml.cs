@@ -1,5 +1,6 @@
 ﻿using MicroCenter.Classi;
 using System.IO.Ports;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -26,6 +27,7 @@ namespace MicroCenter.Pagine
             InitializeComponent();
 
             _ = LoadAvailableCH340PortsAsync();
+
 
 
             InitializeTimer();
@@ -89,10 +91,10 @@ namespace MicroCenter.Pagine
                 //WriteTimeout = 500,
                 Encoding = System.Text.Encoding.UTF8, // Usa l'encoding UTF-8 per supportare caratteri speciali
                 NewLine = "\n", // Definisci il carattere di fine stringa (ad esempio "\n")
-                ReadTimeout = 5000,
+                ReadTimeout = 20000,
 
             };
-            _serialPort.DataReceived += SerialPort_DataReceived;
+           //  _serialPort.DataReceived += SerialPort_DataReceived;
             _serialPort.Open();
             //_serialPort.Close();
         }
@@ -150,36 +152,46 @@ namespace MicroCenter.Pagine
 
 
         List<List<string>> parsData;
-        string lgo;
+        int lgo;
+        string h;
+        private StringBuilder serialBuffer = new StringBuilder();
 
         private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            if (_serialPort.IsOpen)
-            {
 
 
 
-                // Leggi i dati ricevuti
-                string serialDatiRicevuto = _serialPort.ReadLine();
-                lgo = serialDatiRicevuto.Length.ToString();
-
-                //// Parse dei dati ricevuti
-                //var
-                parsData = DecodeSeralData.ParseString(serialDatiRicevuto);
-
-                //// Invia i dati al thread dell'interfaccia utente
-                //Application.Current.Dispatcher.Invoke(() =>
-                //{
-                //    // Aggiorna i controlli WPF
-                //    // AggiornaUI(parsData);
-                //});
+            //if (_serialPort.IsOpen)
+            //{
+            //    // Leggi i dati ricevuti
+            //    string serialDatiRicevuto = _serialPort.ReadLine();
 
 
-            } else
-            {
-                // Porta non aperta: gestisci l'errore
-                MessageBox.Show("La porta seriale non è aperta.");
-            }
+
+
+            //    //// Parse dei dati ricevuti
+            //    //var
+            //    parsData = DecodeSeralData.ParseString(serialDatiRicevuto);
+
+
+            //    h = serialDatiRicevuto.Length.ToString();
+            //    lgo = parsData.Count;
+
+            //    //// Invia i dati al thread dell'interfaccia utente
+            //    //Application.Current.Dispatcher.Invoke(() =>
+            //    //{
+            //    //    // Aggiorna i controlli WPF
+            //    //    // AggiornaUI(parsData);
+            //    //});
+
+
+
+            //}
+            //else
+            //{
+            //    // Porta non aperta: gestisci l'errore
+            //    MessageBox.Show("La porta seriale non è aperta.");
+            //}
         }
 
 
@@ -233,21 +245,53 @@ namespace MicroCenter.Pagine
 
             _timer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromSeconds(1)
+                // Interval = TimeSpan.FromSeconds(1)
+                Interval = TimeSpan.FromMilliseconds(100)
             };
             _timer.Tick += Timer_Tick;
         }
 
+
+        int g;
+
         private void Timer_Tick(object? sender, EventArgs e)
         {
-            _time = _time.Add(TimeSpan.FromSeconds(1));
-            TxSerialText.Text = _time.ToString(@"hh\:mm\:ss");
+            //_time = _time.Add(TimeSpan.FromSeconds(1));
+            _time = _time.Add(TimeSpan.FromMilliseconds(100));
+            // TxSerialText.Text = _time.ToString(@"hh\:mm\:ss");
 
 
             //  LaVerSoft.Text = lgo;
             //int? g = int.Parse(lgo);
-            
-            if  (lgo  != null)
+
+            if (_serialPort != null)
+            {
+
+                if (_serialPort.IsOpen)
+                {
+                    // Leggi i dati ricevuti
+                    string serialDatiRicevuto = _serialPort.ReadLine();
+                    parsData = DecodeSeralData.ParseString(serialDatiRicevuto);
+                    h = serialDatiRicevuto.Length.ToString();
+                    lgo = parsData.Count;
+                }
+                else
+                {
+                    // Porta non aperta: gestisci l'errore
+                    MessageBox.Show("La porta seriale non è aperta.");
+                }
+
+            }
+
+
+
+
+
+
+            Application.Current.Dispatcher.Invoke(() =>
+            { 
+
+            if (lgo == 13)
             {
                 LaVerSoft.Text = parsData[0][4].ToString() + " v";
                 LaVerTipo.Text = parsData[0][0].ToString();
@@ -256,7 +300,16 @@ namespace MicroCenter.Pagine
                 LaV1.Text = parsData[1][1].ToString() + " V";
                 LaV2.Text = parsData[1][2].ToString() + " V";
                 LaVref.Text = parsData[1][6].ToString() + " V";
+
+
             }
+
+            g++;
+
+            TxSerialText.Text = g.ToString();
+
+        });
+
 
 
         }
@@ -297,56 +350,56 @@ namespace MicroCenter.Pagine
 
 
 
-        //SerialParser EncodeSeralData = new SerialParser();
+    //SerialParser EncodeSeralData = new SerialParser();
 
 
-        //int x;
-        //private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        // Leggi i dati dalla seriale
-        //        //string data = _serialPort.ReadExisting().ToString();
+    //int x;
+    //private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+    //{
+    //    try
+    //    {
+    //        // Leggi i dati dalla seriale
+    //        //string data = _serialPort.ReadExisting().ToString();
 
-        //        // Legge i dati dalla seriale
-        //        var SerialDatiRicevuto = _serialPort.ReadLine().ToString();
+    //        // Legge i dati dalla seriale
+    //        var SerialDatiRicevuto = _serialPort.ReadLine().ToString();
 
-        //        var ParsData = EncodeSeralData.ParseString(SerialDatiRicevuto);
-
-
-        //        // Aggiorna la UI con i dati ricevuti
-        //        Dispatcher.Invoke(() =>
-        //        {
-        //          //  if (ParsData[0][0].ToString() != null)
-        //          //  {
-        //                LaVerSoft.Text = ParsData[0][4].ToString() + " v";
-        //                LaVerTipo.Text = ParsData[0][0].ToString();
-        //                LaTempScheda.Text = ParsData[1][0].ToString() + " °C";
-
-        //                LaV1.Text = ParsData[1][1].ToString() + " V";
-        //                LaV2.Text = ParsData[1][2].ToString() + " V";
-        //                LaVref.Text = ParsData[1][6].ToString() + " V";
+    //        var ParsData = EncodeSeralData.ParseString(SerialDatiRicevuto);
 
 
-        //                x++;
-        //                TxSerialText.Text = x.ToString();
-        //          //  }
-        //        });
-        //    }
-        //    catch (Exception ex)
-        //    {
+    //        // Aggiorna la UI con i dati ricevuti
+    //        Dispatcher.Invoke(() =>
+    //        {
+    //          //  if (ParsData[0][0].ToString() != null)
+    //          //  {
+    //                LaVerSoft.Text = ParsData[0][4].ToString() + " v";
+    //                LaVerTipo.Text = ParsData[0][0].ToString();
+    //                LaTempScheda.Text = ParsData[1][0].ToString() + " °C";
+
+    //                LaV1.Text = ParsData[1][1].ToString() + " V";
+    //                LaV2.Text = ParsData[1][2].ToString() + " V";
+    //                LaVref.Text = ParsData[1][6].ToString() + " V";
 
 
-        //    }
-        //}
+    //                x++;
+    //                TxSerialText.Text = x.ToString();
+    //          //  }
+    //        });
+    //    }
+    //    catch (Exception ex)
+    //    {
 
 
-
+    //    }
+    //}
 
 
 
 
 
 
-    }
+
+
+
+}
 }
