@@ -16,6 +16,7 @@ namespace MicroCenter.Pagine
 
         WebLink SitiWeb = new WebLink(); //Chiama la classe dove si trovano Link di siti web
 
+
         public Impostazioni()
         {
             InitializeComponent();

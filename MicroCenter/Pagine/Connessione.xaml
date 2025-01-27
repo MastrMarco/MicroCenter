@@ -53,6 +53,18 @@
                                 Height="150"
                                 Background="{DynamicResource TertiaryBackgroundColor}"
                                 HorizontalAlignment="Center"
+                                VerticalAlignment="Top">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8"
+                                                  ShadowDepth="0"
+                                                  Color="#5B8DEF" />
+                            </Border.Effect>
+                        </Border>
+                        <Border CornerRadius="8"
+                                Width="230"
+                                Height="150"
+                                Background="{DynamicResource TertiaryBackgroundColor}"
+                                HorizontalAlignment="Center"
                                 VerticalAlignment="top">
 
 
@@ -70,10 +82,25 @@
 
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
 
                                 <Grid Grid.Row="0">
+                                    <Border CornerRadius="8"
+                                            Width="230"
+                                            Height="36.6"
+                                            Background="{DynamicResource TertiaryBackgroundColor}"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Top">
+                                        <Border.Effect>
+                                            <DropShadowEffect BlurRadius="8"
+                                                              ShadowDepth="0"
+                                                              Color="#5B8DEF" />
+                                        </Border.Effect>
+                                    </Border>
                                     <Label Name="LabTinfoSoft"
                                            Content="Dispositivo"
                                            FontSize="20"
@@ -83,110 +110,87 @@
                                            VerticalAlignment="Top" />
                                 </Grid>
 
-
-
-
-
-
                                 <Grid Grid.Row="1">
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Grid Grid.Column="0">
-
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="*" />
-                                        </Grid.RowDefinitions>
-
-
-                                        <TextBlock Grid.Row="0"
-                                                   Name="LaVerSoft"
-                                                   Text="X.XX V"
-                                                   FontSize="16"
-                                                   FontWeight="Bold"
-                                                   Foreground="{DynamicResource PrimaryTextColor}"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center">
-
-                                        </TextBlock>
-
-                                        <TextBlock Grid.Row="1"
-                                                   Name="LaVerTipo"
-                                                   Text="X"
-                                                   FontSize="16"
-                                                   FontWeight="Bold"
-                                                   Foreground="{DynamicResource PrimaryTextColor}"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center">
-
-                                        </TextBlock>
-
-                                        <TextBlock Grid.Row="2"
-                                                   Name="LaTempScheda"
-                                                   Text="X °C"
-                                                   FontSize="16"
-                                                   FontWeight="Bold"
-                                                   Foreground="{DynamicResource PrimaryTextColor}"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center">
-
-                                        </TextBlock>
-
-                                    </Grid>
-
-                                    <Grid Grid.Column="1">
-
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="*" />
-                                        </Grid.RowDefinitions>
-
-
-                                        <TextBlock Grid.Row="0"
-                                                   Name="LaV1"
-                                                   Text="X.XX V"
-                                                   FontSize="16"
-                                                   FontWeight="Bold"
-                                                   Foreground="{DynamicResource PrimaryTextColor}"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center">
-
-                                        </TextBlock>
-
-                                        <TextBlock Grid.Row="1"
-                                                   Name="LaV2"
-                                                   Text="X.XX V"
-                                                   FontSize="16"
-                                                   FontWeight="Bold"
-                                                   Foreground="{DynamicResource PrimaryTextColor}"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center">
-
-                                        </TextBlock>
-
-                                        <TextBlock Grid.Row="2"
-                                                   Name="LaVref"
-                                                   Text="X.XX V"
-                                                   FontSize="16"
-                                                   FontWeight="Bold"
-                                                   Foreground="{DynamicResource PrimaryTextColor}"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center">
-
-                                        </TextBlock>
-
-                                    </Grid>
-
-
-
-
+                                    <Label Name="LabNomeDispositivo"
+                                           Content="Nome"
+                                           FontSize="18"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource PrimaryTextColor}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Top" />
                                 </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Center"
+                                                Height="Auto"
+                                                Width="Auto">
+
+                                        <TextBlock Name="LaVerSoft"
+                                                   Text="----"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="{DynamicResource PrimaryTextColor}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   Margin="10 0 10 0">
+                                        </TextBlock>
+
+                                        <TextBlock Name="LaVerTipo"
+                                                   Text="-"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="{DynamicResource PrimaryTextColor}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   Margin="10 0 10 0">
+
+                                        </TextBlock>
+
+                                    </StackPanel>
+                                </Grid>
+
+                                <Grid Grid.Row="3">
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Center"
+                                                Height="Auto"
+                                                Width="Auto">
+
+                                        <TextBlock Name="LaTempScheda"
+                                                   Text="----"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="{DynamicResource PrimaryTextColor}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   Margin="10 0 10 0">
+                                        </TextBlock>
+
+                                        <TextBlock Name="LaVref"
+                                                   Text="----"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="{DynamicResource PrimaryTextColor}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   Margin="10 0 10 0">
+
+                                        </TextBlock>
+
+                                    </StackPanel>
+                                </Grid>
+
+                                <Grid Grid.Row="4">
+                                    <TextBlock Name="LaSoC"
+                                               Text="---------"
+                                               FontSize="16"
+                                               FontWeight="Bold"
+                                               Foreground="{DynamicResource PrimaryTextColor}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center">
+                                    </TextBlock>
+                                </Grid>
+
 
 
                             </Grid>
@@ -273,39 +277,33 @@
                     <Grid>
 
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="170" />
+                            <RowDefinition Height="95" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
 
 
                         <!--Sezione Alta-->
-                        <Border Grid.Row="0"
-                                CornerRadius="8"
-                                Margin="10"
-                                Width="410"
-                                Height="150"
-                                Background="{DynamicResource TertiaryBackgroundColor}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Top">
-                            <Border.Effect>
-                                <DropShadowEffect BlurRadius="8"
-                                                  ShadowDepth="0"
-                                                  Color="#5B8DEF" />
-                            </Border.Effect>
-                        </Border>
-                        <Border Grid.Row="0"
-                                CornerRadius="8"
-                                Margin="10"
-                                Width="410"
-                                Height="150"
-                                Background="{DynamicResource TertiaryBackgroundColor}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="top">
+                        <Grid Grid.Row="0"
+                              Width="410"
+                              Height="150"
+                              Margin="10">
 
+                            <Border  CornerRadius="8"
+                                     Width="410"
+                                     Height="150"
+                                     Background="{DynamicResource TertiaryBackgroundColor}"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Top">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="8"
+                                                      ShadowDepth="0"
+                                                      Color="#5B8DEF" />
+                                </Border.Effect>
+                            </Border>
 
-
-                            <Grid Grid.Row="0">
+                            <Grid>
 
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -313,27 +311,19 @@
                                 </Grid.RowDefinitions>
 
                                 <!--Titolo-->
-                                <Border Grid.Row="0"
-                                        CornerRadius="8"
-                                        Width="410"
-                                        Height="36.6"
-                                        Background="{DynamicResource TertiaryBackgroundColor}"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Top">
-                                    <Border.Effect>
-                                        <DropShadowEffect BlurRadius="16"
-                                                          ShadowDepth="0"
-                                                          Color="#5B8DEF" />
-                                    </Border.Effect>
-                                </Border>
-                                <Border Grid.Row="0"
-                                        CornerRadius="8"
-                                        Width="410"
-                                        Height="Auto"
-                                        Background="{DynamicResource TertiaryBackgroundColor}"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Top">
-
+                                <Grid Grid.Row="0">
+                                    <Border  CornerRadius="8"
+                                             Width="410"
+                                             Height="36.6"
+                                             Background="{DynamicResource TertiaryBackgroundColor}"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Top">
+                                        <Border.Effect>
+                                            <DropShadowEffect BlurRadius="16"
+                                                              ShadowDepth="0"
+                                                              Color="#5B8DEF" />
+                                        </Border.Effect>
+                                    </Border>
 
                                     <Label Name="LabTSerialPort"
                                            Content="Seleziona Dispositivo"
@@ -343,9 +333,8 @@
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Top" />
 
-                                </Border>
+                                </Grid>
                                 <!--Titolo-->
-
                                 <!--Connetti-->
                                 <Grid Grid.Row="1">
 
@@ -358,6 +347,8 @@
 
                                     <ComboBox Style="{StaticResource ModernComboBoxStyle}"
                                               ItemContainerStyle="{StaticResource ModernComboBoxItemStyle}"
+                                              Background="{DynamicResource TertiaryBackgroundColor}"
+                                              Foreground="{DynamicResource PrimaryTextColor}"
                                               x:Name="SerialPortComboBox"
                                               Height="40"
                                               Width="150"
@@ -380,39 +371,155 @@
 
                             </Grid>
 
-                        </Border>
+                        </Grid>
                         <!--Sezione Alta-->
 
+                        <!--Sezione Stato Connessione-->
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="230" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0"
+                                  Margin="10"
+                                  Width="200"
+                                  Height="70">
 
+                                <Border CornerRadius="8"
+                                        Width="200"
+                                        Height="70"
+                                        Background="{DynamicResource TertiaryBackgroundColor}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="8"
+                                                          ShadowDepth="0"
+                                                          Color="#5B8DEF" />
+                                    </Border.Effect>
+                                </Border>
+
+
+                                <Grid>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <!--Titolo-->
+                                    <Grid Grid.Row="0">
+                                        <Border CornerRadius="8"
+                                                Width="200"
+                                                Height="31.28"
+                                                Background="{DynamicResource TertiaryBackgroundColor}"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Top">
+                                            <Border.Effect>
+                                                <DropShadowEffect BlurRadius="16"
+                                                                  ShadowDepth="0"
+                                                                  Color="#5B8DEF" />
+                                            </Border.Effect>
+                                        </Border>
+
+                                        <Label Name="LabTConnessione"
+                                               Content="Stato Collegamento"
+                                               FontSize="16"
+                                               FontWeight="Bold"
+                                               Foreground="{DynamicResource PrimaryTextColor}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Top" />
+
+                                    </Grid>
+                                    <!--Titolo-->
+
+                                    <!--Stato-->
+                                    <Grid Grid.Row="1">
+
+
+                                        <!--<Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>-->
+
+
+                                        <Label Name="LaConnessione"
+                                               Content="Disconnesso"
+                                               FontSize="18"
+                                               FontWeight="Bold"
+                                               Foreground="{DynamicResource PrimaryTextColor}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center" />
+
+
+                                    </Grid>
+                                    <!--Stato-->
+
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Column="1"
+                                  Width="100"
+                                  Height="70"
+                                  Margin="10">
+                                <Border CornerRadius="8"
+                                        Width="100"
+                                        Height="70"
+                                        Background="{DynamicResource TertiaryBackgroundColor}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="8"
+                                                          ShadowDepth="0"
+                                                          Color="#5B8DEF" />
+                                    </Border.Effect>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                        <!--Sezione Stato Connessione-->
 
                         <!--Sezione Bassa-->
-                        <Grid Grid.Row="1">
+                        <Grid Grid.Row="2"
+                              Margin="10">
 
-                            <Border Background="{DynamicResource TertiaryBackgroundColor}"
-                                    CornerRadius="8">
-
-
-
-                                <Border CornerRadius="16"
-                                        Margin="0,14,16,0"
-                                        Width="400"
-                                        Height="150"
-                                        Background="{DynamicResource TertiaryBackgroundColor}"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Top">
-
-                                    <!--<Border.BitmapEffect>
-                                        <DropShadowBitmapEffect ShadowDepth="0"
-                                                                Direction="0"
-                                                                Color="#5B8DEF"
-                                                                Softness="0.2" />
-                                    </Border.BitmapEffect>-->
+                            <Border CornerRadius="8"
+                                    Width="410"
+                                    Height="130"
+                                    Background="{DynamicResource TertiaryBackgroundColor}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="8"
+                                                      ShadowDepth="0"
+                                                      Color="#5B8DEF" />
+                                </Border.Effect>
+                            </Border>
 
 
-                                    <TextBlock Grid.Row="1"
-                                               Name="TxSerialText"
-                                               Text="SerialPort"
-                                               FontSize="16"
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+
+                                <Grid Grid.Row="0">
+                                    <Border CornerRadius="8"
+                                            Width="410"
+                                            Height="24"
+                                            Background="{DynamicResource TertiaryBackgroundColor}"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Top">
+                                        <Border.Effect>
+                                            <DropShadowEffect BlurRadius="8"
+                                                              ShadowDepth="0"
+                                                              Color="#5B8DEF" />
+                                        </Border.Effect>
+                                    </Border>
+
+
+                                    <TextBlock Name="LaTSerialData"
+                                               Text="Dati Seriali"
+                                               FontSize="18"
                                                FontWeight="Bold"
                                                Foreground="{DynamicResource PrimaryTextColor}"
                                                HorizontalAlignment="Center"
@@ -420,13 +527,27 @@
 
                                     </TextBlock>
 
+                                </Grid>
+
+                                <Grid Grid.Row="1"
+                                      Width="410"
+                                      Height="Auto">
+                                    <TextBlock Name="TxSerialText"
+                                               Text="SerialPort"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               Foreground="{DynamicResource PrimaryTextColor}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               TextWrapping="Wrap"
+                                               Margin="5">
+
+                                    </TextBlock>
+                                </Grid>
 
 
+                            </Grid>
 
-                                </Border>
-
-
-                            </Border>
 
 
 
@@ -437,7 +558,6 @@
 
 
                     </Grid>
-
                 </Border>
             </Grid>
 
@@ -459,71 +579,169 @@
                         </Grid.RowDefinitions>
 
                         <!--Sezione 0-->
-                        <Border Grid.Row="0"
-                                CornerRadius="8"
-                                Width="205"
-                                Height="70"
-                                Background="{DynamicResource TertiaryBackgroundColor}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="top">
+                        <Grid Grid.Row="0"
+                              Width="200"
+                              Height="70">
+
+                            <Border  CornerRadius="8"
+                                     Width="200"
+                                     Height="70"
+                                     Background="{DynamicResource TertiaryBackgroundColor}"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center">
+                                <Border.BitmapEffect>
+                                    <DropShadowBitmapEffect ShadowDepth="0"
+                                                            Direction="0"
+                                                            Color="#5B8DEF"
+                                                            Softness="0.5" />
+                                </Border.BitmapEffect>
+                            </Border>
 
 
-                        </Border>
+                            <TextBlock Name="La"
+                                       Text="Dati Seriali"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource PrimaryTextColor}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center">
+
+                            </TextBlock>
+                        </Grid>
 
                         <!--Sezione 1-->
-                        <Border Grid.Row="1"
-                                CornerRadius="8"
-                                Width="205"
-                                Height="70"
-                                Background="{DynamicResource TertiaryBackgroundColor}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="top">
+                        <Grid Grid.Row="1"
+                              Width="200"
+                              Height="70">
 
-                        </Border>
+                            <Border  CornerRadius="8"
+                                     Width="200"
+                                     Height="70"
+                                     Background="{DynamicResource TertiaryBackgroundColor}"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center">
+                                <Border.BitmapEffect>
+                                    <DropShadowBitmapEffect ShadowDepth="0"
+                                                            Direction="0"
+                                                            Color="#5B8DEF"
+                                                            Softness="0.5" />
+                                </Border.BitmapEffect>
+                            </Border>
+
+
+                            <TextBlock Name="La1"
+                                       Text="Dati Seriali"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource PrimaryTextColor}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center">
+
+                            </TextBlock>
+                        </Grid>
 
                         <!--Sezione 2-->
-                        <Border Grid.Row="2"
-                                CornerRadius="8"
-                                Width="205"
-                                Height="70"
-                                Background="{DynamicResource TertiaryBackgroundColor}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="top">
+                        <Grid Grid.Row="2"
+                              Width="200"
+                              Height="70">
 
-                        </Border>
+                            <Border  CornerRadius="8"
+                                     Width="200"
+                                     Height="70"
+                                     Background="{DynamicResource TertiaryBackgroundColor}"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center">
+                                <Border.BitmapEffect>
+                                    <DropShadowBitmapEffect ShadowDepth="0"
+                                                            Direction="0"
+                                                            Color="#5B8DEF"
+                                                            Softness="0.5" />
+                                </Border.BitmapEffect>
+                            </Border>
+
+
+                            <TextBlock Name="La2"
+                                       Text="Dati Seriali"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource PrimaryTextColor}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center">
+
+                            </TextBlock>
+                        </Grid>
 
                         <!--Sezione 3-->
-                        <Border Grid.Row="3"
-                                CornerRadius="8"
-                                Width="205"
-                                Height="70"
-                                Background="{DynamicResource TertiaryBackgroundColor}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="top">
+                        <Grid Grid.Row="3"
+                              Width="200"
+                              Height="70">
 
-                        </Border>
+                            <Border  CornerRadius="8"
+                                     Width="200"
+                                     Height="70"
+                                     Background="{DynamicResource TertiaryBackgroundColor}"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center">
+                                <Border.BitmapEffect>
+                                    <DropShadowBitmapEffect ShadowDepth="0"
+                                                            Direction="0"
+                                                            Color="#5B8DEF"
+                                                            Softness="0.5" />
+                                </Border.BitmapEffect>
+                            </Border>
+
+
+                            <TextBlock Name="La3"
+                                       Text="Dati Seriali"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource PrimaryTextColor}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center">
+
+                            </TextBlock>
+                        </Grid>
 
                         <!--Sezione 4-->
-                        <Border Grid.Row="4"
-                                CornerRadius="8"
-                                Width="205"
-                                Height="70"
-                                Background="{DynamicResource TertiaryBackgroundColor}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="top">
+                        <Grid Grid.Row="4"
+                              Width="200"
+                              Height="70">
 
-                        </Border>
+                            <Border  CornerRadius="8"
+                                     Width="200"
+                                     Height="70"
+                                     Background="{DynamicResource TertiaryBackgroundColor}"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center">
+                                <Border.BitmapEffect>
+                                    <DropShadowBitmapEffect ShadowDepth="0"
+                                                            Direction="0"
+                                                            Color="#5B8DEF"
+                                                            Softness="0.5" />
+                                </Border.BitmapEffect>
+                            </Border>
 
 
+                            <TextBlock Name="La4"
+                                       Text="Dati Seriali"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource PrimaryTextColor}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center">
 
-
+                            </TextBlock>
+                        </Grid>
 
                     </Grid>
 
                 </Border>
 
-
             </Grid>
+
+
+
+
 
 
 

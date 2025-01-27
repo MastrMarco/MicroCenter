@@ -168,4 +168,22 @@
   <data name="fArduino" xml:space="preserve">
     <value>Arduino</value>
   </data>
+  <data name="nomeDispositivo" xml:space="preserve">
+    <value>Dispositivo</value>
+  </data>
+  <data name="selezionaDispositivo" xml:space="preserve">
+    <value>Seleziona Dispositivo</value>
+  </data>
+  <data name="statoConnessioneSi" xml:space="preserve">
+    <value>Connesso</value>
+  </data>
+  <data name="statoConnessioneNo" xml:space="preserve">
+    <value>Disconnesso</value>
+  </data>
+  <data name="statoCollegamento" xml:space="preserve">
+    <value>Stato Collegamento</value>
+  </data>
+  <data name="datiSeriali" xml:space="preserve">
+    <value>Dati Seriali</value>
+  </data>
 </root>

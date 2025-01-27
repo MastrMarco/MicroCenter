@@ -61,6 +61,15 @@ namespace MicroCenter.Lingue {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Dati Seriali.
+        /// </summary>
+        internal static string datiSeriali {
+            get {
+                return ResourceManager.GetString("datiSeriali", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Donazioni.
         /// </summary>
         internal static string donazioni {
@@ -169,11 +178,56 @@ namespace MicroCenter.Lingue {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Dispositivo.
+        /// </summary>
+        internal static string nomeDispositivo {
+            get {
+                return ResourceManager.GetString("nomeDispositivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a MicroCenter.
         /// </summary>
         internal static string nomeprogetto {
             get {
                 return ResourceManager.GetString("nomeprogetto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Seleziona Dispositivo.
+        /// </summary>
+        internal static string selezionaDispositivo {
+            get {
+                return ResourceManager.GetString("selezionaDispositivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Stato Collegamento.
+        /// </summary>
+        internal static string statoCollegamento {
+            get {
+                return ResourceManager.GetString("statoCollegamento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Disconnesso.
+        /// </summary>
+        internal static string statoConnessioneNo {
+            get {
+                return ResourceManager.GetString("statoConnessioneNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Connesso.
+        /// </summary>
+        internal static string statoConnessioneSi {
+            get {
+                return ResourceManager.GetString("statoConnessioneSi", resourceCulture);
             }
         }
         
