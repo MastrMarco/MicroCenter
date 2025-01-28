@@ -274,7 +274,7 @@
                         CornerRadius="8"
                         Margin="10">
 
-                    <Grid>
+                    <Grid Cursor="">
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="170" />
@@ -303,7 +303,7 @@
                                 </Border.Effect>
                             </Border>
 
-                            <Grid>
+                            <Grid Cursor="">
 
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -357,12 +357,15 @@
 
                                     <Button Grid.Column="1"
                                             x:Name="btnConnetti"
+                                            Height="50"
+                                            Width="50"
                                             Style="{StaticResource IconButtonsForms}"
-                                            Content="{DynamicResource Arduino}"
-                                            Click="btnIconaConnetti">
+                                            Content="{DynamicResource IconaUSBConnetti}"
+                                            Click="btnIconaConnetti"
+                                            Cursor="Hand">
                                         <Button.ToolTip>
                                             <Label Name="LabToolTipConnetti"
-                                                   Content="C/N" />
+                                                   Content="Disconnesso" />
                                         </Button.ToolTip>
                                     </Button>
 

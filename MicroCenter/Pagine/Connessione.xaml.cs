@@ -42,7 +42,7 @@ namespace MicroCenter.Pagine
 
 
             //Visualizza l'impostazione Memorizata e la esegue
-                SetLinguaPaginaTitoli(Set_Lingua());  
+            SetLinguaPaginaTitoli(Set_Lingua());
         }
 
 
@@ -110,11 +110,22 @@ namespace MicroCenter.Pagine
                 };
                 //  _serialPort.DataReceived += SerialPort_DataReceived;
                 _serialPort.Open();
+
+                   
+                if (_timer.IsEnabled == false)
+                {
+                    _timer.Start();
+                }
             }
             else
             {
                 _serialPort.Close();
                 _serialPort = null;
+                _timer.Stop();
+                if (btnConnetti.Content == FindResource("IconaUSBDisconnetti"))
+                {
+                    btnConnetti.Content = FindResource("IconaUSBConnetti");
+                }
             }
         }
 
@@ -170,7 +181,8 @@ namespace MicroCenter.Pagine
                     _timer.Stop();
                 }
 
-            } else
+            }
+            else
             {
                 Dispositivo.StatoConnessione = false;
             }
@@ -202,6 +214,12 @@ namespace MicroCenter.Pagine
 
                     //SerialPortComboBox.
                     LaConnessione.Content = ConnessioneDispositivo(Dispositivo.StatoConnessione);
+                    LabToolTipConnetti.Content = LaConnessione.Content;
+
+                    if (btnConnetti.Content == FindResource("IconaUSBConnetti"))
+                    {
+                        btnConnetti.Content = FindResource("IconaUSBDisconnetti");
+                    }
 
                 }
 

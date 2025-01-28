@@ -73,7 +73,7 @@ namespace MicroCenter.Classi
         //{
         //    StringaCaricamentoDati_HUB(SerialDataRead);
         //}
-       
+
 
 
 
@@ -94,7 +94,8 @@ namespace MicroCenter.Classi
             {
                 StringaCaricamentoDati_HUB(parsData);
                 StatoConnessione = true;
-            } else
+            }
+            else
             {
                 StatoConnessione = false;
             }
@@ -124,7 +125,14 @@ namespace MicroCenter.Classi
 
         public int Get_CountListSeriale()
         {
-            return parsData.Count;
+            if (parsData != null)
+            {
+                return parsData.Count;
+            } else
+            {
+                return 0;
+            }
+
         }
         // End SerialString Conversione in Lista
 
@@ -162,16 +170,11 @@ namespace MicroCenter.Classi
 
             PowerLimitLED = int.Parse(SerialDataRead[1][0]);
 
-            //foreach ()
-            //{
-            //    NUM_LEDS_OUT  // * Elemento
-            //    LumLED  // * Elemento
-            //    ColoreLED  // * Elemento
-            //    Saturazione  // * Elemento
-            //}
-
-
-
+        
+            NUM_LEDS_OUT = Get_Elementi(SerialDataRead, 3);
+            LumLED = Get_Elementi(SerialDataRead, 4);
+            ColoreLED = Get_Elementi(SerialDataRead, 5);
+            Saturazione = Get_Elementi(SerialDataRead, 6);
 
 
             ModLED_Fan = int.Parse(SerialDataRead[1][0]);
@@ -179,13 +182,11 @@ namespace MicroCenter.Classi
             ModRGB_LED = int.Parse(SerialDataRead[1][0]);
 
 
-            //  FanSpeed  // * Elemento
-            //   Fan_Mod_Speed // * Elemento
-            //   RPM_Fan // * Elemento
+            FanSpeed = Get_Elementi(SerialDataRead, 8);
+            Fan_Mod_Speed = Get_Elementi(SerialDataRead, 9);
+            RPM_Fan = Get_Elementi(SerialDataRead, 10);
 
-            //   Animation_RGBS  // * Elemento
-
-
+            Animation_RGBS = Get_Elementi(SerialDataRead, 11);
         }
 
 
@@ -267,5 +268,26 @@ namespace MicroCenter.Classi
                     //break;
             }
         }
+
+
+
+        // Lista Elementi
+        // Nummero di LED e Tipo di Elemento
+        // Luminosità HSV
+        // Colore HSV
+        // Satrurazione HSV
+        public int[] Get_Elementi(List<List<string>> SerialDataRead, int index)
+        {
+
+            int[] ListElementi = new int[SerialDataRead[index].Count]; // * Elemento
+
+            for (int i = 0; i < SerialDataRead[index].Count; i++) // Luminosità Elementi
+            {
+                ListElementi[i] = int.Parse(SerialDataRead[index][i]);// * Elemento
+            }
+
+            return ListElementi;
+        }
+       
     }
 }
