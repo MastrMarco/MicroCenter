@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\connessione.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\pagine\\connessione.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\connessione.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\immagini_icone\\icone_svg\\icone.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\immagini_icone\\icone_svg\\icone.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\classi\\arduhubfan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\classi\\arduhubfan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\classi\\serialparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\classi\\serialparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\pagine\\connessione.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\connessione.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,39 +34,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ArduHubFan.cs",
               "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\ArduHubFan.cs",
               "RelativeDocumentMoniker": "MicroCenter\\Classi\\ArduHubFan.cs",
               "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\ArduHubFan.cs",
               "RelativeToolTip": "MicroCenter\\Classi\\ArduHubFan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIIAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAwwKgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-25T20:33:33.298Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Icone.xaml",
-              "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Immagini_Icone\\Icone_SVG\\Icone.xaml",
-              "RelativeDocumentMoniker": "MicroCenter\\Immagini_Icone\\Icone_SVG\\Icone.xaml",
-              "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Immagini_Icone\\Icone_SVG\\Icone.xaml",
-              "RelativeToolTip": "MicroCenter\\Immagini_Icone\\Icone_SVG\\Icone.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-28T12:13:31.247Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Connessione.xaml",
-              "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml",
-              "RelativeDocumentMoniker": "MicroCenter\\Pagine\\Connessione.xaml",
-              "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml",
-              "RelativeToolTip": "MicroCenter\\Pagine\\Connessione.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-21T14:12:24.64Z",
+              "DocumentIndex": 2,
+              "Title": "SerialParser.cs",
+              "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\SerialParser.cs",
+              "RelativeDocumentMoniker": "MicroCenter\\Classi\\SerialParser.cs",
+              "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\SerialParser.cs",
+              "RelativeToolTip": "MicroCenter\\Classi\\SerialParser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T13:15:47.64Z",
               "EditorCaption": ""
             },
             {
@@ -77,9 +67,21 @@
               "RelativeDocumentMoniker": "MicroCenter\\Pagine\\Connessione.xaml.cs",
               "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml.cs",
               "RelativeToolTip": "MicroCenter\\Pagine\\Connessione.xaml.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAwwHIAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAwwL8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T19:25:04.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Connessione.xaml",
+              "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml",
+              "RelativeDocumentMoniker": "MicroCenter\\Pagine\\Connessione.xaml",
+              "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml",
+              "RelativeToolTip": "MicroCenter\\Pagine\\Connessione.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-21T14:12:24.64Z",
               "EditorCaption": ""
             }
           ]

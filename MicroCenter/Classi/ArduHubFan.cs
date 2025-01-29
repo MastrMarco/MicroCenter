@@ -58,21 +58,11 @@ namespace MicroCenter.Classi
         public int[] Animation_RGBS { get; set; } // * Elemento
 
 
-
-
         // "Calcolati"
-        // public string Nome {  get; set; }
-        // public string SoC { get; set; }
         public bool StatoConnessione { get; set; }
 
 
-        // Lista Seriale Conversione
 
-
-        //ArduHubFan(List<List<string>> SerialDataRead)
-        //{
-        //    StringaCaricamentoDati_HUB(SerialDataRead);
-        //}
 
 
 
@@ -128,7 +118,8 @@ namespace MicroCenter.Classi
             if (parsData != null)
             {
                 return parsData.Count;
-            } else
+            }
+            else
             {
                 return 0;
             }
@@ -170,11 +161,11 @@ namespace MicroCenter.Classi
 
             PowerLimitLED = int.Parse(SerialDataRead[1][0]);
 
-        
-            NUM_LEDS_OUT = Get_Elementi(SerialDataRead, 3);
-            LumLED = Get_Elementi(SerialDataRead, 4);
-            ColoreLED = Get_Elementi(SerialDataRead, 5);
-            Saturazione = Get_Elementi(SerialDataRead, 6);
+
+            NUM_LEDS_OUT = Get_Elementi(SerialDataRead, 3); // Numero di ogni Elemento LED
+            LumLED = Get_Elementi(SerialDataRead, 4); // Luminosità di ogni Elemento LED HSV
+            ColoreLED = Get_Elementi(SerialDataRead, 5); // Colore di ogni Elemento LED HSV
+            Saturazione = Get_Elementi(SerialDataRead, 6); // Saturazione di ogni Elemento LED HSV
 
 
             ModLED_Fan = int.Parse(SerialDataRead[1][0]);
@@ -182,11 +173,11 @@ namespace MicroCenter.Classi
             ModRGB_LED = int.Parse(SerialDataRead[1][0]);
 
 
-            FanSpeed = Get_Elementi(SerialDataRead, 8);
-            Fan_Mod_Speed = Get_Elementi(SerialDataRead, 9);
-            RPM_Fan = Get_Elementi(SerialDataRead, 10);
+            FanSpeed = Get_Elementi(SerialDataRead, 8); // Velocità Rotazione Ventole di ogni Elemento
+            Fan_Mod_Speed = Get_Elementi(SerialDataRead, 9); // Modalita Regolazione Velocità Vnetole di ogni Elemento
+            RPM_Fan = Get_Elementi(SerialDataRead, 10); // RPM di ogni Elemento Ventole
 
-            Animation_RGBS = Get_Elementi(SerialDataRead, 11);
+            Animation_RGBS = Get_Elementi(SerialDataRead, 11); // Dai Animazione di ogni Elemento LED
         }
 
 
@@ -288,6 +279,6 @@ namespace MicroCenter.Classi
 
             return ListElementi;
         }
-       
+
     }
 }

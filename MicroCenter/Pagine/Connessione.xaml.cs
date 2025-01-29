@@ -18,6 +18,7 @@ namespace MicroCenter.Pagine
         public SerialPort _serialPort;
         public string com_Name_set;
 
+        public SerialParser FunzioniSeriali = new SerialParser();
         public ArduHubFan Dispositivo = new ArduHubFan();
 
 
@@ -31,7 +32,10 @@ namespace MicroCenter.Pagine
         {
             InitializeComponent();
 
-            _ = LoadAvailableCH340PortsAsync();
+            // _ = LoadAvailableCH340PortsAsync();
+
+            // Aggiorna la ComboBox con i risultati trovati dopo aver completato l'operazione in background
+            ListaCOM();
 
 
 
@@ -48,48 +52,54 @@ namespace MicroCenter.Pagine
 
 
 
+        //private async Task LoadAvailableCH340PortsAsync()
+        //{
+        //    SerialPortComboBox.Items.Clear();
+        //    string[] portNames = SerialPort.GetPortNames();
+        //    List<string> ch340Ports = new List<string>();
+
+        //    await Task.Run(() =>
+        //    {
+        //        foreach (string portName in portNames)
+        //        {
+        //            string? description = ContollerSerialPort.GetPortDescription(portName);
+
+        //            // Verifica se la descrizione inizia con "USB-SERIAL CH340"
+        //            if (description.StartsWith("USB-SERIAL CH340"))
+        //            {
+        //                ch340Ports.Add(portName); // Aggiungi solo il nome della porta alla lista temporanea
+        //            }
+        //        }
+        //    });
+
+        //    // Aggiorna la ComboBox con i risultati trovati dopo aver completato l'operazione in background
+        //    foreach (string port in ch340Ports)
+        //    {
+        //        SerialPortComboBox.Items.Add(port);
+        //    }
+
+        //    if (SerialPortComboBox.Items.Count > 0)
+        //        SerialPortComboBox.SelectedIndex = 0; // Se ci sono elementi, seleziona il primo
+
+
+        //}
 
 
 
-
-
-
-
-
-        private async Task LoadAvailableCH340PortsAsync()
+        public async void ListaCOM()
         {
-            SerialPortComboBox.Items.Clear();
-            string[] portNames = SerialPort.GetPortNames();
-            List<string> ch340Ports = new List<string>();
-
-            await Task.Run(() =>
-            {
-                foreach (string portName in portNames)
-                {
-                    string? description = ContollerSerialPort.GetPortDescription(portName);
-
-                    // Verifica se la descrizione inizia con "USB-SERIAL CH340"
-                    if (description.StartsWith("USB-SERIAL CH340"))
-                    {
-                        ch340Ports.Add(portName); // Aggiungi solo il nome della porta alla lista temporanea
-                    }
-                }
-            });
-
             // Aggiorna la ComboBox con i risultati trovati dopo aver completato l'operazione in background
-            foreach (string port in ch340Ports)
+            SerialPortComboBox.Items.Clear();
+            // foreach (string port in FunzioniSeriali.ListaPorteConFiltro(""))
+            foreach (string port in await FunzioniSeriali.ListaPorteConFiltroAsync())
             {
                 SerialPortComboBox.Items.Add(port);
             }
-
             if (SerialPortComboBox.Items.Count > 0)
+            {
                 SerialPortComboBox.SelectedIndex = 0; // Se ci sono elementi, seleziona il primo
-
-
+            }
         }
-
-
-
         private void btnIconaConnetti(object sender, RoutedEventArgs e)
         {
             if (_serialPort == null)
@@ -111,7 +121,7 @@ namespace MicroCenter.Pagine
                 //  _serialPort.DataReceived += SerialPort_DataReceived;
                 _serialPort.Open();
 
-                   
+
                 if (_timer.IsEnabled == false)
                 {
                     _timer.Start();
@@ -129,11 +139,18 @@ namespace MicroCenter.Pagine
             }
         }
 
+        private void SerialPortComboBox_DropDownOpened(object sender, EventArgs e)
+        {       
+                ListaCOM();
+        }
         private void SerialPortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            com_Name_set = SerialPortComboBox.SelectedItem.ToString();
+            if (SerialPortComboBox.Items.Count > 0)
+            {
+                com_Name_set = SerialPortComboBox.SelectedItem.ToString();
+            }
         }
+       
 
 
 
@@ -167,7 +184,8 @@ namespace MicroCenter.Pagine
                 if (_serialPort.IsOpen)
                 {
                     // Leggi i dati ricevuti
-                    string serialDatiRicevuto = _serialPort.ReadLine();
+                    string serialDatiRicevuto = "";
+                    try {serialDatiRicevuto = _serialPort.ReadLine(); } catch { }                    
                     Dispositivo.SetSrialToList(serialDatiRicevuto);
                     TxSerialText.Text = serialDatiRicevuto;
                     lgo = Dispositivo.Get_CountListSeriale();
@@ -276,8 +294,6 @@ namespace MicroCenter.Pagine
             }
         }
 
-
-
-
+      
     }
 }

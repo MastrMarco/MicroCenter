@@ -352,7 +352,8 @@
                                               x:Name="SerialPortComboBox"
                                               Height="40"
                                               Width="150"
-                                              SelectionChanged="SerialPortComboBox_SelectionChanged" />
+                                              SelectionChanged="SerialPortComboBox_SelectionChanged"
+                                              DropDownOpened="SerialPortComboBox_DropDownOpened" />
 
 
                                     <Button Grid.Column="1"

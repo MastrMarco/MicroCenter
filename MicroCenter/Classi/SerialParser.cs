@@ -1,70 +1,53 @@
-﻿namespace MicroCenter.Classi
+﻿using System.IO.Ports;
+
+namespace MicroCenter.Classi
 {
     public class SerialParser
     {
-        // Metodo per suddividere la stringa
-        //public List<List<string>> ParseString(string input)
+
+
+        // Crea una Lista Delle Porte Seriali Attive e un Filtraggio di essi
+        //public List<string> ListaPorteConFiltro(string? Filtro)
         //{
-        //    // Lista principale che conterrà le liste separate da ';'
-        //    var result = new List<List<string>>();
+        //    Filtro = "USB-SERIAL CH340";
+        //    string[] portNames = SerialPort.GetPortNames();
+        //    List<string> ch340Ports = new List<string>();
 
-        //    // Dividi la stringa principale utilizzando ';'
-        //    var sections = input.Split(';', StringSplitOptions.RemoveEmptyEntries);
-
-        //    foreach (var section in sections)
+        //    foreach (string portName in portNames)
         //    {
-        //        // Per ogni sezione, dividi ulteriormente utilizzando ','
-        //        var values = section.Split(',', StringSplitOptions.RemoveEmptyEntries);
-        //        result.Add(new List<string>(values));
-        //    }
+        //        string? description = ContollerSerialPort.GetPortDescription(portName);
 
-        //    return result;
+        //        // Verifica se la descrizione inizia con "USB-SERIAL CH340"
+        //        if (description.StartsWith(Filtro))
+        //        {
+        //            ch340Ports.Add(portName); // Aggiungi solo il nome della porta alla lista temporanea
+        //        }
+        //    }
+        //    return ch340Ports;
         //}
 
-        private List<List<string>> _parsedData = new List<List<string>>();
-        // Metodo per suddividere la stringa e sovrascrivere i dati esistenti
-        public List<List<string>> ParseString(string input)
+        public async Task<List<string>> ListaPorteConFiltroAsync(string? filtro = "USB-SERIAL CH340")
         {
-            // Resetta i dati precedenti
-            _parsedData.Clear();
-
-            // Dividi la stringa principale utilizzando ';'
-            // var sections = input.Split(';', StringSplitOptions.RemoveEmptyEntries);
-            var sections = input.Split(';');
-
-            foreach (var section in sections)
+            return await Task.Run(() =>
             {
-                // Per ogni sezione, dividi ulteriormente utilizzando ','
-                // var values = section.Split(',', StringSplitOptions.RemoveEmptyEntries);
-                var values = section.Split(',');
-                _parsedData.Add(new List<string>(values));
-            }
+                string[] portNames = SerialPort.GetPortNames();
+                List<string> ch340Ports = new List<string>();
 
-            return _parsedData;
+                foreach (string portName in portNames)
+                {
+                    string? description = ContollerSerialPort.GetPortDescription(portName);
+
+                    if (!string.IsNullOrEmpty(description) && description.StartsWith(filtro))
+                    {
+                        ch340Ports.Add(portName);
+                    }
+                }
+                return ch340Ports;
+            });
         }
 
 
 
-
-
-
-
-
-
-
-
-        // Metodo per stampare il risultato in modo leggibile
-        //public void PrintParsedResult(List<List<string>> parsedData)
-        //{
-        //    for (int i = 0; i < parsedData.Count; i++)
-        //    {
-        //        Console.WriteLine($"Sezione {i + 1}:");
-        //        foreach (var value in parsedData[i])
-        //        {
-        //            Console.WriteLine($"  Valore: {value}");
-        //        }
-        //    }
-        //}
     }
 
 }
