@@ -13,7 +13,8 @@
         Background="Transparent"
         AllowsTransparency="True"
         ResizeMode="NoResize"
-        WindowState="Normal">
+        WindowState="Normal"
+        Closed="Window_Closed">
 
     <Border x:Name="ContenitoreForm"
             CornerRadius="10"

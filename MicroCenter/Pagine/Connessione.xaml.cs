@@ -1,12 +1,21 @@
 ﻿using MicroCenter.Classi;
+using MicroCenter.Finestre;
 using MicroCenter.Lingue;
 using System.Globalization;
 using System.IO.Ports;
+using System.Reflection.Metadata;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Diagnostics.Metrics;
+using System.Timers;
 
 namespace MicroCenter.Pagine
 {
@@ -15,77 +24,39 @@ namespace MicroCenter.Pagine
     /// </summary>
     public partial class Connessione : Page
     {
-        public SerialPort _serialPort;
+        public static SerialPort _serialPort = new SerialPort();
         public string com_Name_set;
 
         public SerialParser FunzioniSeriali = new SerialParser();
-        public ArduHubFan Dispositivo = new ArduHubFan();
-
-
-        private DispatcherTimer _timer;
-        private TimeSpan _time;
+        public static ArduHubFan Dispositivo = new ArduHubFan();
 
 
 
 
+
+        // Timer che non bloccano la UI e vengono avviati dopo la connesione seriale e blocati alla disconnessione
+        public static bool isRunning = false;
+
+
+
+
+        // Setup Pagina Connessione
         public Connessione()
         {
             InitializeComponent();
 
-            // _ = LoadAvailableCH340PortsAsync();
-
             // Aggiorna la ComboBox con i risultati trovati dopo aver completato l'operazione in background
             ListaCOM();
 
-
-
-            InitializeTimer();
-            _timer.Start();
-
-
-
-
             //Visualizza l'impostazione Memorizata e la esegue
             SetLinguaPaginaTitoli(Set_Lingua());
+
         }
 
 
 
 
-        //private async Task LoadAvailableCH340PortsAsync()
-        //{
-        //    SerialPortComboBox.Items.Clear();
-        //    string[] portNames = SerialPort.GetPortNames();
-        //    List<string> ch340Ports = new List<string>();
-
-        //    await Task.Run(() =>
-        //    {
-        //        foreach (string portName in portNames)
-        //        {
-        //            string? description = ContollerSerialPort.GetPortDescription(portName);
-
-        //            // Verifica se la descrizione inizia con "USB-SERIAL CH340"
-        //            if (description.StartsWith("USB-SERIAL CH340"))
-        //            {
-        //                ch340Ports.Add(portName); // Aggiungi solo il nome della porta alla lista temporanea
-        //            }
-        //        }
-        //    });
-
-        //    // Aggiorna la ComboBox con i risultati trovati dopo aver completato l'operazione in background
-        //    foreach (string port in ch340Ports)
-        //    {
-        //        SerialPortComboBox.Items.Add(port);
-        //    }
-
-        //    if (SerialPortComboBox.Items.Count > 0)
-        //        SerialPortComboBox.SelectedIndex = 0; // Se ci sono elementi, seleziona il primo
-
-
-        //}
-
-
-
+        // Ricerca a Agiornameto lista Porte Seriali con Filtro
         public async void ListaCOM()
         {
             // Aggiorna la ComboBox con i risultati trovati dopo aver completato l'operazione in background
@@ -100,49 +71,74 @@ namespace MicroCenter.Pagine
                 SerialPortComboBox.SelectedIndex = 0; // Se ci sono elementi, seleziona il primo
             }
         }
+
+        // Bottone Connetti Disconnetti
         private void btnIconaConnetti(object sender, RoutedEventArgs e)
         {
-            if (_serialPort == null)
+            // if (_serialPort == null)
+            if (!_serialPort.IsOpen)
             {
                 _serialPort = new SerialPort
                 {
-                    PortName = com_Name_set,
                     BaudRate = 115200,
-                    Parity = Parity.None,
                     DataBits = 8,
-                    StopBits = StopBits.One,
+                    DiscardNull = false,
+                    DtrEnable = false,
                     Handshake = Handshake.None,
-                    //WriteTimeout = 500,
+                    Parity = Parity.None,
+                    ParityReplace = 63,
+                    PortName = com_Name_set,
+                    ReadBufferSize = 4096,
+                    ReadTimeout = 5000,
+                    ReceivedBytesThreshold = 1,
+                    RtsEnable = false,
+                    StopBits = StopBits.One,
+                    WriteBufferSize = 2048,
+                    WriteTimeout = 5000,
                     Encoding = System.Text.Encoding.UTF8, // Usa l'encoding UTF-8 per supportare caratteri speciali
                     NewLine = "\n", // Definisci il carattere di fine stringa (ad esempio "\n")
-                    ReadTimeout = 2000,
 
                 };
-                //  _serialPort.DataReceived += SerialPort_DataReceived;
+                //_serialPort.DataReceived += SerialPort_DataReceived;
                 _serialPort.Open();
 
 
-                if (_timer.IsEnabled == false)
+                if (!isRunning)
                 {
-                    _timer.Start();
+                    StartTimer_Click(null, null);
+                    UI_Timer(null, null);
                 }
+
+
             }
             else
             {
-                _serialPort.Close();
-                _serialPort = null;
-                _timer.Stop();
+                Disconnessione();
                 if (btnConnetti.Content == FindResource("IconaUSBDisconnetti"))
                 {
                     btnConnetti.Content = FindResource("IconaUSBConnetti");
                 }
+                LaConnessione.Content = ConnessioneDispositivo(Dispositivo.StatoConnessione);
+                LabToolTipConnetti.Content = LaConnessione.Content;
             }
         }
 
-        private void SerialPortComboBox_DropDownOpened(object sender, EventArgs e)
-        {       
-                ListaCOM();
+     
+        public static void Disconnessione()
+        {
+            isRunning = false;
+            Dispositivo.StatoConnessione = false;
+            _serialPort.Close();
+       
         }
+
+        // Aggiorna Lista POrte COM / Seriali
+        private void SerialPortComboBox_DropDownOpened(object sender, EventArgs e)
+        {
+            ListaCOM();
+        }
+
+        // Imposta il Nome COM della Porta Selezionata
         private void SerialPortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (SerialPortComboBox.Items.Count > 0)
@@ -150,103 +146,144 @@ namespace MicroCenter.Pagine
                 com_Name_set = SerialPortComboBox.SelectedItem.ToString();
             }
         }
-       
 
 
 
-        int lgo;
-
-
-        private void InitializeTimer()
+        // Timer Serial Read and Write
+        private async void StartTimer_Click(object sender, RoutedEventArgs e)
         {
-            _time = TimeSpan.Zero;
+            string DatiTX = "";
 
-            _timer = new DispatcherTimer
-            {
-                // Interval = TimeSpan.FromSeconds(1)
-                Interval = TimeSpan.FromMilliseconds(100)
-            };
-            _timer.Tick += Timer_Tick;
-        }
-
-
-
-        private void Timer_Tick(object? sender, EventArgs e)
-        {
-            //_time = _time.Add(TimeSpan.FromSeconds(1));
-            _time = _time.Add(TimeSpan.FromMilliseconds(10));
-            // TxSerialText.Text = _time.ToString(@"hh\:mm\:ss");
-
-
-            if (_serialPort != null)
+            isRunning = true;
+            while (isRunning)
             {
 
                 if (_serialPort.IsOpen)
                 {
                     // Leggi i dati ricevuti
                     string serialDatiRicevuto = "";
-                    try {serialDatiRicevuto = _serialPort.ReadLine(); } catch { }                    
+                    //_serialPort.DiscardInBuffer();
+                    try { serialDatiRicevuto = _serialPort.ReadLine(); } catch (Exception ex) { }
                     Dispositivo.SetSrialToList(serialDatiRicevuto);
-                    TxSerialText.Text = serialDatiRicevuto;
-                    lgo = Dispositivo.Get_CountListSeriale();
+                    // TxSerialText.Text = DatiTX;
+                    // lgo = Dispositivo.Get_CountListSeriale();
 
+
+                    //Stringa da inviare non Pronta con Abilitazione per la comunicazione
+                    if ((Dispositivo.StatoConnessione) && (serialDatiRicevuto.Length > 100))
+                    {
+                        DatiTX = (
+                        "200" + ";" + //0
+                        "" + ";" + //1
+                        "" + ";" + //2
+                        "" + ";" + //3
+                        "" + ";" + //4
+                        "" + ";" + //5
+                        "" + ";" + //6
+                        "" + ";" + //7
+                        "" + ";" + //8
+                        "" + ";" + //9
+                        "" + ";" + //10
+                        "" + ";" + //11
+                        "" + ";" + //12
+                        "" + ";" + //13
+                        "" + ";" + //14
+                        "" + ";" + //15
+                        "" + ";"   //16
+                        );
+                        _serialPort.WriteLine(DatiTX);
+                    }
+                    //Stringa da inviare Pronta con Abilitazione per la comunicazione
+                    else if ((Dispositivo.StatoConnessione) && (serialDatiRicevuto.Length < 100))
+                    {
+                        DatiTX = (
+                        "200" + ";" + //0
+                        Dispositivo.ModLED_Fan.ToString() + ";" + //1
+                        Dispositivo.LumLED[Dispositivo.ModLED_Fan].ToString() + ";" + //2
+                        Dispositivo.ColoreLED[Dispositivo.ModLED_Fan].ToString() + ";" + //3
+                        Dispositivo.Saturazione[Dispositivo.ModLED_Fan].ToString() + ";" + //4
+                        Dispositivo.FanSpeed[Dispositivo.ModLED_Fan].ToString() + ";" + //5
+                        "" + ";" + //6
+                        "" + ";" + //7
+                        "" + ";" + //8
+                        "" + ";" + //9
+                        "" + ";" + //10
+                        "" + ";" + //11
+                        "" + ";" + //12
+                        "" + ";" + //13
+                        "" + ";" + //14
+                        "" + ";" + //15
+                        "" + ";"   //16
+                        );
+                        _serialPort.WriteLine(DatiTX);
+                    }
 
                 }
                 else
                 {
-                    // Porta non aperta: gestisci l'errore
+                    // Porta non aperta: gestisci l'errore o disconnessa
                     MessageBox.Show("La porta seriale non è aperta.");
-                    _timer.Stop();
-                }
-
-            }
-            else
-            {
-                Dispositivo.StatoConnessione = false;
-            }
-
-
-
-
-
-
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-
-                if (lgo == 13)
-                {
-
-                    //LaV1.Text = parsData[1][1].ToString() + " V";
-                    //LaV2.Text = parsData[1][2].ToString() + " V";
-                    //LaVref.Text = parsData[1][6].ToString() + " V";
-
-
-                    LabNomeDispositivo.Content = Dispositivo.Get_NomeDispositivo();
-                    LaVerSoft.Text = "v" + Dispositivo.Versione;
-                    LaVerTipo.Text = Dispositivo.Get_TipoVersine();
-                    LaSoC.Text = Dispositivo.Get_TipoSoC();
-                    LaTempScheda.Text = Dispositivo.TempDS.ToString() + " °C";
-                    LaVref.Text = Dispositivo.VAREF.ToString("0.00") + " V";
-
-
-
-                    //SerialPortComboBox.
-                    LaConnessione.Content = ConnessioneDispositivo(Dispositivo.StatoConnessione);
-                    LabToolTipConnetti.Content = LaConnessione.Content;
-
-                    if (btnConnetti.Content == FindResource("IconaUSBConnetti"))
-                    {
-                        btnConnetti.Content = FindResource("IconaUSBDisconnetti");
-                    }
-
+                    Disconnessione();
                 }
 
 
-            });
-
-
-
+                await Task.Delay(40); // millisecondi
+            }
         }
+
+
+
+
+        // Timer Serial Read and Write
+        private async void UI_Timer(object sender, RoutedEventArgs e)
+        {
+            int lgo;
+            isRunning = true;
+            while (isRunning)
+            {
+
+                if (_serialPort.IsOpen)
+                {
+                    lgo = Dispositivo.Get_CountListSeriale();
+
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+
+                        if (lgo == 13)
+                        {
+
+                            LabNomeDispositivo.Content = Dispositivo.Get_NomeDispositivo();
+                            LaVerSoft.Text = "v" + Dispositivo.Versione;
+                            LaVerTipo.Text = Dispositivo.Get_TipoVersine();
+                            LaSoC.Text = Dispositivo.Get_TipoSoC();
+                            LaTempScheda.Text = Dispositivo.TempDS.ToString() + " °C";
+                            LaVref.Text = Dispositivo.VAREF.ToString("0.00") + " V";
+
+
+
+                            LaConnessione.Content = ConnessioneDispositivo(Dispositivo.StatoConnessione);
+                            LabToolTipConnetti.Content = LaConnessione.Content;
+
+                            if (btnConnetti.Content == FindResource("IconaUSBConnetti"))
+                            {
+                                btnConnetti.Content = FindResource("IconaUSBDisconnetti");
+                            }
+                            TxSerialText.Text = Dispositivo.RX;
+
+                        }
+
+
+                    });
+
+
+                }
+
+
+                await Task.Delay(100); // millisecondi
+            }
+        }
+
+
 
 
 
@@ -294,6 +331,17 @@ namespace MicroCenter.Pagine
             }
         }
 
-      
+
+        public static InfoSerialData window2;
+
+        private void btnInfoSerialData(object sender, RoutedEventArgs e)
+        {
+            if (window2 == null) // Evita di aprire più finestre
+            {
+                window2 = new InfoSerialData();
+                window2.Show();
+            }
+
+        }
     }
 }

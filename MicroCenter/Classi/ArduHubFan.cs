@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Xps;
 using static MicroCenter.Pagine.Connessione;
 
 namespace MicroCenter.Classi
@@ -61,6 +62,10 @@ namespace MicroCenter.Classi
         // "Calcolati"
         public bool StatoConnessione { get; set; }
 
+        public string? TX;
+
+        public string? RX;
+
 
 
 
@@ -71,10 +76,11 @@ namespace MicroCenter.Classi
 
         // Start SerialString Conversione in Lista
         public List<List<string>> parsData;
-        public void SetSrialToList(string SerialRead)
+        public void SetSrialToList(string? SerialRead)
         {
+            RX = SerialRead;
             // Conversione Dati Seriali in Lista
-            if (SerialRead != null && SerialRead.Length > 50)
+            if (SerialRead != null && SerialRead.Length > 5)
             {
                 parsData = DecodeSeralData_0.ParseString(SerialRead);
             }
@@ -82,8 +88,15 @@ namespace MicroCenter.Classi
             // Assegnazione dati Dalla Lista alle Singole Vriabbili
             if (Get_CountListSeriale() == 13)
             {
-                StringaCaricamentoDati_HUB(parsData);
-                StatoConnessione = true;
+                if (!StatoConnessione)
+                {
+                    StringaCaricamentoDati_HUB(parsData);
+                    StatoConnessione = true;
+                }
+                else
+                {
+                    StringaComunicazioneoDati_HUB(parsData);
+                }
             }
             else
             {
@@ -92,7 +105,7 @@ namespace MicroCenter.Classi
         }
 
         // Split in Colonne
-        private static class DecodeSeralData_0
+        private class DecodeSeralData_0
         {
             public static List<List<string>> ParseString(string input)
             {
@@ -125,7 +138,8 @@ namespace MicroCenter.Classi
             }
 
         }
-        // End SerialString Conversione in Lista
+        // End SerialString Conversione in Lista    
+
 
 
 
@@ -168,9 +182,9 @@ namespace MicroCenter.Classi
             Saturazione = Get_Elementi(SerialDataRead, 6); // Saturazione di ogni Elemento LED HSV
 
 
-            ModLED_Fan = int.Parse(SerialDataRead[1][0]);
-            ModFAN_SPEED = int.Parse(SerialDataRead[1][0]);
-            ModRGB_LED = int.Parse(SerialDataRead[1][0]);
+            ModLED_Fan = int.Parse(SerialDataRead[7][0]); //
+            ModFAN_SPEED = int.Parse(SerialDataRead[7][1]); //
+            ModRGB_LED = int.Parse(SerialDataRead[7][2]); //
 
 
             FanSpeed = Get_Elementi(SerialDataRead, 8); // Velocità Rotazione Ventole di ogni Elemento
@@ -180,7 +194,60 @@ namespace MicroCenter.Classi
             Animation_RGBS = Get_Elementi(SerialDataRead, 11); // Dai Animazione di ogni Elemento LED
         }
 
+        private void StringaComunicazioneoDati_HUB(List<List<string>> SerialDataRead)
+        {
 
+            if (SerialDataRead[0].Count == 2)
+            {
+
+                Stato_Software = SerialDataRead[0][0]; // Serve a Capire il Tipo di Versione del Firmware del Dispositivo Riaga ID-0; Colonna ID-0, Es Beta
+
+                // SoC = int.Parse(SerialDataRead[0][1]); // Serve a Capire il Tipo di Microcontrollore del Dispositivo Riaga ID-0; Colonna ID-1, Es Arduino Uno ATMega 328P
+
+                Progetto = int.Parse(SerialDataRead[0][1]); // Serve a Capire il Nome del Progetto / Dispositivo e il Tipo Riaga ID-0; Colonna ID-3, Es ArduFanHub 2.0
+
+                // Versione = SerialDataRead[0][4]; // Serve a Capire la Versione del Firmware del Dispositivo Riaga ID-0; Colonna ID-4, Es v1.00
+
+                TempDS = int.Parse(SerialDataRead[1][0]); // Sensore Temperatura Riaga ID-1; Colonna ID-0, Es 23 °C
+
+                V5 = decimal.Parse(SerialDataRead[1][0]);
+
+                V12 = decimal.Parse(SerialDataRead[1][0]);
+
+                S_Pro_12V = int.Parse(SerialDataRead[1][0]);
+
+                PowerLimitLED_Stato = int.Parse(SerialDataRead[1][0]);
+
+                S_Pro_5V = int.Parse(SerialDataRead[1][0]);
+
+                VAREF = decimal.Parse(SerialDataRead[1][6], CultureInfo.InvariantCulture); // Tensione VoltRef Microcontrollore Riaga ID-1; Colonna ID-6, Es 4.89 V
+
+                ROM_Dati = int.Parse(SerialDataRead[1][0]);
+
+                EN_OV = int.Parse(SerialDataRead[1][0]);
+
+                PowerLimitLED = int.Parse(SerialDataRead[1][0]);
+
+
+                ModLED_Fan = int.Parse(SerialDataRead[7][0]); // 
+                ModFAN_SPEED = int.Parse(SerialDataRead[7][1]); //
+                ModRGB_LED = int.Parse(SerialDataRead[7][2]); // 
+
+
+                NUM_LEDS_OUT[ModLED_Fan] = int.Parse(SerialDataRead[3][0]); // Numero di ogni Elemento LED
+                LumLED[ModLED_Fan] = int.Parse(SerialDataRead[4][0]); // Luminosità di ogni Elemento LED HSV
+                ColoreLED[ModLED_Fan] = int.Parse(SerialDataRead[5][0]); // Colore di ogni Elemento LED HSV
+                Saturazione[ModLED_Fan] = int.Parse(SerialDataRead[6][0]); // Saturazione di ogni Elemento LED HSV
+
+
+                FanSpeed[ModFAN_SPEED] = int.Parse(SerialDataRead[8][0]); // Velocità Rotazione Ventole di ogni Elemento
+                Fan_Mod_Speed[ModFAN_SPEED] = int.Parse(SerialDataRead[9][0]); // Modalita Regolazione Velocità Vnetole di ogni Elemento
+                RPM_Fan = Get_Elementi(SerialDataRead, 10); // RPM di ogni Elemento Ventole
+
+
+                Animation_RGBS[ModRGB_LED] = int.Parse(SerialDataRead[11][0]); // Dai Animazione di ogni Elemento LED
+            }
+        }
 
 
 

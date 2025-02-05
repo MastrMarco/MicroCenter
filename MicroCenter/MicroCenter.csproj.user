@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Finestre\InfoSerialData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pagine\Arduino.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -18,6 +21,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Finestre\InfoSerialData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Immagini_Icone\Icone_SVG\Icone.xaml">
       <SubType>Designer</SubType>
     </Page>

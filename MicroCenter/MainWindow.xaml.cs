@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using System.Security.RightsManagement;
 using MicroCenter.Lingue;
+using MicroCenter.Finestre;
 
 
 namespace MicroCenter
@@ -19,11 +20,27 @@ namespace MicroCenter
     public partial class MainWindow : Window
     {
 
-
         public MainWindow()
         {
             InitializeComponent();
-            btnConnessione_Click(null,null);
+
+            btnConnessione_Click(null, null);
+
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            if (Connessione._serialPort != null)
+            {
+                if (Connessione._serialPort.IsOpen)
+                {
+                    Connessione._serialPort.Close();
+                }
+            }
+
+            if (Connessione.window2 != null)
+            {
+                Connessione.window2.Close(); // Chiude Window2 se è aperta
+            }
 
         }
 
@@ -51,6 +68,8 @@ namespace MicroCenter
         {
             Properties.Settings.Default.Save();
 
+            Connessione.Disconnessione();
+
             Close();
         }
 
@@ -63,7 +82,7 @@ namespace MicroCenter
 
 
 
-        private  Impostazioni? ImpostazioniPage = null;
+        private Impostazioni? ImpostazioniPage = null;
         private Connessione? connessionePage = null;
         private Arduino? ArduinoPage = null;
 
@@ -106,7 +125,6 @@ namespace MicroCenter
             LabInfoPagine.Content = Lingua.fArduino;
             LabToolTipArduino.Content = Lingua.fArduino;
         }
-
 
 
     }

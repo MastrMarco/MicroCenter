@@ -62,3 +62,5 @@ D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\refint\Mic
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\MicroCenter.pdb
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\MicroCenter.genruntimeconfig.cache
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\ref\MicroCenter.dll
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Finestre\InfoSerialData.g.cs
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Finestre\InfoSerialData.baml
