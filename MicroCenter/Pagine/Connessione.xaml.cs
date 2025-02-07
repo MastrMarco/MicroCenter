@@ -168,6 +168,8 @@ namespace MicroCenter.Pagine
                     // TxSerialText.Text = DatiTX;
                     // lgo = Dispositivo.Get_CountListSeriale();
 
+                    La4.Text = Dispositivo.Get_CountListSeriale().ToString();
+
 
                     //Stringa da inviare non Pronta con Abilitazione per la comunicazione
                     if ((Dispositivo.StatoConnessione) && (serialDatiRicevuto.Length > 100))
@@ -249,7 +251,7 @@ namespace MicroCenter.Pagine
                     Application.Current.Dispatcher.Invoke(() =>
                     {
 
-                        if (lgo == 13)
+                        if (lgo == 13 || lgo == 4)
                         {
 
                             LabNomeDispositivo.Content = Dispositivo.Get_NomeDispositivo();

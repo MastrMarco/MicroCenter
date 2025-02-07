@@ -64,3 +64,5 @@ D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\MicroCente
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\ref\MicroCenter.dll
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Finestre\InfoSerialData.g.cs
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Finestre\InfoSerialData.baml
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Pagine\HubPC\Elementi.g.cs
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Pagine\HubPC\Elementi.baml

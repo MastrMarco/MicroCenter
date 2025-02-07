@@ -86,22 +86,20 @@ namespace MicroCenter.Classi
             }
 
             // Assegnazione dati Dalla Lista alle Singole Vriabbili
-            if (Get_CountListSeriale() == 13)
-            {
-                if (!StatoConnessione)
-                {
+                if ((Get_CountListSeriale() == 13) && (!StatoConnessione))
+                {          
                     StringaCaricamentoDati_HUB(parsData);
                     StatoConnessione = true;
-                }
-                else
-                {
-                    StringaComunicazioneoDati_HUB(parsData);
-                }
             }
-            else
+            else if ((Get_CountListSeriale() == 4) && (StatoConnessione))
             {
-                StatoConnessione = false;
-            }
+
+                StringaComunicazioneoDati_HUB(parsData);
+            }           
+            //else
+            //{
+            //    StatoConnessione = false;
+            //}
         }
 
         // Split in Colonne
@@ -200,52 +198,52 @@ namespace MicroCenter.Classi
             if (SerialDataRead[0].Count == 2)
             {
 
-                Stato_Software = SerialDataRead[0][0]; // Serve a Capire il Tipo di Versione del Firmware del Dispositivo Riaga ID-0; Colonna ID-0, Es Beta
+                //Stato_Software = SerialDataRead[0][0]; // Serve a Capire il Tipo di Versione del Firmware del Dispositivo Riaga ID-0; Colonna ID-0, Es Beta
 
                 // SoC = int.Parse(SerialDataRead[0][1]); // Serve a Capire il Tipo di Microcontrollore del Dispositivo Riaga ID-0; Colonna ID-1, Es Arduino Uno ATMega 328P
 
-                Progetto = int.Parse(SerialDataRead[0][1]); // Serve a Capire il Nome del Progetto / Dispositivo e il Tipo Riaga ID-0; Colonna ID-3, Es ArduFanHub 2.0
+                //Progetto = int.Parse(SerialDataRead[0][1]); // Serve a Capire il Nome del Progetto / Dispositivo e il Tipo Riaga ID-0; Colonna ID-3, Es ArduFanHub 2.0
 
                 // Versione = SerialDataRead[0][4]; // Serve a Capire la Versione del Firmware del Dispositivo Riaga ID-0; Colonna ID-4, Es v1.00
 
-                TempDS = int.Parse(SerialDataRead[1][0]); // Sensore Temperatura Riaga ID-1; Colonna ID-0, Es 23 °C
+                TempDS = int.Parse(SerialDataRead[0][0]); // Sensore Temperatura Riaga ID-1; Colonna ID-0, Es 23 °C
 
-                V5 = decimal.Parse(SerialDataRead[1][0]);
+                V5 = decimal.Parse(SerialDataRead[0][1]);
 
-                V12 = decimal.Parse(SerialDataRead[1][0]);
+                V12 = decimal.Parse(SerialDataRead[0][2]);
 
-                S_Pro_12V = int.Parse(SerialDataRead[1][0]);
+                S_Pro_12V = int.Parse(SerialDataRead[0][3]);
 
-                PowerLimitLED_Stato = int.Parse(SerialDataRead[1][0]);
+                PowerLimitLED_Stato = int.Parse(SerialDataRead[0][4]);
 
-                S_Pro_5V = int.Parse(SerialDataRead[1][0]);
+                S_Pro_5V = int.Parse(SerialDataRead[0][5]);
 
-                VAREF = decimal.Parse(SerialDataRead[1][6], CultureInfo.InvariantCulture); // Tensione VoltRef Microcontrollore Riaga ID-1; Colonna ID-6, Es 4.89 V
+                VAREF = decimal.Parse(SerialDataRead[0][6], CultureInfo.InvariantCulture); // Tensione VoltRef Microcontrollore Riaga ID-1; Colonna ID-6, Es 4.89 V
 
-                ROM_Dati = int.Parse(SerialDataRead[1][0]);
+                //ROM_Dati = int.Parse(SerialDataRead[1][0]);
 
-                EN_OV = int.Parse(SerialDataRead[1][0]);
+                //EN_OV = int.Parse(SerialDataRead[1][0]);
 
-                PowerLimitLED = int.Parse(SerialDataRead[1][0]);
-
-
-                ModLED_Fan = int.Parse(SerialDataRead[7][0]); // 
-                ModFAN_SPEED = int.Parse(SerialDataRead[7][1]); //
-                ModRGB_LED = int.Parse(SerialDataRead[7][2]); // 
+                //PowerLimitLED = int.Parse(SerialDataRead[1][0]);
 
 
-                NUM_LEDS_OUT[ModLED_Fan] = int.Parse(SerialDataRead[3][0]); // Numero di ogni Elemento LED
-                LumLED[ModLED_Fan] = int.Parse(SerialDataRead[4][0]); // Luminosità di ogni Elemento LED HSV
-                ColoreLED[ModLED_Fan] = int.Parse(SerialDataRead[5][0]); // Colore di ogni Elemento LED HSV
-                Saturazione[ModLED_Fan] = int.Parse(SerialDataRead[6][0]); // Saturazione di ogni Elemento LED HSV
+                //ModLED_Fan = int.Parse(SerialDataRead[7][0]); // 
+                //ModFAN_SPEED = int.Parse(SerialDataRead[7][1]); //
+                //ModRGB_LED = int.Parse(SerialDataRead[7][2]); // 
 
 
-                FanSpeed[ModFAN_SPEED] = int.Parse(SerialDataRead[8][0]); // Velocità Rotazione Ventole di ogni Elemento
-                Fan_Mod_Speed[ModFAN_SPEED] = int.Parse(SerialDataRead[9][0]); // Modalita Regolazione Velocità Vnetole di ogni Elemento
-                RPM_Fan = Get_Elementi(SerialDataRead, 10); // RPM di ogni Elemento Ventole
+                //NUM_LEDS_OUT[ModLED_Fan] = int.Parse(SerialDataRead[3][0]); // Numero di ogni Elemento LED
+                //LumLED[ModLED_Fan] = int.Parse(SerialDataRead[4][0]); // Luminosità di ogni Elemento LED HSV
+                //ColoreLED[ModLED_Fan] = int.Parse(SerialDataRead[5][0]); // Colore di ogni Elemento LED HSV
+                //Saturazione[ModLED_Fan] = int.Parse(SerialDataRead[6][0]); // Saturazione di ogni Elemento LED HSV
 
 
-                Animation_RGBS[ModRGB_LED] = int.Parse(SerialDataRead[11][0]); // Dai Animazione di ogni Elemento LED
+                //FanSpeed[ModFAN_SPEED] = int.Parse(SerialDataRead[8][0]); // Velocità Rotazione Ventole di ogni Elemento
+                //Fan_Mod_Speed[ModFAN_SPEED] = int.Parse(SerialDataRead[9][0]); // Modalita Regolazione Velocità Vnetole di ogni Elemento
+                RPM_Fan = Get_Elementi(SerialDataRead, 1); // RPM di ogni Elemento Ventole
+
+
+                Animation_RGBS[ModRGB_LED] = int.Parse(SerialDataRead[2][0]); // Dai Animazione di ogni Elemento LED
             }
         }
 

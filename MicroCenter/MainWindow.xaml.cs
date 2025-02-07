@@ -10,6 +10,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Security.RightsManagement;
 using MicroCenter.Lingue;
 using MicroCenter.Finestre;
+using MicroCenter.Pagine.HubPC;
 
 
 namespace MicroCenter
@@ -84,7 +85,8 @@ namespace MicroCenter
 
         private Impostazioni? ImpostazioniPage = null;
         private Connessione? connessionePage = null;
-        private Arduino? ArduinoPage = null;
+        //private Arduino? ArduinoPage = null;
+        private Elementi? ArduinoPage = null;
 
         //Visualiza le Impostazioni
         private void btnImpostazioni_Click(object sender, RoutedEventArgs e)
@@ -119,7 +121,8 @@ namespace MicroCenter
         {
             if (ArduinoPage == null)
             {
-                ArduinoPage = new Arduino();
+                // ArduinoPage = new Arduino();
+                ArduinoPage = new Elementi();
             }
             frameContent.Navigate(ArduinoPage);
             LabInfoPagine.Content = Lingua.fArduino;

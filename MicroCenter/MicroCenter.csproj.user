@@ -16,6 +16,9 @@
     <Compile Update="Pagine\Connessione.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pagine\HubPC\Elementi.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pagine\Impostazioni.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pagine\Connessione.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pagine\HubPC\Elementi.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pagine\Impostazioni.xaml">
