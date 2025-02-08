@@ -175,7 +175,7 @@ namespace MicroCenter.Pagine
                     if ((Dispositivo.StatoConnessione) && (serialDatiRicevuto.Length > 100))
                     {
                         DatiTX = (
-                        "200" + ";" + //0
+                        "100" + ";" + //0
                         "" + ";" + //1
                         "" + ";" + //2
                         "" + ";" + //3
@@ -199,7 +199,7 @@ namespace MicroCenter.Pagine
                     else if ((Dispositivo.StatoConnessione) && (serialDatiRicevuto.Length < 100))
                     {
                         DatiTX = (
-                        "200" + ";" + //0
+                        "100" + ";" + //0
                         Dispositivo.ModLED_Fan.ToString() + ";" + //1
                         Dispositivo.LumLED[Dispositivo.ModLED_Fan].ToString() + ";" + //2
                         Dispositivo.ColoreLED[Dispositivo.ModLED_Fan].ToString() + ";" + //3

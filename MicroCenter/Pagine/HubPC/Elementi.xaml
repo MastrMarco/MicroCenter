@@ -61,6 +61,108 @@
                     Margin="10,70,10,10"
                     Background="{DynamicResource TertiaryBackgroundColor}">
 
+
+                <StackPanel x:Name="StackPanelPanelloModifica"
+                            Orientation="Vertical"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="top">
+
+                    <!--Colore-->
+                    <Border x:Name="TabColore"
+                            CornerRadius="8"
+                            Width="200"
+                            Height="100"
+                            VerticalAlignment="top"
+                            HorizontalAlignment="Center"
+                            Margin="10"
+                            Background="{DynamicResource SecundaryBackgroundColor}">
+
+
+                        <TextBlock x:Name="LaColore"
+                                   Text="Seleziona Colore"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Margin="2"
+                                   Foreground="{DynamicResource PrimaryTextColor}" />
+                    </Border>
+                    <!--Fine Colore-->
+
+                    <!--Ventole-->
+                    <Border x:Name="TabVentole"
+                            CornerRadius="8"
+                            Width="200"
+                            Height="50"
+                            VerticalAlignment="top"
+                            HorizontalAlignment="Center"
+                            Margin="10,0,10,10"
+                            Background="{DynamicResource SecundaryBackgroundColor}">
+
+
+                        <TextBlock x:Name="LaVentole"
+                                   Text="Velocità Ventole"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Margin="2"
+                                   Foreground="{DynamicResource PrimaryTextColor}" />
+
+
+                    </Border>
+                    <!--Fine Ventole-->
+
+                    <!--Luminosità-->
+                    <Border x:Name="TabLuminosità"
+                            CornerRadius="8"
+                            Width="200"
+                            Height="50"
+                            VerticalAlignment="top"
+                            HorizontalAlignment="Center"
+                            Margin="10,0,10,0"
+                            Background="{DynamicResource SecundaryBackgroundColor}">
+
+
+                        <TextBlock x:Name="LaLuminosità"
+                                   Text="Luminosità"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Margin="2"
+                                   Foreground="{DynamicResource PrimaryTextColor}" />
+
+
+                    </Border>
+                    <!--Fine Luminoità-->
+
+                    <!--Funzioni LED-->
+                    <Border x:Name="TabFunzioni_LED"
+                            CornerRadius="8"
+                            Width="200"
+                            Height="120"
+                            VerticalAlignment="top"
+                            HorizontalAlignment="Center"
+                            Margin="10"
+                            Background="{DynamicResource SecundaryBackgroundColor}">
+
+
+                        <TextBlock x:Name="LaFunzioni_LED"
+                                   Text="Animazioni RGB"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Margin="2"
+                                   Foreground="{DynamicResource PrimaryTextColor}" />
+
+
+                    </Border>
+                    <!--Fine Funzioni LED-->
+
+                </StackPanel>
+
             </Border>
 
 
@@ -74,6 +176,14 @@
                     Margin="10,10,10,10"
                     Background="{DynamicResource TertiaryBackgroundColor}">
 
+
+                <Grid>
+                    <StackPanel x:Name="StackPanelContainer"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />
+                </Grid>
+
             </Border>
 
 
@@ -81,14 +191,14 @@
                        FontFamily="ubuntu"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Foreground="Black"
+                       Foreground="{DynamicResource PrimaryTextColor}"
                        FontSize="60"
                        FontWeight="Bold" />
 
-            
-            
+
+
         </Grid>
-        
+
     </Border>
 
 </Page>

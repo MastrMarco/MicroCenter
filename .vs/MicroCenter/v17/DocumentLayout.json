@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\hubpc\\elementi.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\pagine\\connessione.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\connessione.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\pagine\\hubpc\\elementi.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\hubpc\\elementi.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,26 +34,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ArduHubFan.cs",
               "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\ArduHubFan.cs",
               "RelativeDocumentMoniker": "MicroCenter\\Classi\\ArduHubFan.cs",
               "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\ArduHubFan.cs",
               "RelativeToolTip": "MicroCenter\\Classi\\ArduHubFan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF0AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAiwPIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-25T20:33:33.298Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Connessione.xaml.cs",
               "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml.cs",
               "RelativeDocumentMoniker": "MicroCenter\\Pagine\\Connessione.xaml.cs",
               "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml.cs",
               "RelativeToolTip": "MicroCenter\\Pagine\\Connessione.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAP0AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAM4AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-03T11:19:55.531Z",
               "IsPinned": true,
@@ -66,24 +62,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Connessione.xaml",
-              "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml",
-              "RelativeDocumentMoniker": "MicroCenter\\Pagine\\Connessione.xaml",
-              "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\Connessione.xaml",
-              "RelativeToolTip": "MicroCenter\\Pagine\\Connessione.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-07T19:35:28.367Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Elementi.xaml.cs",
               "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\HubPC\\Elementi.xaml.cs",
               "RelativeDocumentMoniker": "MicroCenter\\Pagine\\HubPC\\Elementi.xaml.cs",
               "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\HubPC\\Elementi.xaml.cs",
               "RelativeToolTip": "MicroCenter\\Pagine\\HubPC\\Elementi.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAwwHEAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-07T18:50:14.9Z",
               "EditorCaption": ""
