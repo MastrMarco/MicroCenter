@@ -17,7 +17,7 @@
             <Border x:Name="Altro"
                     CornerRadius="8"
                     Width="Auto"
-                    Height="50"
+                    Height="35"
                     VerticalAlignment="top"
                     Margin="10"
                     Background="{DynamicResource TertiaryBackgroundColor}">
@@ -32,7 +32,7 @@
                     Height="250"
                     VerticalAlignment="top"
                     HorizontalAlignment="Left"
-                    Margin="10,70,10,10"
+                    Margin="10,55,10,10"
                     Background="{DynamicResource TertiaryBackgroundColor}">
 
             </Border>
@@ -45,7 +45,7 @@
                     Height="250"
                     VerticalAlignment="top"
                     HorizontalAlignment="Left"
-                    Margin="575,70,10,10"
+                    Margin="575,55,10,10"
                     Background="{DynamicResource TertiaryBackgroundColor}">
 
             </Border>
@@ -55,10 +55,10 @@
             <Border x:Name="ModificaElemento"
                     CornerRadius="8"
                     Width="220"
-                    Height="370"
+                    Height="385"
                     VerticalAlignment="top"
                     HorizontalAlignment="Right"
-                    Margin="10,70,10,10"
+                    Margin="10,55,10,10"
                     Background="{DynamicResource TertiaryBackgroundColor}">
 
 
@@ -77,15 +77,39 @@
                             Margin="10"
                             Background="{DynamicResource SecundaryBackgroundColor}">
 
+                        <Grid Width="200">
 
-                        <TextBlock x:Name="LaColore"
-                                   Text="Seleziona Colore"
-                                   FontSize="16"
-                                   FontWeight="Bold"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Top"
-                                   Margin="2"
-                                   Foreground="{DynamicResource PrimaryTextColor}" />
+                            <TextBlock x:Name="LaColore"
+                                       Text="Seleziona Colore"
+                                       FontSize="16"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="2"
+                                       Foreground="{DynamicResource PrimaryTextColor}" />
+
+                            <StackPanel x:Name="Color0"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="top"
+                                        Margin="0,25,0,0">
+                            </StackPanel>
+
+
+                            <StackPanel x:Name="Color1"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="top"
+                                        Margin="0,55,0,0">
+                            </StackPanel>
+
+
+
+                        </Grid>
+
+
+
+
                     </Border>
                     <!--Fine Colore-->
 
@@ -99,16 +123,36 @@
                             Margin="10,0,10,10"
                             Background="{DynamicResource SecundaryBackgroundColor}">
 
+                        <Grid Width="200">
 
-                        <TextBlock x:Name="LaVentole"
-                                   Text="Velocità Ventole"
-                                   FontSize="16"
-                                   FontWeight="Bold"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Top"
-                                   Margin="2"
-                                   Foreground="{DynamicResource PrimaryTextColor}" />
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
 
+                            <TextBlock Grid.Row="0"
+                                       x:Name="LaVentole"
+                                       Text="Velocità Ventole"
+                                       FontSize="16"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="2"
+                                       Foreground="{DynamicResource PrimaryTextColor}" />
+
+                            <Slider Grid.Row="1"
+                                    x:Name="TrackVelocità"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="top"
+                                    Margin="0"
+                                    Width="150"
+                                    Style="{DynamicResource AppSliderStyle}"
+                                    Minimum="5"
+                                    Maximum="255"
+                                    LargeChange="1"
+                                    Value="128"
+                                    ValueChanged="TrackVelocità_ValueChanged" />
+                        </Grid>
 
                     </Border>
                     <!--Fine Ventole-->
@@ -124,14 +168,35 @@
                             Background="{DynamicResource SecundaryBackgroundColor}">
 
 
-                        <TextBlock x:Name="LaLuminosità"
-                                   Text="Luminosità"
-                                   FontSize="16"
-                                   FontWeight="Bold"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Top"
-                                   Margin="2"
-                                   Foreground="{DynamicResource PrimaryTextColor}" />
+                        <Grid Width="200">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock x:Name="LaLuminosità"
+                                       Text="Luminosità"
+                                       FontSize="16"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="2"
+                                       Foreground="{DynamicResource PrimaryTextColor}" />
+
+                            <Slider Grid.Row="1"
+                                    x:Name="TrackLuminosità"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="top"
+                                    Margin="0"
+                                    Width="150"
+                                    Style="{DynamicResource AppSliderStyle}"
+                                    Minimum="5"
+                                    Maximum="255"
+                                    LargeChange="1"
+                                    Value="128"
+                                    ValueChanged="TrackLuminosità_ValueChanged" />
+                        </Grid>
 
 
                     </Border>
@@ -141,21 +206,51 @@
                     <Border x:Name="TabFunzioni_LED"
                             CornerRadius="8"
                             Width="200"
-                            Height="120"
+                            Height="135"
                             VerticalAlignment="top"
                             HorizontalAlignment="Center"
                             Margin="10"
                             Background="{DynamicResource SecundaryBackgroundColor}">
 
 
-                        <TextBlock x:Name="LaFunzioni_LED"
-                                   Text="Animazioni RGB"
-                                   FontSize="16"
-                                   FontWeight="Bold"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Top"
-                                   Margin="2"
-                                   Foreground="{DynamicResource PrimaryTextColor}" />
+                        <Grid Width="200">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0"
+                                       x:Name="LaFunzioni_LED"
+                                       Text="Animazioni RGB"
+                                       FontSize="16"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="2"
+                                       Foreground="{DynamicResource PrimaryTextColor}" />
+
+                            <StackPanel Grid.Row="1"
+                                        x:Name="Animazione0"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Margin="0,0,0,0">
+                            </StackPanel>
+
+
+                            <StackPanel Grid.Row="2"
+                                        x:Name="Animazione1"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Margin="0,0,0,0">
+                            </StackPanel>
+
+
+
+                        </Grid>
 
 
                     </Border>
@@ -170,7 +265,7 @@
             <Border x:Name="ListaElementi"
                     CornerRadius="8"
                     Width="665"
-                    Height="110"
+                    Height="125"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Left"
                     Margin="10,10,10,10"

@@ -168,7 +168,8 @@ namespace MicroCenter.Pagine
                     // TxSerialText.Text = DatiTX;
                     // lgo = Dispositivo.Get_CountListSeriale();
 
-                    La4.Text = Dispositivo.Get_CountListSeriale().ToString();
+                     La4.Text = Dispositivo.Get_CountListSeriale().ToString();
+                    //La4.Text = Dispositivo.LumLED[Dispositivo.ModLED_Fan].ToString();
 
 
                     //Stringa da inviare non Pronta con Abilitazione per la comunicazione
@@ -204,7 +205,7 @@ namespace MicroCenter.Pagine
                         Dispositivo.LumLED[Dispositivo.ModLED_Fan].ToString() + ";" + //2
                         Dispositivo.ColoreLED[Dispositivo.ModLED_Fan].ToString() + ";" + //3
                         Dispositivo.Saturazione[Dispositivo.ModLED_Fan].ToString() + ";" + //4
-                        Dispositivo.FanSpeed[Dispositivo.ModLED_Fan].ToString() + ";" + //5
+                        Dispositivo.FanSpeed[Dispositivo.ModFAN_SPEED].ToString() + ";" + //5
                         "" + ";" + //6
                         "" + ";" + //7
                         "" + ";" + //8

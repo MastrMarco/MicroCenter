@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="/Stile_Elementi/StileBottoni.xaml" />
                 <ResourceDictionary Source="/Stile_Elementi/StileBottoneToggle.xaml" />
                 <ResourceDictionary Source="/Stile_Elementi/StileComboBox.xaml" />
+                <ResourceDictionary Source="/Stile_Elementi/SliderBarMod.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
