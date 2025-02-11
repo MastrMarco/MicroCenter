@@ -1,10 +1,14 @@
-﻿using MicroCenter.Classi;
+﻿using Gestionale_WEB.Models;
+using MicroCenter.Classi;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace MicroCenter.Pagine.HubPC
 {
@@ -27,6 +32,11 @@ namespace MicroCenter.Pagine.HubPC
         public static SerialPort SerialPort => Connessione._serialPort;
         //Crea un Alias dei Dati dell' HUB
         public static ArduHubFan Dispositivo => Connessione.Dispositivo;
+        // Lista colori salvati
+        private LetturaDatiSalvatiJson<ColoreHubPC> _colori;
+        private string filePath = Path.Combine("Dati", "Colori.json");
+       
+
 
 
         private bool UI_Load = false;
@@ -34,8 +44,8 @@ namespace MicroCenter.Pagine.HubPC
         public Elementi()
         {
             InitializeComponent();
-            CreaBottoniDinamici();
 
+            CreaBottoniDinamici();
             GenerateColorButtons();
             GenerateAniamzioneButtons();
 
@@ -147,22 +157,40 @@ namespace MicroCenter.Pagine.HubPC
 
         private void GenerateColorButtons()
         {
-            List<string> colors = new List<string>
+            List<string> colors = new List<string>();
+            List<int> colorsCode = new List<int>();
+            List<int> saturazione = new List<int>();
+
+            _colori = new LetturaDatiSalvatiJson<ColoreHubPC>(filePath);
+
+            var list = _colori.GetAll();
+
+            foreach (var item in list)
             {
-                "Red", "Green", "Blue", "Yellow",
-                "Orange", "Magenta", "Cyan", "White"
-            };
+                //MessageBox.Show(item.Nome);
+
+                if (item.UI_stato == true)
+                {
+                    colors.Add(item.Nome);
+                    colorsCode.Add(item.Colore);
+                    saturazione.Add(item.Saturazione);
+                }
+            }
+
+
+
 
             for (int i = 0; i < colors.Count; i++)
             {
+                Color buttoncolor = RGB__HSV.ConvertHsvToRgb(colorsCode[i], saturazione[i], 255);
                 Button button = new Button
                 {
-                    Name = "Btn_" + i.ToString(),
+                    Name = colors[i],
                     Height = 15,
                     Width = 24,
                     Margin = new Thickness(10),
-                    ToolTip = new Label { Content = $"Bottone {colors[i]}" },
-                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colors[i]))
+                    ToolTip = new Label { Content = $"Bottone {colors[i]}  {colorsCode[i]}  {saturazione[i]}" },
+                    Background = new SolidColorBrush(buttoncolor)
                 };
 
                 button.Click += BtnColor_Click;
@@ -179,50 +207,12 @@ namespace MicroCenter.Pagine.HubPC
 
             if (sender is Button btn)
             {
-                //  MessageBox.Show($"Hai cliccato: {btn.Name}");
-
+                var x = _colori.GetByTitolo("Nome", btn.Name.ToString());
 
                 if (SerialPort.IsOpen)
                 {
-                    switch (btn.Name)
-                    {
-                        case "Btn_0":
-                            Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 0; // Rosso
-                            break;
-
-                        case "Btn_1":
-                            Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 171; // Verde
-                            break;
-
-                        case "Btn_2":
-                            Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 341; // Blu
-                            break;
-
-                        case "Btn_3":
-                            Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 85; // Giallo
-                            break;
-                        case "Btn_4":
-                            Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 20; // Arancione
-                            break;
-
-                        case "Btn_5":
-                            Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 427; // Fucsia
-                            break;
-
-                        case "Btn_6":
-                            Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 256; // Ciano
-                            break;
-
-                        case "Btn_7":
-                            Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 9;
-                            break;
-
-
-                        default:
-
-                            break;
-
-                    }
+                    Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = x.Colore;
+                    Dispositivo.Saturazione[Dispositivo.ModLED_Fan] = x.Saturazione;
                 }
 
             }

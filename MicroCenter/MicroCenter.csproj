@@ -38,6 +38,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Dati\Colori.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -45,6 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Dati\" />
     <Folder Include="Immagini_Icone\Immagini\" />
   </ItemGroup>
 

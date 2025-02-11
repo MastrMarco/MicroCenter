@@ -67,3 +67,4 @@ D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Finestre\I
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Pagine\HubPC\Elementi.g.cs
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Pagine\HubPC\Elementi.baml
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Stile_Elementi\SliderBarMod.baml
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Debug\net8.0-windows7.0\Dati\Colori.json

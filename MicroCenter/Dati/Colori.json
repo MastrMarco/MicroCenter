@@ -1,0 +1,58 @@
+[
+  {
+    "Nome": "bianco",
+    "Colore": 20,
+    "Saturazione": 0,
+    "UI_stato": true,
+    "Tipo": "Default"
+  },
+  {
+    "Nome": "rosso",
+    "Colore": 0,
+    "Saturazione": 255,
+    "UI_stato": true,
+    "Tipo": "Default"
+  },
+  {
+    "Nome": "verde",
+    "Colore": 171,
+    "Saturazione": 255,
+    "UI_stato": true,
+    "Tipo": "Default"
+  },
+  {
+    "Nome": "blu",
+    "Colore": 341,
+    "Saturazione": 255,
+    "UI_stato": true,
+    "Tipo": "Default"
+  },
+  {
+    "Nome": "Arancione",
+    "Colore": 20,
+    "Saturazione": 255,
+    "UI_stato": true,
+    "Tipo": "Default"
+  },
+  {
+    "Nome": "fucsia",
+    "Colore": 427,
+    "Saturazione": 255,
+    "UI_stato": true,
+    "Tipo": "Default"
+  },
+  {
+    "Nome": "giallo",
+    "Colore": 85,
+    "Saturazione": 255,
+    "UI_stato": true,
+    "Tipo": "Default"
+  },
+  {
+    "Nome": "celeste",
+    "Colore": 256,
+    "Saturazione": 255,
+    "UI_stato": true,
+    "Tipo": "Default"
+  }
+]
