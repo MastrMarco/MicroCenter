@@ -68,3 +68,6 @@ D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Pagine\Hub
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Pagine\HubPC\Elementi.baml
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Stile_Elementi\SliderBarMod.baml
 D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Debug\net8.0-windows7.0\Dati\Colori.json
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Debug\net8.0-windows7.0\Newtonsoft.Json.dll
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\GeneratedInternalTypeHelper.g.cs
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows7.0\Stile_Elementi\CircularProgressBar\styles.baml

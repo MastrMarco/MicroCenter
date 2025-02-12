@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:MicroCenter.Pagine.HubPC"
+      xmlns:cpb="clr-namespace:MicroCenter.Stile_Elementi.CircularProgressBar"
       mc:Ignorable="d"
       d:DesignHeight="450"
       d:DesignWidth="900"
@@ -47,6 +48,23 @@
                     HorizontalAlignment="Left"
                     Margin="575,55,10,10"
                     Background="{DynamicResource TertiaryBackgroundColor}">
+
+                <Grid>
+
+                    <cpb:CircularProgressBar x:Name="Br_Temperatura"
+                                             Thickness="10"
+                                             Radius="34"
+                                             Value="100"
+                                             Style="{StaticResource CircularProgressBarStyle}"
+                                             Background="{DynamicResource PrimaryTealColor}"
+                                             Fill="Transparent"
+                                             Stroke="{DynamicResource PrimaryBackgroundColor}"
+                                             StrokeThickness="0"
+                                             StrokeMode="Middle"
+                                             EndLineCap="Round"
+                                             Margin="0 0 0 0" />
+
+                </Grid>
 
             </Border>
 

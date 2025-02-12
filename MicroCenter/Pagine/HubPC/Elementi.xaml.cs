@@ -26,6 +26,30 @@ namespace MicroCenter.Pagine.HubPC
     /// <summary>
     /// Logica di interazione per Elementi.xaml
     /// </summary>
+    /// 
+
+
+
+    public class ArduFanHub
+    {
+        public List<Dictionary<string, List<Item>>> ArduFanHub_4_0 { get; set; }
+    }
+
+    public class Item
+    {
+        public string Nome { get; set; }
+    }
+
+
+
+
+
+
+
+
+
+
+
     public partial class Elementi : Page
     {
         //Crea un Alias della Porta Seriale
@@ -33,7 +57,6 @@ namespace MicroCenter.Pagine.HubPC
         //Crea un Alias dei Dati dell' HUB
         public static ArduHubFan Dispositivo => Connessione.Dispositivo;
         // Lista colori salvati
-        private LetturaDatiSalvatiJson<ColoreHubPC> _colori;
         private string filePath = Path.Combine("Dati", "Colori.json");
        
 
@@ -54,6 +77,9 @@ namespace MicroCenter.Pagine.HubPC
             {
                 if (Dispositivo.ModLED_Fan < 5) TrackVelocità.Value = Dispositivo.FanSpeed[Dispositivo.ModFAN_SPEED];
                 TrackLuminosità.Value = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
+
+                Br_Temperatura.Value = Dispositivo.TempDS;
+
                 UI_Load = true;
             }
         }
@@ -64,8 +90,138 @@ namespace MicroCenter.Pagine.HubPC
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //public static List<string> GetElementiPrincipali(Lib_JSON_CRUD<ArduFanHub> jsonManager)
+        //{
+        //    var data = jsonManager.GetData();
+        //    return data.ArduFanHub_4_0?.SelectMany(d => d.Keys).ToList() ?? new List<string>();
+        //}
+
+        //public static List<string> GetContenutoElemento(Lib_JSON_CRUD<ArduFanHub> jsonManager, string elemento)
+        //{
+        //    var data = jsonManager.GetData();
+        //    var elementoTrovato = data.ArduFanHub_4_0?
+        //        .FirstOrDefault(d => d.ContainsKey(elemento));
+
+        //    return elementoTrovato != null
+        //        ? elementoTrovato[elemento].Select(i => i.Nome).ToList()
+        //        : new List<string>();
+        //}
+
+        public static List<string> GetElementiPrincipali(List<Dictionary<string, List<Item>>> arduFanHub)
+        {
+            return arduFanHub?.SelectMany(d => d.Keys).ToList() ?? new List<string>();
+        }
+
+        public static List<string> GetContenutoElemento(List<Dictionary<string, List<Item>>> arduFanHub, string elemento)
+        {
+            var elementoTrovato = arduFanHub?
+                .FirstOrDefault(d => d.ContainsKey(elemento));
+
+            return elementoTrovato != null
+                ? elementoTrovato[elemento].Select(i => i.Nome).ToList()
+                : new List<string>();
+        }
+
+
+
+
+
+
+
+
+
+
         private void CreaBottoniDinamici()
         {
+
+            //List<string> Elementi = new List<string>();
+
+            //var _elementi = new Lib_JSON_CRUD<ColoreHubPC>(filePath);
+            //var list = _elementi.GetData();
+
+            //foreach (var item in list.ArduFanHub_4_0)
+            //{
+
+            //    Elementi.Add(item.HUB.ToString());
+            //    //MessageBox.Show(item.Nome);
+
+            //    //if (item.UI_stato == true)
+            //    //{
+            //    //    colors.Add(item.Nome);
+            //    //    colorsCode.Add(item.Colore);
+            //    //    saturazione.Add(item.Saturazione);
+            //    //}
+            //}
+
+
+
+
+
+
+            // Inizializza la classe di gestione JSON
+            Lib_JSON_CRUD<ArduFanHub> jsonManager = new Lib_JSON_CRUD<ArduFanHub>(filePath);
+
+            // Ottieni gli elementi principali
+           // List<string> elementiPrincipali = GetElementiPrincipali(jsonManager);
+            //Console.WriteLine("Elementi principali:");
+            //elementiPrincipali.ForEach(Console.WriteLine);
+
+            // Ottieni il contenuto di un elemento specifico
+           // string elementoDaCercare = "Ventole";
+           // List<string> contenuto = GetContenutoElemento(jsonManager, elementoDaCercare);
+            //Console.WriteLine($"\nContenuto di {elementoDaCercare}:");
+            //contenuto.ForEach(Console.WriteLine);
+
+            var data = jsonManager.GetData();
+
+            // Ottieni gli elementi principali
+            List<string> elementiPrincipali = GetElementiPrincipali(data.ArduFanHub_4_0);
+            //Console.WriteLine("Elementi principali:");
+            //elementiPrincipali.ForEach(Console.WriteLine);
+
+            // Ottieni il contenuto di un elemento specifico
+            string elementoDaCercare = "Ventole";
+            List<string> contenuto = GetContenutoElemento(data.ArduFanHub_4_0, elementoDaCercare);
+            //Console.WriteLine($"\nContenuto di {elementoDaCercare}:");
+            //contenuto.ForEach(Console.WriteLine);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             //                                              1        2                  3                   4               5
             List<string> nomiBottoni = new List<string> { "HUB", "Ventole", "Dissipatore__Casse_Audio", "Scheda_Video", "Strisca_LED" };
 
@@ -155,17 +311,17 @@ namespace MicroCenter.Pagine.HubPC
 
 
 
+        // Crea otto bottoni Colorati
         private void GenerateColorButtons()
         {
             List<string> colors = new List<string>();
             List<int> colorsCode = new List<int>();
             List<int> saturazione = new List<int>();
 
-            _colori = new LetturaDatiSalvatiJson<ColoreHubPC>(filePath);
+            var _colori = new Lib_JSON_CRUD<ColoreHubPC>(filePath);
+            var list = _colori.GetData();
 
-            var list = _colori.GetAll();
-
-            foreach (var item in list)
+            foreach (var item in list.Colori)
             {
                 //MessageBox.Show(item.Nome);
 
@@ -189,7 +345,7 @@ namespace MicroCenter.Pagine.HubPC
                     Height = 15,
                     Width = 24,
                     Margin = new Thickness(10),
-                    ToolTip = new Label { Content = $"Bottone {colors[i]}  {colorsCode[i]}  {saturazione[i]}" },
+                    ToolTip = new Label { Content = colors[i] },
                     Background = new SolidColorBrush(buttoncolor)
                 };
 
@@ -201,18 +357,17 @@ namespace MicroCenter.Pagine.HubPC
                     Color1.Children.Add(button);
             }
         }
-
         private void BtnColor_Click(object sender, RoutedEventArgs e)
         {
-
+            var _colori = new Lib_JSON_CRUD<ColoreHubPC>(filePath);
             if (sender is Button btn)
             {
-                var x = _colori.GetByTitolo("Nome", btn.Name.ToString());
+                var list = _colori.Trova<Colori>(p => p.Nome == btn.Name.ToString());
 
                 if (SerialPort.IsOpen)
                 {
-                    Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = x.Colore;
-                    Dispositivo.Saturazione[Dispositivo.ModLED_Fan] = x.Saturazione;
+                    Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = list.Colore;
+                    Dispositivo.Saturazione[Dispositivo.ModLED_Fan] = list.Saturazione;
                 }
 
             }
@@ -220,25 +375,36 @@ namespace MicroCenter.Pagine.HubPC
         }
 
 
-
+        // Crea bottoni Animazione
         private void GenerateAniamzioneButtons()
         {
-            List<string> colors = new List<string>
+            List<string> colors = new List<string>();
+            List<int> colorsCode = new List<int>();
+
+            var _animazioni = new Lib_JSON_CRUD<ColoreHubPC>(filePath);
+            var list = _animazioni.GetData();
+
+            foreach (var item in list.Animazioni)
             {
-                "Red", "Green", "Blue",
-                "Yellow", "Orange", "Magenta"
-            };
+                //MessageBox.Show(item.Nome);
+
+                if (item.UI_stato == true)
+                {
+                    colors.Add(item.Nome);
+                    colorsCode.Add(item.Colore);
+                }
+            }
 
             for (int i = 0; i < colors.Count; i++)
             {
                 Button button = new Button
                 {
-                    Name = "Btn_" + i.ToString(),
+                    Name = colors[i],
                     Height = 35,
                     Width = 35,
                     Margin = new Thickness(10),
-                    ToolTip = new Label { Content = $"Bottone {colors[i]}" },
-                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colors[i])),
+                    ToolTip = new Label { Content = colors[i] },
+                   // Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colors[i])),
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
                 };
@@ -251,55 +417,27 @@ namespace MicroCenter.Pagine.HubPC
                     Animazione1.Children.Add(button);
             }
         }
-
         private void BtnAnimazioni_Click(object sender, RoutedEventArgs e)
         {
-
+            var _animnazioni = new Lib_JSON_CRUD<ColoreHubPC>(filePath);
             if (sender is Button btn)
             {
-                // MessageBox.Show($"Hai cliccato: {btn.Name}");
-
+                var list = _animnazioni.Trova<Animazioni>(p => p.Nome == btn.Name.ToString());
 
                 if (SerialPort.IsOpen)
                 {
-                    if (Dispositivo.ModLED_Fan == 0)
-                    {
-                        switch (btn.Name)
-                        {
-                            case "Btn_0":
-                                Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 600; // 
-                                break;
-
-                            case "Btn_1":
-                                Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 601; // 
-                                break;
-
-                            case "Btn_2":
-                                Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 602; // 
-                                break;
-
-                            case "Btn_3":
-                                Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 603; // 
-                                break;
-                            case "Btn_4":
-                                Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 604; // 
-                                break;
-
-                            case "Btn_5":
-                                Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = 605; // 
-                                break;
-
-                            default:
-
-                                break;
-
-                        }
-                    }
+                    Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = list.Colore;
                 }
 
             }
-
         }
+
+
+
+
+
+
+
 
 
 
