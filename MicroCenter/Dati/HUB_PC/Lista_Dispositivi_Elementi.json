@@ -1,0 +1,199 @@
+{
+
+
+  "ArduFanHub 4.0": [
+
+
+    {
+      "HUB": [
+        {
+          "Nome": "HUB",
+          "Mod_LED_Fan": 0
+          
+        }
+      ]
+    },
+
+    {
+      "Ventole": [
+        {
+          "Nome": "Ventole 1",
+          "Mod_LED_Fan": 1
+        },
+        {
+          "Nome": "Ventole 2",
+          "Mod_LED_Fan": 2
+        },
+        {
+          "Nome": "Ventole 3",
+          "Mod_LED_Fan": 3
+        },
+        {
+          "Nome": "Ventole 4",
+          "Mod_LED_Fan": 4
+        }
+      ]
+    },
+
+
+    {
+      "Dissipatore": [
+        {
+          "Nome": "Dissipatore Ventola CPU 1",
+          "Mod_LED_Fan": 5
+        },
+        {
+          "Nome": "Dissipatore Ventola CPU 2",
+          "Mod_LED_Fan": 6
+        },
+        {
+          "Nome": "Dissipatore Pompa CPU",
+          "Mod_LED_Fan": 7
+        }
+      ]
+    },
+
+
+    {
+      "Scheda_Video": [
+        {
+          "Nome": "Scheda Video",
+          "Mod_LED_Fan": 8
+        }
+      ]
+    },
+
+
+    {
+      "Strisca_LED": [
+        {
+          "Nome": "Strisca LED",
+          "Mod_LED_Fan":9
+        }
+      ]
+    }
+
+
+  ],
+
+
+
+  "ArduFanHub 3.0": [
+
+
+    {
+      "HUB": [
+        {
+          "Nome": "HUB"
+        }
+      ]
+    },
+
+    {
+      "Ventole": [
+        {
+          "Nome": "Ventole 1"
+        },
+        {
+          "Nome": "Ventole 2"
+        },
+        {
+          "Nome": "Ventole 3"
+        },
+        {
+          "Nome": "Ventole 4"
+        }
+      ]
+    },
+
+
+    {
+      "Scheda_Video": [
+        {
+          "Nome": "Scheda Video"
+        }
+      ]
+    },
+
+
+    {
+      "Strisca_LED": [
+        {
+          "Nome": "Strisca LED"
+        }
+      ]
+    }
+
+
+  ],
+
+
+
+  "ArduFanHub 2.0": [
+
+
+    {
+      "HUB": [
+        {
+          "Nome": "HUB"
+        }
+      ]
+    },
+
+    {
+      "Ventole": [
+        {
+          "Nome": "Ventole 1"
+        },
+        {
+          "Nome": "Ventole 2"
+        },
+        {
+          "Nome": "Ventole 3"
+        },
+        {
+          "Nome": "Ventole 4"
+        }
+      ]
+    },
+
+
+    {
+      "Casse": [
+        {
+          "Nome": "Cassa Sinistra"
+        },
+        {
+          "Nome": "Cassa Destra"
+        },
+        {
+          "Nome": "Strisca LED"
+        }
+      ]
+    },
+
+
+    {
+      "Scheda_Video": [
+        {
+          "Nome": "Scheda Video"
+        }
+      ]
+    },
+
+
+    {
+      "Strisca_LED": [
+        {
+          "Nome": "Strisca LED"
+        }
+      ]
+    }
+
+
+  ]
+
+
+
+
+}

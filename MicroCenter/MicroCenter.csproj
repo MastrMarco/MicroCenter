@@ -38,7 +38,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Dati\Colori.json">
+    <None Update="Dati\HUB_PC\Lista_Dispositivi_Elementi.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Dati\HUB_PC\Colori.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Properties\Settings.settings">
@@ -48,7 +51,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dati\" />
     <Folder Include="Immagini_Icone\Immagini\" />
   </ItemGroup>
 

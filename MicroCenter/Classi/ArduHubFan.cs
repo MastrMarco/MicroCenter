@@ -346,4 +346,12 @@ namespace MicroCenter.Classi
         }
 
     }
+
+
+
+    public class InfoElementi
+    {
+        public string Nome { get; set; }
+        public int Mod_LED_Fan { get; set; }
+    }
 }
