@@ -190,7 +190,7 @@ namespace MicroCenter.Classi
         }
 
 
-        //
+        // 📌 Metodo per trovare un elemento (funziona per entrambi i formati) ?
         public T FindElement(string versione, string categoria, Func<T, bool> predicate)
         {
             if (_usaFormatoSemplice)

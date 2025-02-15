@@ -7,8 +7,12 @@
       "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\hubpc\\elementi.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\classi\\colorehubpc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\classi\\colorehubpc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\dati\\hub_pc\\lista_dispositivi_elementi.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\dati\\hub_pc\\lista_dispositivi_elementi.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\pagine\\hubpc\\elementi.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\hubpc\\elementi.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\classi\\arduhubfan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,45 +30,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Lib_JSON_CRUD_3.cs",
               "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\Lib_JSON_CRUD_3.cs",
               "RelativeDocumentMoniker": "MicroCenter\\Classi\\Lib_JSON_CRUD_3.cs",
               "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\Lib_JSON_CRUD_3.cs",
               "RelativeToolTip": "MicroCenter\\Classi\\Lib_JSON_CRUD_3.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAIwMEAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-13T16:00:26.393Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ArduHubFan.cs",
               "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\ArduHubFan.cs",
               "RelativeDocumentMoniker": "MicroCenter\\Classi\\ArduHubFan.cs",
               "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\ArduHubFan.cs",
               "RelativeToolTip": "MicroCenter\\Classi\\ArduHubFan.cs",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAiwFQBAAANAAAAAAAAAA==",
+              "ViewState": "AgIAADABAAAAAAAAAAAAAGUBAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-12T22:07:18.708Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ColoreHubPC.cs",
-              "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\ColoreHubPC.cs",
-              "RelativeDocumentMoniker": "MicroCenter\\Classi\\ColoreHubPC.cs",
-              "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\ColoreHubPC.cs",
-              "RelativeToolTip": "MicroCenter\\Classi\\ColoreHubPC.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T22:01:44.014Z"
+              "Title": "Lista_Dispositivi_Elementi.json",
+              "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Dati\\HUB_PC\\Lista_Dispositivi_Elementi.json",
+              "RelativeDocumentMoniker": "MicroCenter\\Dati\\HUB_PC\\Lista_Dispositivi_Elementi.json",
+              "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Dati\\HUB_PC\\Lista_Dispositivi_Elementi.json",
+              "RelativeToolTip": "MicroCenter\\Dati\\HUB_PC\\Lista_Dispositivi_Elementi.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-14T20:01:40.465Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Elementi.xaml",
+              "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\HubPC\\Elementi.xaml",
+              "RelativeDocumentMoniker": "MicroCenter\\Pagine\\HubPC\\Elementi.xaml",
+              "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\HubPC\\Elementi.xaml",
+              "RelativeToolTip": "MicroCenter\\Pagine\\HubPC\\Elementi.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-14T20:23:19.979Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -74,7 +94,7 @@
               "RelativeDocumentMoniker": "MicroCenter\\Pagine\\HubPC\\Elementi.xaml.cs",
               "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\HubPC\\Elementi.xaml.cs",
               "RelativeToolTip": "MicroCenter\\Pagine\\HubPC\\Elementi.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAgwF4BAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-07T18:50:14.9Z",
               "EditorCaption": ""

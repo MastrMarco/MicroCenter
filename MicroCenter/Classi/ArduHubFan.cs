@@ -353,5 +353,8 @@ namespace MicroCenter.Classi
     {
         public string Nome { get; set; }
         public int Mod_LED_Fan { get; set; }
+
+        public bool LED {  get; set; }
+        public bool FAN { get; set; }
     }
 }
