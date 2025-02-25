@@ -1,6 +1,7 @@
 ﻿using MicroCenter.Classi;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.IO;
 using System.IO.Ports;
@@ -44,6 +45,7 @@ namespace MicroCenter.Pagine.HubPC
 
         private bool UI_Load = false;
 
+
         public Elementi()
         {
             InitializeComponent();
@@ -63,11 +65,12 @@ namespace MicroCenter.Pagine.HubPC
                 UI_Load = true;
             }
 
-
+            DataContext = this; // Imposta il DataContext per il binding
 
             ElementoDato();
             //  ClearTextBlock();
-            //  ElementoDato();
+
+           UI_dati(5);
         }
 
 
@@ -123,7 +126,57 @@ namespace MicroCenter.Pagine.HubPC
 
 
 
+     
 
+        private void UI_dati(int ls_)
+        {
+            //List<string> ListDatiElemento_Full_Dispositivo = new List<string>
+            //    {
+            //    Dispositivo.ColoreLED[Dispositivo.ModLED_Fan].ToString(),
+            //    Dispositivo.LumLED[Dispositivo.ModLED_Fan].ToString(),
+            //    Dispositivo.ModFAN_SPEED.ToString(),
+            //    Dispositivo.FanSpeed[Dispositivo.ModLED_Fan].ToString(),
+            //    Dispositivo.RPM_Fan[Dispositivo.ModLED_Fan].ToString()
+            //    };
+            //List<string> ListDatiElemento_Fan_Dispositivo = new List<string>
+            //    {
+            //    Dispositivo.ModFAN_SPEED.ToString(),
+            //    Dispositivo.FanSpeed[Dispositivo.ModLED_Fan].ToString(),
+            //    Dispositivo.RPM_Fan[Dispositivo.ModLED_Fan].ToString()
+            //    };
+            //List<string> ListDatiElemento_LED_Dispositivo = new List<string>
+            //    {
+            //    Dispositivo.ColoreLED[Dispositivo.ModLED_Fan].ToString(),
+            //    Dispositivo.LumLED[Dispositivo.ModLED_Fan].ToString()
+            //    };
+
+            //List<string> ls = new List<string>();
+
+            //if (ls_ == 5)
+            //{
+            //    ls = ListDatiElemento_Full_Dispositivo;
+            //}
+            //else if (ls_ == 3)
+            //{
+            //    ls = ListDatiElemento_Fan_Dispositivo;
+            //}
+            //else if (ls_ == 2)
+            //{
+            //    ls = ListDatiElemento_LED_Dispositivo;
+            //}
+
+
+     
+            if (ListLaDatiElementov.Children.Count > 0 && ListLaDatiElementov.Children[0] is TextBlock firstButton)
+            {
+                MessageBox.Show($"Il primo pulsante esiste ed è stato creato. {firstButton.Name}");
+            }
+            else
+            {
+                MessageBox.Show("Il primo pulsante non esiste o non è stato creato.");
+            }
+        
+        }
 
         private void ClearTextBlock()
         {
@@ -147,123 +200,168 @@ namespace MicroCenter.Pagine.HubPC
         }
 
 
+
+
+
+
+
+    
+
+
+
+
+
         // visualizza info dati elemento selezionato
         public void ElementoDato()
         {
-            List<string> ListDatiElemeno_Full = new List<string>
+            if (Dispositivo.StatoConnessione)
             {
+                List<string> ListDatiElemento_Full = new List<string>
+                {
                 "Colore", "Luminosità", "Gestione Rotazione", "Velocità", "RPM"
-            };
-            List<string> ListDatiElemeno_LED = new List<string>
-            {
+                };
+
+
+                List<string> ListDatiElemento_LED = new List<string>
+                {
                 "Colore", "Luminosità"
-            };
-            List<string> ListDatiElemeno_Fan = new List<string>
-            {
+                };
+
+                List<string> ListDatiElemento_Fan = new List<string>
+                {
                "Gestione Rotazione", "Velocità", "RPM"
-            };
+                };
 
 
 
-            // Usa Lib_JSON_CRUD con la classe Ventola
-            var list = new Lib_JSON_CRUD_3<InfoElementi>(filePathElementi);
-            string versione = Dispositivo.Get_NomeDispositivo();
-            // Stampare gli elementi principali
-            var elementiPrincipali = list.GetElementiPrincipali(versione);
-            var _list = GetInfoElemento(versione);
-            List<string> ls = new List<string>();
+                // Usa Lib_JSON_CRUD con la classe Ventola
+                var list = new Lib_JSON_CRUD_3<InfoElementi>(filePathElementi);
+                string versione = Dispositivo.Get_NomeDispositivo();
+                // Stampare gli elementi principali
+                var elementiPrincipali = list.GetElementiPrincipali(versione);
+                var _list = GetInfoElemento(versione);
+                List<string> ls = new List<string>();
 
-            if (SerialPort.IsOpen)
-            {
+
 
                 if (_list[0].LED && _list[0].FAN)
                 {
-                    ls = ListDatiElemeno_Full;
+                    ls = ListDatiElemento_Full;
                 }
                 else if (_list[0].LED && !_list[0].FAN)
                 {
-                    ls = ListDatiElemeno_LED;
+                    ls = ListDatiElemento_LED;
                 }
                 else if (!_list[0].LED && _list[0].FAN)
                 {
-                    ls = ListDatiElemeno_Fan;
+                    ls = ListDatiElemento_Fan;
                 }
 
-            }
-
-            // Titolo Elemento Selezionato
-            LaNomeElemento.Text = _list[0].Nome;
 
 
-            // Lista di Dati testo
-            for (int i = 0; i < ls.Count; i++)
-            {
-                // Color buttoncolor = RGB__HSV.ConvertHsvToRgb(colorsCode[i], saturazione[i], 255);
-                TextBlock text = new TextBlock
+                // Titolo Elemento Selezionato
+                LaNomeElemento.Text = _list[0].Nome;
+
+
+                // Lista di Dati testo
+                for (int i = 0; i < ls.Count; i++)
                 {
-                    Name = $"La_{i}",
-                    Text = ls[i],
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    FontSize = 16,
-                    FontWeight = FontWeights.Bold,
-                    Margin = new Thickness(5)
-                };
-                ListLaDatiElemento.SetResourceReference(TextBlock.ForegroundProperty, "PrimaryTextColor");
-                // button.Click += BtnColor_Click;
-
-                ListLaDatiElemento.Children.Add(text);
-            }
-
-
-            // Creazione lista di dati
-            for (int i = 0; i < ls.Count; i++)
-            {
-                TextBlock text = new TextBlock
-                {
-                    Name = $"La_{i}",
-                    Text = "null",
-                    HorizontalAlignment = HorizontalAlignment.Right,
-                    FontSize = 16,
-                    FontWeight = FontWeights.Bold,
-                    Margin = new Thickness(5)
-                };
-                ListLaDatiElementov.SetResourceReference(TextBlock.ForegroundProperty, "PrimaryTextColor");
-                ListLaDatiElementov.Children.Add(text);
-            }
-
-
-
-            // Creazione bottoni sotto elemnti
-            //string x = GetNomeElemento(versione);
-            var sottoelementi = list.GetContenutoElemento(versione, GetNomeElemento(versione));
-
-            if (sottoelementi != null && sottoelementi.Count > 1)
-            {
-                for (int i = 0; i < sottoelementi.Count; i++)
-                {
-                    Button btn = new Button
+                    // Color buttoncolor = RGB__HSV.ConvertHsvToRgb(colorsCode[i], saturazione[i], 255);
+                    TextBlock text = new TextBlock
                     {
-                        Name = $"Btn_{i}",
-                        //Height = 25,
-                        //Width = 45,
-                        Margin = new Thickness(15, 0, 15, 0), // Aggiunge un margine di 10
-                        Content = sottoelementi[i].Nome,
-                        VerticalAlignment = VerticalAlignment.Center,
-                        HorizontalAlignment = HorizontalAlignment.Center,
-                        Cursor = System.Windows.Input.Cursors.Hand,
-                        ToolTip = new Label { Content = sottoelementi[i].Nome },
-                        //    Style = (Style)FindResource("IconButtonsForms") // Stile preso dalle risorse
+                        Name = $"La_Txt_{i}",
+                        Text = ls[i],
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        FontSize = 16,
+                        FontWeight = FontWeights.Bold,
+                        Margin = new Thickness(5)
                     };
+                    ListLaDatiElemento.SetResourceReference(TextBlock.ForegroundProperty, "PrimaryTextColor");
+                    // button.Click += BtnColor_Click;
 
-                    // btn.SetResourceReference(Button.ContentProperty, "IconaUSBConnetti");
+                    ListLaDatiElemento.Children.Add(text);
+                }
 
-                    // btn.Click += Btn_Click;
 
-                    ListSelectElemento.Children.Add(btn); // Aggiunge il bottone al contenitore
+                // Creazione lista di dati
+                for (int i = 0; i < ls.Count; i++)
+                {
+                    TextBlock text = new TextBlock
+                    {
+                        Name = $"La_Dati_{i}",
+                        Text = "null",
+                        HorizontalAlignment = HorizontalAlignment.Right,
+                        FontSize = 16,
+                        FontWeight = FontWeights.Bold,
+                        Margin = new Thickness(5)
+                    };
+                    ListLaDatiElementov.SetResourceReference(TextBlock.ForegroundProperty, "PrimaryTextColor");
+                    ListLaDatiElementov.Children.Add(text);
+                }
+
+
+
+                // Creazione bottoni sotto elemnti
+                //string x = GetNomeElemento(versione);
+                var sottoelementi = list.GetContenutoElemento(versione, GetNomeElemento(versione));
+
+                if (sottoelementi != null && sottoelementi.Count > 1)
+                {
+                    for (int i = 0; i < sottoelementi.Count; i++)
+                    {
+                        Button btn = new Button
+                        {
+                            Name = $"Btn_{i}",
+                            //Height = 25,
+                            //Width = 45,
+                            Margin = new Thickness(15, 0, 15, 0), // Aggiunge un margine di 10
+                            Content = sottoelementi[i].Nome,
+                            Tag = sottoelementi[i].Nome,
+                            VerticalAlignment = VerticalAlignment.Center,
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            Cursor = System.Windows.Input.Cursors.Hand,
+                            ToolTip = new Label { Content = sottoelementi[i].Nome },
+                            //    Style = (Style)FindResource("IconButtonsForms") // Stile preso dalle risorse
+                        };
+
+                        // btn.SetResourceReference(Button.ContentProperty, "IconaUSBConnetti");
+
+                        btn.Click += BtnGruppiElementiBar_Click;
+
+                        ListSelectElemento.Children.Add(btn); // Aggiunge il bottone al contenitore
+                    }
                 }
             }
         }
+        private void BtnGruppiElementiBar_Click(object sender, RoutedEventArgs e)
+        {
+            if (SerialPort.IsOpen)
+            {
+                string versione = Dispositivo.Get_NomeDispositivo();
+                string gruppo = GetNomeElemento(versione);
+                if (sender is Button btn)
+                {
+                    string Newelemento = btn.Tag.ToString();
+                    // Usa Lib_JSON_CRUD con la classe Ventola
+                    var list = new Lib_JSON_CRUD_3<InfoElementi>(filePathElementi);
+                    // Stampare gli elementi principali
+                    var elementiPrincipali = list.GetElementiPrincipali(versione);
+                    // Ottieni il contenuto degli elementi per la categoria corrente
+                    var _list = list.GetContenutoElemento(versione, gruppo);
 
+                    for (int i = 0; i < _list.Count; i++)
+                    {
+                        if (_list[i].Nome == Newelemento)
+                        {
+                            Dispositivo.ModLED_Fan = _list[i].Mod_LED_Fan;
+                            ClearTextBlock();
+                            ElementoDato();
+                        }
+                    }
+
+                }
+            }
+        }
 
 
 
@@ -327,38 +425,35 @@ namespace MicroCenter.Pagine.HubPC
         }
         private void BtnGruppiElementi_Click(object sender, RoutedEventArgs e)
         {
-            string versione = Dispositivo.Get_NomeDispositivo();
-
-            if (sender is Button btn)
+            if (SerialPort.IsOpen)
             {
-                string categoria = btn.Name;
-
-                var _list = new Lib_JSON_CRUD_3<InfoElementi>(filePathElementi);
-
-                var el = _list.FindElement(versione, categoria, c => c.Nome == btn.Name);
-
-                if (el != null)
+                string versione = Dispositivo.Get_NomeDispositivo();
+                string gruppo = GetNomeElemento(versione);
+                if (sender is Button btn)
                 {
-                    if (SerialPort.IsOpen)
+                    string Newcategoria = btn.Name;
+                    // Usa Lib_JSON_CRUD con la classe Ventola
+                    var list = new Lib_JSON_CRUD_3<InfoElementi>(filePathElementi);
+                    // Stampare gli elementi principali
+                    var elementiPrincipali = list.GetElementiPrincipali(versione);
+                    // Ottieni il contenuto degli elementi per la categoria corrente
+                    var _list = list.GetContenutoElemento(versione, Newcategoria);
+                    if (Newcategoria != gruppo)
                     {
-                        if (Dispositivo.ModLED_Fan == el.Mod_LED_Fan)
-                        {
-                            Dispositivo.ModLED_Fan = el.Mod_LED_Fan;
+                        Dispositivo.ModLED_Fan = _list[0].Mod_LED_Fan;
+                        ClearTextBlock();
+                        ElementoDato();
 
-                            ClearTextBlock();
-                            ElementoDato();
-                        }
                     }
                 }
             }
-
         }
 
 
-            //  MessageBox.Show($"Errore Porta Seriale Chiusa");
+        //  MessageBox.Show($"Errore Porta Seriale Chiusa");
 
-        }
 
+        private Button selectedButton = null;
         // Crea otto bottoni Colorati
         private void GenerateColorButtons()
         {
@@ -390,8 +485,6 @@ namespace MicroCenter.Pagine.HubPC
             }
 
 
-
-
             for (int i = 0; i < colors.Count; i++)
             {
                 Color buttoncolor = RGB__HSV.ConvertHsvToRgb(colorsCode[i], saturazione[i], 255);
@@ -402,7 +495,10 @@ namespace MicroCenter.Pagine.HubPC
                     Width = 24,
                     Margin = new Thickness(10),
                     ToolTip = new Label { Content = colors[i] },
-                    Background = new SolidColorBrush(buttoncolor)
+                    Tag = colors[i],
+                    Background = new SolidColorBrush(buttoncolor),
+                    BorderThickness = new Thickness(1),
+                    BorderBrush = Brushes.Transparent // Nessun bordo iniziale
                 };
 
                 button.Click += BtnColor_Click;
@@ -411,8 +507,15 @@ namespace MicroCenter.Pagine.HubPC
                     Color0.Children.Add(button);
                 else
                     Color1.Children.Add(button);
+
+
+                if (colorsCode[i] == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan]) // Se il pulsante è "Red", lo selezioniamo di default
+                {
+                    SelectButton(button);
+                }
             }
         }
+        // Al Click
         private void BtnColor_Click(object sender, RoutedEventArgs e)
         {
             string categoria = "Colori";
@@ -422,7 +525,7 @@ namespace MicroCenter.Pagine.HubPC
 
                 var _list = new Lib_JSON_CRUD_3<Colori>(filePathColori);
 
-                var el = _list.FindElement("", categoria, c => c.Nome == btn.Name);
+                var el = _list.FindElement("", categoria, c => c.Nome == btn.Tag.ToString());
 
                 if (el != null)
                 {
@@ -430,6 +533,7 @@ namespace MicroCenter.Pagine.HubPC
                     {
                         Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = el.Colore;
                         Dispositivo.Saturazione[Dispositivo.ModLED_Fan] = el.Saturazione;
+                        SelectButton(btn);
                     }
                 }
                 else
@@ -439,8 +543,21 @@ namespace MicroCenter.Pagine.HubPC
 
             }
 
-
         }
+        // Grafica Selezione Colore
+        private void SelectButton(Button button)
+        {
+            if (selectedButton != null)
+            {
+                selectedButton.BorderBrush = Brushes.Transparent; // Ripristina il precedente pulsante
+            }
+
+            selectedButton = button;
+            selectedButton.BorderBrush = Brushes.Black; // Evidenzia il pulsante selezionato
+        }
+
+
+
 
 
         // Crea bottoni Animazione
