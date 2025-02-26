@@ -249,7 +249,7 @@
                                     Margin="0"
                                     Width="150"
                                     Style="{DynamicResource AppSliderStyle}"
-                                    Minimum="5"
+                                    Minimum="0"
                                     Maximum="255"
                                     LargeChange="1"
                                     Value="128"

@@ -48,7 +48,7 @@ namespace MicroCenter.Classi
 
 
         public int ModLED_Fan { get; set; }
-        public int ModFAN_SPEED { get; set; }
+        // public int ModFAN_SPEED { get; set; }
         public int ModRGB_LED { get; set; }
 
 
@@ -181,8 +181,8 @@ namespace MicroCenter.Classi
 
 
             ModLED_Fan = int.Parse(SerialDataRead[7][0]); //
-            ModFAN_SPEED = int.Parse(SerialDataRead[7][1]); //
-            ModRGB_LED = int.Parse(SerialDataRead[7][2]); //
+            // ModFAN_SPEED = int.Parse(SerialDataRead[7][1]); //
+            ModRGB_LED = int.Parse(SerialDataRead[7][1]); //
 
 
             FanSpeed = Get_Elementi(SerialDataRead, 8); // Velocità Rotazione Ventole di ogni Elemento

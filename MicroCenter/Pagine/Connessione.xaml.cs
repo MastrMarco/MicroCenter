@@ -205,7 +205,7 @@ namespace MicroCenter.Pagine
                         Dispositivo.LumLED[Dispositivo.ModLED_Fan].ToString() + ";" + //2
                         Dispositivo.ColoreLED[Dispositivo.ModLED_Fan].ToString() + ";" + //3
                         Dispositivo.Saturazione[Dispositivo.ModLED_Fan].ToString() + ";" + //4
-                        Dispositivo.FanSpeed[Dispositivo.ModFAN_SPEED].ToString() + ";" + //5
+                        Dispositivo.FanSpeed[Dispositivo.ModLED_Fan < 5 ? Dispositivo.ModLED_Fan : 0].ToString() + ";" + //5
                         "" + ";" + //6
                         "" + ";" + //7
                         "" + ";" + //8

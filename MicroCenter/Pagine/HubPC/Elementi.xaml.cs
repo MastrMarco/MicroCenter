@@ -6,6 +6,7 @@ using System.Configuration;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Text.Json;
@@ -42,6 +43,11 @@ namespace MicroCenter.Pagine.HubPC
 
 
 
+        private List<string> ListDatiElemento_Full = new List<string> { "Colore", "Luminosità", "Gestione Rotazione", "Velocità", "RPM" };
+        private List<string> ListDatiElemento_LED = new List<string> { "Colore", "Luminosità" };
+        private List<string> ListDatiElemento_Fan = new List<string> { "Gestione Rotazione", "Velocità", "RPM" };
+
+
 
         private bool UI_Load = false;
 
@@ -57,7 +63,7 @@ namespace MicroCenter.Pagine.HubPC
 
             if (Dispositivo.StatoConnessione)
             {
-                if (Dispositivo.ModLED_Fan < 5) TrackVelocità.Value = Dispositivo.FanSpeed[Dispositivo.ModFAN_SPEED];
+                if (Dispositivo.ModLED_Fan < 5) TrackVelocità.Value = Dispositivo.FanSpeed[Dispositivo.ModLED_Fan];
                 TrackLuminosità.Value = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
 
                 Br_Temperatura.Value = Dispositivo.TempDS;
@@ -70,7 +76,7 @@ namespace MicroCenter.Pagine.HubPC
             ElementoDato();
             //  ClearTextBlock();
 
-           UI_dati(5);
+            UI_dati();
         }
 
 
@@ -126,9 +132,9 @@ namespace MicroCenter.Pagine.HubPC
 
 
 
-     
 
-        private void UI_dati(int ls_)
+
+        private void UI_dati()
         {
             //List<string> ListDatiElemento_Full_Dispositivo = new List<string>
             //    {
@@ -166,16 +172,80 @@ namespace MicroCenter.Pagine.HubPC
             //}
 
 
-     
-            if (ListLaDatiElementov.Children.Count > 0 && ListLaDatiElementov.Children[0] is TextBlock firstButton)
+
+            //  if (ListLaDatiElementov.Children.Count > 0 && ListLaDatiElementov.Children[0] is TextBlock firstButton)
+            if (ListLaDatiElementov.Children.Count > 0)
             {
-                MessageBox.Show($"Il primo pulsante esiste ed è stato creato. {firstButton.Name}");
+                for (int i = 0; i < ListLaDatiElementov.Children.Count; i++)
+                {
+
+                    if (ListLaDatiElementov.Children[i] is TextBlock item)
+                    {
+                        if (ListDatiElemento_Full[0] == item.Tag.ToString())
+                        {
+                            //Colore
+                            string categoria = "Colori";
+                            var _list = new Lib_JSON_CRUD_3<Colori>(filePathColori);
+                            var el = _list.FindElement("", categoria, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && c.Saturazione == Dispositivo.Saturazione[Dispositivo.ModLED_Fan]);
+                            if (el != null)
+                            {
+                                item.Text = el.Nome;
+                            }
+                            else
+                            {
+                                categoria = "Animazioni";
+                                var __list = new Lib_JSON_CRUD_3<Animazioni>(filePathColori);
+                                var _el = __list.FindElement("", categoria, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && c.Saturazione == Dispositivo.Saturazione[Dispositivo.ModLED_Fan]);
+                                if (_el != null)
+                                {
+                                    item.Text = _el.Nome;
+                                }
+                                else
+                                {
+                                    item.Text = "ErNomeColore";
+                                }
+                            }
+
+                        }
+                        else if (ListDatiElemento_Full[1] == item.Tag.ToString())
+                        {
+                            //Luminosità
+                            decimal MaxValLum = 255;
+                            decimal ValDataLum = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
+                            decimal lumperc = (ValDataLum / MaxValLum) * 100;
+                            item.Text = ((int)lumperc).ToString() + "%";
+                        }
+                        else if (ListDatiElemento_Full[2] == item.Tag.ToString())
+                        {
+                            // Modalità Rotazione - Controllo Ventole
+                            // item.Text = Dispositivo.[Dispositivo.ModLED_Fan].ToString();
+                        }
+                        else if (ListDatiElemento_Full[3] == item.Tag.ToString())
+                        {
+                            // Velocitò Rotazione Ventola
+                            decimal MaxValSpeed = 255;
+                            decimal ValDataSpeed = Dispositivo.FanSpeed[Dispositivo.ModLED_Fan < 5 ? Dispositivo.ModLED_Fan : 0];
+                            decimal Speedperc = (ValDataSpeed / MaxValSpeed) * 100;
+                            item.Text = ((int)Speedperc).ToString() + "%";
+                        }
+                        else if (ListDatiElemento_Full[4] == item.Tag.ToString())
+                        {
+                            // RPM Ventola
+                             item.Text = (Dispositivo.RPM_Fan[Dispositivo.ModLED_Fan < 5 ? Dispositivo.ModLED_Fan : 0] * 60).ToString();
+                        }
+
+
+
+                    }
+
+                }
+                //  MessageBox.Show($"Il primo pulsante esiste ed è stato creato. {firstButton.Tag}");
             }
             else
             {
-                MessageBox.Show("Il primo pulsante non esiste o non è stato creato.");
+                //  MessageBox.Show("Il primo pulsante non esiste o non è stato creato.");
             }
-        
+
         }
 
         private void ClearTextBlock()
@@ -205,7 +275,7 @@ namespace MicroCenter.Pagine.HubPC
 
 
 
-    
+
 
 
 
@@ -216,21 +286,21 @@ namespace MicroCenter.Pagine.HubPC
         {
             if (Dispositivo.StatoConnessione)
             {
-                List<string> ListDatiElemento_Full = new List<string>
-                {
-                "Colore", "Luminosità", "Gestione Rotazione", "Velocità", "RPM"
-                };
+                // List<string> ListDatiElemento_Full = new List<string>
+                // {
+                // "Colore", "Luminosità", "Gestione Rotazione", "Velocità", "RPM"
+                // };
 
 
-                List<string> ListDatiElemento_LED = new List<string>
-                {
-                "Colore", "Luminosità"
-                };
+                // List<string> ListDatiElemento_LED = new List<string>
+                // {
+                // "Colore", "Luminosità"
+                // };
 
-                List<string> ListDatiElemento_Fan = new List<string>
-                {
-               "Gestione Rotazione", "Velocità", "RPM"
-                };
+                // List<string> ListDatiElemento_Fan = new List<string>
+                // {
+                //"Gestione Rotazione", "Velocità", "RPM"
+                // };
 
 
 
@@ -293,7 +363,8 @@ namespace MicroCenter.Pagine.HubPC
                         HorizontalAlignment = HorizontalAlignment.Right,
                         FontSize = 16,
                         FontWeight = FontWeights.Bold,
-                        Margin = new Thickness(5)
+                        Margin = new Thickness(5),
+                        Tag = ls[i]
                     };
                     ListLaDatiElementov.SetResourceReference(TextBlock.ForegroundProperty, "PrimaryTextColor");
                     ListLaDatiElementov.Children.Add(text);
@@ -443,6 +514,7 @@ namespace MicroCenter.Pagine.HubPC
                         Dispositivo.ModLED_Fan = _list[0].Mod_LED_Fan;
                         ClearTextBlock();
                         ElementoDato();
+                        UI_dati();
 
                     }
                 }
@@ -653,7 +725,7 @@ namespace MicroCenter.Pagine.HubPC
         {
             if (Dispositivo.StatoConnessione && UI_Load)
             {
-                Dispositivo.FanSpeed[Dispositivo.ModFAN_SPEED] = (int)TrackVelocità.Value;
+                Dispositivo.FanSpeed[Dispositivo.ModLED_Fan < 5 ? Dispositivo.ModLED_Fan : 0] = (int)TrackVelocità.Value;
             }
         }
 

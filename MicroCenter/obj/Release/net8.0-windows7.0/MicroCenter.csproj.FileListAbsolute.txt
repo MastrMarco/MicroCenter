@@ -62,3 +62,13 @@ D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes
 D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\maccatalyst-arm64\native\libSystem.IO.Ports.Native.dylib
 D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\runtimes\maccatalyst-x64\native\libSystem.IO.Ports.Native.dylib
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\Stile_Elementi\StileComboBox.baml
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\Dati\HUB_PC\Colori.json
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\Dati\HUB_PC\Lista_Dispositivi_Elementi.json
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Release\net8.0-windows7.0\Newtonsoft.Json.dll
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\Stile_Elementi\SliderBarMod.baml
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\Finestre\InfoSerialData.g.cs
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\Pagine\HubPC\Elementi.g.cs
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\GeneratedInternalTypeHelper.g.cs
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\Finestre\InfoSerialData.baml
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\Pagine\HubPC\Elementi.baml
+D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Release\net8.0-windows7.0\Stile_Elementi\CircularProgressBar\styles.baml
