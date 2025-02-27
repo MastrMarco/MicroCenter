@@ -1,0 +1,217 @@
+{
+
+  "ArduFanHub 4.0": [
+
+
+    {
+      "HUB": [
+        {
+          "Nome": "HUB",
+          "Mod_LED_Fan": 0,
+          "LED": true,
+          "FAN": true
+
+        }
+      ]
+    },
+
+    {
+      "Ventole": [
+        {
+          "Nome": "Ventole 1",
+          "Mod_LED_Fan": 1,
+          "LED": true,
+          "FAN": true
+        },
+        {
+          "Nome": "Ventole 2",
+          "Mod_LED_Fan": 2,
+          "LED": true,
+          "FAN": true
+        },
+        {
+          "Nome": "Ventole 3",
+          "Mod_LED_Fan": 3,
+          "LED": true,
+          "FAN": true
+        },
+        {
+          "Nome": "Ventole 4",
+          "Mod_LED_Fan": 4,
+          "LED": true,
+          "FAN": true
+        }
+      ]
+    },
+
+
+    {
+      "Dissipatore": [
+        {
+          "Nome": "Dissipatore Ventola CPU 1",
+          "Mod_LED_Fan": 5,
+          "LED": true,
+          "FAN": false
+        },
+        {
+          "Nome": "Dissipatore Ventola CPU 2",
+          "Mod_LED_Fan": 6,
+          "LED": true,
+          "FAN": false
+        },
+        {
+          "Nome": "Dissipatore Pompa CPU",
+          "Mod_LED_Fan": 7,
+          "LED": true,
+          "FAN": false
+        }
+      ]
+    },
+
+
+    {
+      "Scheda_Video": [
+        {
+          "Nome": "Scheda Video",
+          "Mod_LED_Fan": 8,
+          "LED": true,
+          "FAN": false
+        }
+      ]
+    },
+
+
+    {
+      "Strisca_LED": [
+        {
+          "Nome": "Strisca LED",
+          "Mod_LED_Fan": 9,
+          "LED": true
+        }
+      ]
+    }
+
+
+  ],
+
+
+
+  "ArduFanHub 3.0": [
+
+
+    {
+      "HUB": [
+        {
+          "Nome": "HUB"
+        }
+      ]
+    },
+
+    {
+      "Ventole": [
+        {
+          "Nome": "Ventole 1"
+        },
+        {
+          "Nome": "Ventole 2"
+        },
+        {
+          "Nome": "Ventole 3"
+        },
+        {
+          "Nome": "Ventole 4"
+        }
+      ]
+    },
+
+
+    {
+      "Scheda_Video": [
+        {
+          "Nome": "Scheda Video"
+        }
+      ]
+    },
+
+
+    {
+      "Strisca_LED": [
+        {
+          "Nome": "Strisca LED"
+        }
+      ]
+    }
+
+
+  ],
+
+
+
+  "ArduFanHub 2.0": [
+
+
+    {
+      "HUB": [
+        {
+          "Nome": "HUB"
+        }
+      ]
+    },
+
+    {
+      "Ventole": [
+        {
+          "Nome": "Ventole 1"
+        },
+        {
+          "Nome": "Ventole 2"
+        },
+        {
+          "Nome": "Ventole 3"
+        },
+        {
+          "Nome": "Ventole 4"
+        }
+      ]
+    },
+
+
+    {
+      "Casse": [
+        {
+          "Nome": "Cassa Sinistra"
+        },
+        {
+          "Nome": "Cassa Destra"
+        },
+        {
+          "Nome": "Strisca LED"
+        }
+      ]
+    },
+
+
+    {
+      "Scheda_Video": [
+        {
+          "Nome": "Scheda Video"
+        }
+      ]
+    },
+
+
+    {
+      "Strisca_LED": [
+        {
+          "Nome": "Strisca LED"
+        }
+      ]
+    }
+
+
+  ]
+
+
+
+
+}
