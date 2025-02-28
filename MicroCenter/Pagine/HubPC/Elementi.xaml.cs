@@ -63,8 +63,7 @@ namespace MicroCenter.Pagine.HubPC
 
             if (Dispositivo.StatoConnessione)
             {
-                if (Dispositivo.ModLED_Fan < 5) TrackVelocità.Value = Dispositivo.FanSpeed[Dispositivo.ModLED_Fan];
-                TrackLuminosità.Value = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
+                TrackCommand();
 
                 Br_Temperatura.Value = Dispositivo.TempDS;
 
@@ -78,6 +77,23 @@ namespace MicroCenter.Pagine.HubPC
 
             UI_dati();
         }
+
+
+        //Aggirna posizione TrackBar Luminosità e Velocità ventole
+       private void TrackCommand()
+        {
+            if (Dispositivo.StatoConnessione)
+            {
+                if (Dispositivo.ModLED_Fan < 5) TrackVelocità.Value = Dispositivo.FanSpeed[Dispositivo.ModLED_Fan];
+                TrackLuminosità.Value = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
+
+               // Br_Temperatura.Value = Dispositivo.TempDS;
+
+               // UI_Load = true;
+            }
+        }
+
+
 
 
         // Ricerca Info dell'elemento selezionato
@@ -196,7 +212,7 @@ namespace MicroCenter.Pagine.HubPC
                         else if (ListDatiElemento_Full[4] == item.Tag.ToString())
                         {
                             // RPM Ventola
-                            item.Text = (Dispositivo.RPM_Fan[Dispositivo.ModLED_Fan < 5 ? Dispositivo.ModLED_Fan : 0] * 60).ToString();
+                            item.Text = (Dispositivo.RPM_Fan[Dispositivo.ModLED_Fan < 4 ? Dispositivo.ModLED_Fan : 0] * 60).ToString();
                         }
 
 
@@ -393,6 +409,30 @@ namespace MicroCenter.Pagine.HubPC
 
 
                 // Creazione bottoni sotto elemnti
+
+
+                string GruppoElementoSelezionato = "";
+                foreach (var index in elementiPrincipali)
+                {
+
+                    var el = list.FindElement(versione, index, c => c.Mod_LED_Fan == Dispositivo.ModLED_Fan);
+
+                    if (el != null)
+                    {
+                        if (SerialPort.IsOpen)
+                        {
+                            GruppoElementoSelezionato = el.Nome;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        GruppoElementoSelezionato = "ErElemento";
+                    }
+
+                }
+
+
                 //string x = GetNomeElemento(versione);
                 var sottoelementi = list.GetContenutoElemento(versione, GetNomeElemento(versione));
 
@@ -412,6 +452,8 @@ namespace MicroCenter.Pagine.HubPC
                             HorizontalAlignment = HorizontalAlignment.Center,
                             Cursor = System.Windows.Input.Cursors.Hand,
                             ToolTip = new Label { Content = sottoelementi[i].Nome },
+                            BorderThickness = new Thickness(1),
+                            BorderBrush = Brushes.Transparent // Nessun bordo iniziale
                             //    Style = (Style)FindResource("IconButtonsForms") // Stile preso dalle risorse
                         };
 
@@ -420,6 +462,11 @@ namespace MicroCenter.Pagine.HubPC
                         btn.Click += BtnGruppiElementiBar_Click;
 
                         ListSelectElemento.Children.Add(btn); // Aggiunge il bottone al contenitore
+
+                        if (sottoelementi[i].Nome == GruppoElementoSelezionato) // Se il pulsante è "Red", lo selezioniamo di default
+                        {
+                            SelectButtonUnderGrupElemento(btn);
+                        }
                     }
                 }
             }
@@ -448,11 +495,31 @@ namespace MicroCenter.Pagine.HubPC
                             ClearTextBlock();
                             ElementoDato();
                             UI_dati();
-                        }
+                            TrackCommand();
+                        }                     
                     }
 
                 }
             }
+        }
+        // Grafica Selezione Colore
+        private Button selectedButtonUnderGrupElemento = null;
+        private void SelectButtonUnderGrupElemento(Button button)
+        {
+            if (selectedButtonUnderGrupElemento != null)
+            {
+                selectedButtonUnderGrupElemento.BorderBrush = Brushes.Transparent; // Ripristina il precedente pulsante
+            }
+
+            selectedButtonUnderGrupElemento = button;
+            selectedButtonUnderGrupElemento.BorderBrush = Brushes.Black; // Evidenzia il pulsante selezionato
+
+
+
+            //if (ListLaDatiElementov.Children[i] is TextBlock item)
+            //{
+
+            //}
         }
 
 
@@ -569,6 +636,7 @@ namespace MicroCenter.Pagine.HubPC
                         ElementoDato();
                         SelectButtonGrupElementi(btn);
                         UI_dati();
+                        TrackCommand();
 
                     }
                 }
@@ -740,6 +808,12 @@ namespace MicroCenter.Pagine.HubPC
                 if (colorsCode[i] == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan]) // Se il pulsante è "Red", lo selezioniamo di default
                 {
                     SelectButton(button);
+                }
+
+                // Nascondi Animazioni se è in modalità siongolo elemento
+                if (Dispositivo.ModLED_Fan != 0)
+                {
+                    break;
                 }
             }
         }
