@@ -103,8 +103,8 @@ void Voltaggio() {
   //
   if ((PowerLimitLED == true) and (V5 < LED_Limt) and ((Mod_attesa == false and Aniamzione_Avvio == true) and (millis() > (DelayFanPower + StartLEDPowerProt)))) {
     PowerLimitLED_Stato = true;
-    if (millis() >= (ResetTimerVirtuale[12] + DelayVirtuale[12])) {
-      ResetTimerVirtuale[12] = millis();
+    if (millis() >= (ResetTimerVirtuale[6] + DelayVirtuale[12])) {
+      ResetTimerVirtuale[6] = millis();
       if ((BRIGHTNESS - (LumLimitLED + 20)) > 13) {
         LumLimitLED = LumLimitLED + 20;
       } else {

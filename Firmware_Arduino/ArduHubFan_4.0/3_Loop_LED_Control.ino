@@ -63,15 +63,19 @@ void Void_LED_Mod() {
         switch (ColoreLED[0]) {
           case 600:
             RGB_Mod_Fan_All = 1;  //Modalità 1 = RGB Effetto Ciclo Discontinuo
-            RGB_Discontinuo();
+            // RGB_Discontinuo();
+            // (Animazione, Delay)
+            RGB_Animazioni(2, 9);
             break;
           case 601:
             RGB_Mod_Fan_All = 2;  //Modalità 2 = RGB Effetto Transizione*
-            RGB_Transizione();
+            // RGB_Transizione();
+            RGB_Animazioni(0, 7);
             break;
           case 602:
             RGB_Mod_Fan_All = 3;  //Modalità 3 = RGB Effetto RainBow*
-            RGB_RainBow();
+            // RGB_RainBow();
+            RGB_Animazioni(1, 5);
             break;
           case 603:
             RGB_Mod_Fan_All = 4;  //Modalità 4 = Effetto Music*
@@ -79,11 +83,13 @@ void Void_LED_Mod() {
             break;
           case 604:
             RGB_Mod_Fan_All = 5;  //Modalità 5 = Effetto Temperatura*
-            RGB_Temperatura();
+            // RGB_Temperatura();
+            RGB_Animazioni(4, 6);
             break;
           case 605:
             RGB_Mod_Fan_All = 6;  //Modalità 6 = Effetto Festività*
-            RGB_Mix();
+            //  RGB_Mix();
+            RGB_Animazioni(5, 13);
             break;
         }
       }

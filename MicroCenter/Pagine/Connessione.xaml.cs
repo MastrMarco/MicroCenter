@@ -60,15 +60,27 @@ namespace MicroCenter.Pagine
         public async void ListaCOM()
         {
             // Aggiorna la ComboBox con i risultati trovati dopo aver completato l'operazione in background
-            SerialPortComboBox.Items.Clear();
             // foreach (string port in FunzioniSeriali.ListaPorteConFiltro(""))
-            foreach (string port in await FunzioniSeriali.ListaPorteConFiltroAsync())
+            var ListaNomePoerteCOM = await FunzioniSeriali.ListaPorteConFiltroAsync();
+            SerialPortComboBox.Items.Clear();
+            foreach (string port in ListaNomePoerteCOM)
             {
-                SerialPortComboBox.Items.Add(port);
+                if (!SerialPortComboBox.Items.Contains(port))
+                {
+                    SerialPortComboBox.Items.Add(port);
+                }
+
             }
-            if (SerialPortComboBox.Items.Count > 0)
+            // if (SerialPortComboBox.Items.Count > 0)
+            if (SerialPortComboBox.Items.Contains(Properties.Settings.Default.SerialPoertName))
             {
-                SerialPortComboBox.SelectedIndex = 0; // Se ci sono elementi, seleziona il primo
+                int index = SerialPortComboBox.Items.IndexOf(Properties.Settings.Default.SerialPoertName);
+
+                SerialPortComboBox.SelectedIndex = index;
+            }
+            else if (SerialPortComboBox.Items.Count > 0 && !SerialPortComboBox.Items.Contains(Properties.Settings.Default.SerialPoertName))
+            {
+                SerialPortComboBox.SelectedIndex = 0;
             }
         }
 
@@ -100,6 +112,7 @@ namespace MicroCenter.Pagine
 
                 };
                 //_serialPort.DataReceived += SerialPort_DataReceived;
+                Properties.Settings.Default.SerialPoertName = com_Name_set;
                 _serialPort.Open();
 
 
@@ -123,13 +136,13 @@ namespace MicroCenter.Pagine
             }
         }
 
-     
+
         public static void Disconnessione()
         {
             isRunning = false;
             Dispositivo.StatoConnessione = false;
             _serialPort.Close();
-       
+
         }
 
         // Aggiorna Lista POrte COM / Seriali
@@ -168,7 +181,7 @@ namespace MicroCenter.Pagine
                     // TxSerialText.Text = DatiTX;
                     // lgo = Dispositivo.Get_CountListSeriale();
 
-                     La4.Text = Dispositivo.Get_CountListSeriale().ToString();
+                    La4.Text = Dispositivo.Get_CountListSeriale().ToString();
                     //La4.Text = Dispositivo.LumLED[Dispositivo.ModLED_Fan].ToString();
 
 

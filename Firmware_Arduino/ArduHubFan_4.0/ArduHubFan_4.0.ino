@@ -113,34 +113,36 @@ byte RPM_Fan4;
 //
 //------------------------------------- Timper Viruale (Delay)
 //Funzione millis
-//Crea un delay non bloccante per evitare errori nell'invio dei dati al PC tramite Seriale TX           0
-//Crea un delay non bloccante per la Modalità Offline USB                                               1
-//Crea un delay non bloccante per evitare errori nell'invio dei dati al PC tramite Seriale Tensione     2 Lettura Tensione
-//Crea un delay non bloccante per evitare errori nell'invio dei dati al PC tramite Seriale Temperatura  3
-//Crea un delay non bloccante per evitare errori quando vengono impostati i vari valori per i LED       4
-//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 1                     5 RainBow
-//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 2                     6 Temperatura
-//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 3                     7 Transiozione
-//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 4                     8 Musica OFF
-//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 5                     9 Discontinuo
-//Crea un delay non bloccante per regolare la velocità Animata Avvio Arduino                            10
-//Crea un delay non bloccante per calcolare gli RPM delle varie ventole                                 11
-//Crea un delay non bloccante per l'auto reset dello stato delle protezioni                             12
-//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 6                     13 Mix_Festività
-//Crea un delay non bloccante per regolare la velocità Animata degli RGB LED_Test                       14 Configutazione LED
+//Crea un delay non bloccante per evitare errori nell'invio dei dati al PC tramite Seriale TX          0  0
+//Crea un delay non bloccante per la Modalità Offline USB                                              1  1
+//Crea un delay non bloccante per evitare errori nell'invio dei dati al PC tramite Seriale Tensione    2  2 Lettura Tensione
+//Crea un delay non bloccante per evitare errori nell'invio dei dati al PC tramite Seriale Temperatura 3  3
+//Crea un delay non bloccante per evitare errori quando vengono impostati i vari valori per i LED      4  4
+//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 1                    8  5 RainBow
+//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 2                    8  6 Temperatura
+//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 3                    8  7 Transiozione
+//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 4                       8 Musica OFF
+//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 5                    8  9 Discontinuo
+//Crea un delay non bloccante per regolare la velocità Animata Avvio Arduino                             10 Null
+//Crea un delay non bloccante per calcolare gli RPM delle varie ventole                                5 11 RPM Ventole
+//Crea un delay non bloccante per l'auto reset dello stato delle protezioni                            6 12 PowerLimitLED
+//Crea un delay non bloccante per regolare la velocità Animata degli RGB Modalità 6                    8 13 Mix_Festività
+//Crea un delay non bloccante per regolare la velocità Animata degli RGB LED_Test                      7 14 Configutazione LED
 //
 //
 //                            0
 unsigned long TimerVirtuale = 0;  // Aniamzione Avvio millis()
-//                                       0  1  2  3  4  5  6  7  8  9  10 11 12 13 14
-unsigned long ResetTimerVirtuale[15] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-//                         0   1   2     3    4   5  6    7   8   9  10   11   12  13  14
+//                                                     V  V  V  V
+//                                      0  1  2  3  4  5  6  7  8    9 10 11 12 13 14
+unsigned long ResetTimerVirtuale[9] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+//                                                 V   V   V   X   V   X    V    V   V   V
+//                         0   1    2     3    4   5   6   7   8   9  10   11   12  13  14
 int DelayVirtuale[15] = { 40, 200, 300, 1000, 40, 10, 20, 200, 1, 50, 30, 1000, 60, 15, 30 };
 //
 //------------------------------------- Seriale di avvio
 //
-byte Boot_SetUp;                  // Collegamento seriale
-byte DelayLoopPrimario_ON = 40;   //Delay Seriale Connesso
+byte Boot_SetUp;                   // Collegamento seriale
+byte DelayLoopPrimario_ON = 40;    //Delay Seriale Connesso
 byte DelayLoopPrimario_OFF = 500;  //Delay Seriale non Connesso
 //
 //------------------- Esecuzione animazione all'avvio
@@ -253,6 +255,3 @@ Adafruit_NeoPixel Strip[9] = { Adafruit_NeoPixel(NUM_LEDS_OUT[1], DATA_PIN_1, NE
                                Adafruit_NeoPixel(NUM_LEDS_OUT[9], DATA_PIN_9, NEO_GRB + NEO_KHZ800) };
 
 //-------------------------------------
-
-
-

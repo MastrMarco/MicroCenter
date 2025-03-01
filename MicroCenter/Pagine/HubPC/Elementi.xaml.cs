@@ -65,7 +65,10 @@ namespace MicroCenter.Pagine.HubPC
             {
                 TrackCommand();
 
+                
+                Br_Temperatura.Maximum = Dispositivo.TempDS;
                 Br_Temperatura.Value = Dispositivo.TempDS;
+                LaTemp.Text = Br_Temperatura.Value.ToString() + "°C";
 
                 UI_Load = true;
             }

@@ -8,7 +8,7 @@ byte Lx;
 
 void Set_LED_Config() {
 
-  if (millis() >= (ResetTimerVirtuale[14] + DelayVirtuale[14])) {
+  if (millis() >= (ResetTimerVirtuale[7] + DelayVirtuale[14])) {
     //**//
     if (stDef == true) {
       Reset_LED();
@@ -53,7 +53,7 @@ void Set_LED_Config() {
       DelayVirtuale[14] = 30;
     }
     //**//
-    ResetTimerVirtuale[14] = millis();
+    ResetTimerVirtuale[7] = millis();
   }
 }
 

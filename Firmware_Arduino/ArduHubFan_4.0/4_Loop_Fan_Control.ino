@@ -37,8 +37,8 @@ void Void_Fan_Mod() {
     PinD_pre = PinD;
   }
   //--
-  if (millis() >= (ResetTimerVirtuale[11] + DelayVirtuale[11])) {
-    ResetTimerVirtuale[11] = millis();
+  if (millis() >= (ResetTimerVirtuale[5] + DelayVirtuale[11])) {
+    ResetTimerVirtuale[5] = millis();
     RPM_Fan1 = Count_RPM_1;  // * 60;
     Count_RPM_1 = 0;
     RPM_Fan2 = Count_RPM_2;  // * 60;

@@ -85,8 +85,8 @@
                                 </StackPanel>
 
                             </Grid>
-                            
-                            
+
+
                             <Grid Grid.Column="1"
                                   x:Name="DatiElemento">
 
@@ -98,7 +98,7 @@
 
 
                                 </StackPanel>
-                                
+
                             </Grid>
 
 
@@ -109,9 +109,9 @@
                             <StackPanel x:Name="ListSelectElemento"
                                         Orientation="Horizontal"
                                         HorizontalAlignment="Center"
-                                        VerticalAlignment="Center" >
+                                        VerticalAlignment="Center">
 
-                              
+
 
                             </StackPanel>
                         </Grid>
@@ -139,6 +139,7 @@
                                              Thickness="10"
                                              Radius="34"
                                              Value="100"
+                                             Maximum="100"
                                              Style="{StaticResource CircularProgressBarStyle}"
                                              Background="{DynamicResource PrimaryTealColor}"
                                              Fill="Transparent"
@@ -147,6 +148,14 @@
                                              StrokeMode="Middle"
                                              EndLineCap="Round"
                                              Margin="0 0 0 0" />
+
+                    <TextBlock x:Name="LaTemp"
+                               Text="100°C" 
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource PrimaryTextColor}"/>
 
                 </Grid>
 
