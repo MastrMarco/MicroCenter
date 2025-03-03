@@ -1,5 +1,5 @@
 //*****************************************************************************************************************************//
-//                                           Ver: X.09 Firmware data 00/00/25                                                  //
+//                                           Ver: X.00 Firmware data 00/00/25                                                  //
 //*****************************************************************************************************************************//
 
 void loop() {
@@ -37,12 +37,8 @@ void loop() {
   Void_Fan_Mod();
   if (Aniamzione_Avvio == true or Debug == 1) {
     TimerVirtuale = millis();
-
-    if (ROM_Dati == 3 and ModLED_Fan > 0) {
-      Set_LED_Config();  //Richiama il loop per la configurazione delle periferiche
-    } else {
-      Void_LED_Mod();  //Richiama il loop dove ci sono tutte le modalità LED
-    }
+    //Richiama il loop per la configurazione delle periferiche, Richiama il loop dove ci sono tutte le modalità LED
+    (ROM_Dati == 3 && ModLED_Fan > 0) ? Set_LED_Config() : Void_LED_Mod();
   }
   TemperaturaDS();  //Lettura srnsore Temperatura
   Voltaggio();      //Lettura Tensione 5V 12V
@@ -65,11 +61,9 @@ void loop() {
     //----------------------
     //Invio dei dati al PC tramite Seriale
     if (Boot_SetUp != 100 or Debug == 1) {
-      if (Debug == 1) {
-        DelayVirtuale[0] = DelayLoopPrimario_ON;
-      } else {
-        DelayVirtuale[0] = DelayLoopPrimario_OFF;
-      }
+
+      DelayVirtuale[0] = (Debug == 1) ? DelayLoopPrimario_ON : DelayLoopPrimario_OFF;
+
       String output;
       output.reserve(250);  // Evita frammentazione della memoria
 
@@ -159,15 +153,14 @@ void loop() {
   //
   //-------------------------------------Modalità Offline USB
   //
-  if ((millis() >= (ResetTimerVirtuale[1] + DelayVirtuale[1])) and (Serial.available() == false)) {
+  // if ((millis() >= (ResetTimerVirtuale[1] + DelayVirtuale[1])) and (Serial.available() == false)) {
+  if ((millis() >= (ResetTimerVirtuale[1] + 40)) and (Serial.available() == false)) {
 
     if (ROM_Dati == 3) {
       byte d = EEPROM.read(EEPROMaddress[0]);
-      if (d < 3) {
-        ROM_Dati = d;
-      } else {
-        ROM_Dati = 0;
-      }
+
+      (d < 3) ? ROM_Dati = d : ROM_Dati = 0;
+
       // if (valLED >= 1 and valLED <= 30) {
       if (stDef == false) {
         Reset_LED();
@@ -175,11 +168,8 @@ void loop() {
         // NUM_LEDS_OUT[ModLED_Fan] = valLED;
         Set_LED_ROM();
 
-        if (ROM_Dati == 1) {
-          ModLED_Fan = EEPROM.read(EEPROMaddress[4]);
-        } else {
-          ModLED_Fan = 0;
-        }
+        (ROM_Dati == 1) ? ModLED_Fan = EEPROM.read(EEPROMaddress[4]) : ModLED_Fan = 0;
+
         stDef = true;
       }
     }

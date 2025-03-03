@@ -78,13 +78,13 @@ void Voltaggio() {
   }
 
   //------------------------------------------------------
-  if ((EN_OV == true) and (Mod_attesa == false)) {
+  if ((EN_OV == true) && (Mod_attesa == false)) {
     //---------------------- Protezione Alimentazione 5V [+/- 5%]
     //
-    if (((V5 < (5.00 - V5_Limit)) or (V5 > (5.00 + V5_Limit))) and (Aniamzione_Avvio == true) and (PowerLimitLED == false or LumLimitLED > 240)) {
+    if (((V5 < (5.00 - V5_Limit)) || (V5 > (5.00 + V5_Limit))) && (Aniamzione_Avvio == true) && (PowerLimitLED == false || LumLimitLED > 240)) {
       S_Pro_5V = true;  //1
     }
-    if ((V5 <= (5.00 + V5_Limit)) and (V5 >= (5.00 - V5_Limit)) and (Aniamzione_Avvio == false)) {
+    if ((V5 <= (5.00 + V5_Limit)) && (V5 >= (5.00 - V5_Limit)) && (Aniamzione_Avvio == false)) {
       S_Pro_5V = false;  //0
     }
     //

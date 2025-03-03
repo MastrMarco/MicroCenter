@@ -64,49 +64,49 @@
     {
       "Nome": "Spento",
       "Colore": 20,
-      "Saturazione": 0,
+      "Luminosità": 0,
       "UI_stato": true,
       "Tipo": "Default"
     },
     {
       "Nome": "Transiszione",
       "Colore": 601,
-      "Saturazione": 255,
+      "Luminosità": 255,
       "UI_stato": true,
       "Tipo": "Default"
     },
     {
       "Nome": "Rainbow",
       "Colore": 602,
-      "Saturazione": 255,
+      "Luminosità": 255,
       "UI_stato": true,
       "Tipo": "Default"
     },
     {
       "Nome": "Temperatura",
       "Colore": 604,
-      "Saturazione": 255,
+      "Luminosità": 255,
       "UI_stato": true,
       "Tipo": "Default"
     },
     {
       "Nome": "Musica",
       "Colore": 603,
-      "Saturazione": 255,
+      "Luminosità": 255,
       "UI_stato": true,
       "Tipo": "Default"
     },
     {
       "Nome": "Discontinuo",
       "Colore": 600,
-      "Saturazione": 255,
+      "Luminosità": 255,
       "UI_stato": true,
       "Tipo": "Default"
     },
     {
       "Nome": "Mix",
       "Colore": 605,
-      "Saturazione": 255,
+      "Luminosità": 255,
       "UI_stato": true,
       "Tipo": "Default"
     }

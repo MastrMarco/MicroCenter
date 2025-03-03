@@ -65,7 +65,7 @@ namespace MicroCenter.Pagine.HubPC
             {
                 TrackCommand();
 
-                
+
                 Br_Temperatura.Maximum = Dispositivo.TempDS;
                 Br_Temperatura.Value = Dispositivo.TempDS;
                 LaTemp.Text = Br_Temperatura.Value.ToString() + "°C";
@@ -83,16 +83,16 @@ namespace MicroCenter.Pagine.HubPC
 
 
         //Aggirna posizione TrackBar Luminosità e Velocità ventole
-       private void TrackCommand()
+        private void TrackCommand()
         {
             if (Dispositivo.StatoConnessione)
             {
                 if (Dispositivo.ModLED_Fan < 5) TrackVelocità.Value = Dispositivo.FanSpeed[Dispositivo.ModLED_Fan];
                 TrackLuminosità.Value = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
 
-               // Br_Temperatura.Value = Dispositivo.TempDS;
+                // Br_Temperatura.Value = Dispositivo.TempDS;
 
-               // UI_Load = true;
+                // UI_Load = true;
             }
         }
 
@@ -169,7 +169,7 @@ namespace MicroCenter.Pagine.HubPC
                             //Colore
                             string categorial = "Colori";
                             var _list = new Lib_JSON_CRUD_3<Colori>(filePathColori);
-                            var el = _list.FindElement("", categorial, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && c.Saturazione == Dispositivo.Saturazione[Dispositivo.ModLED_Fan]);
+                            var el = _list.FindElement("", categorial, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && c.Saturazione == Dispositivo.Saturazione[Dispositivo.ModLED_Fan] && Dispositivo.LumLED[Dispositivo.ModLED_Fan] > 0);
                             if (el != null)
                             {
                                 item.Text = el.Nome;
@@ -178,7 +178,7 @@ namespace MicroCenter.Pagine.HubPC
                             {
                                 categorial = "Animazioni";
                                 var __list = new Lib_JSON_CRUD_3<Animazioni>(filePathColori);
-                                var _el = __list.FindElement("", categorial, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && c.Saturazione == Dispositivo.Saturazione[Dispositivo.ModLED_Fan]);
+                                var _el = __list.FindElement("", categorial, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan]);
                                 if (_el != null)
                                 {
                                     item.Text = _el.Nome;
@@ -231,10 +231,10 @@ namespace MicroCenter.Pagine.HubPC
             //Colore
             string categoria = "Colori";
             var ListColore = new Lib_JSON_CRUD_3<Colori>(filePathColori);
-            var co = ListColore.FindElement("", categoria, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && c.Saturazione == Dispositivo.Saturazione[Dispositivo.ModLED_Fan]);
+            var co = ListColore.FindElement("", categoria, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && c.Saturazione == Dispositivo.Saturazione[Dispositivo.ModLED_Fan] && Dispositivo.LumLED[Dispositivo.ModLED_Fan] > 0);
             categoria = "Animazioni";
             var ListAnimazione = new Lib_JSON_CRUD_3<Animazioni>(filePathColori);
-            var an = ListAnimazione.FindElement("", categoria, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && c.Saturazione == Dispositivo.Saturazione[Dispositivo.ModLED_Fan]);
+            var an = ListAnimazione.FindElement("", categoria, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan]);
 
 
             if (co != null)
@@ -322,6 +322,13 @@ namespace MicroCenter.Pagine.HubPC
             if (ListSelectElemento != null)
             {
                 ListSelectElemento.Children.Clear();
+                //ListSelectElemento = null;
+            }
+
+            if (ListSelectElemento != null)
+            {
+                Animazione0.Children.Clear();
+                Animazione1.Children.Clear();
                 //ListSelectElemento = null;
             }
         }
@@ -499,7 +506,9 @@ namespace MicroCenter.Pagine.HubPC
                             ElementoDato();
                             UI_dati();
                             TrackCommand();
-                        }                     
+                            GenerateAniamzioneButtons();
+                            GestioneLuminosità("", Dispositivo.LumLED[Dispositivo.ModLED_Fan], false);
+                        }
                     }
 
                 }
@@ -640,6 +649,8 @@ namespace MicroCenter.Pagine.HubPC
                         SelectButtonGrupElementi(btn);
                         UI_dati();
                         TrackCommand();
+                        GenerateAniamzioneButtons();
+                        GestioneLuminosità("", Dispositivo.LumLED[Dispositivo.ModLED_Fan], false);
 
                     }
                 }
@@ -740,6 +751,14 @@ namespace MicroCenter.Pagine.HubPC
                     {
                         Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = el.Colore;
                         Dispositivo.Saturazione[Dispositivo.ModLED_Fan] = el.Saturazione;
+                        //if (Dispositivo.LumLED[Dispositivo.ModLED_Fan] == 0)
+                        //{
+                        //    Dispositivo.LumLED[Dispositivo.ModLED_Fan] = 128;
+                        //    TrackLuminosità.IsEnabled = true;
+                        //    TrackLuminosità.Value = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
+                        //}
+                        Dispositivo.LumLED[Dispositivo.ModLED_Fan] = GestioneLuminosità(el.Nome, Dispositivo.LumLED[Dispositivo.ModLED_Fan], true);
+
                         SelectButton(btn);
                         UI_dati();
                     }
@@ -836,6 +855,19 @@ namespace MicroCenter.Pagine.HubPC
                     if (SerialPort.IsOpen)
                     {
                         Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = el.Colore;
+                        Dispositivo.LumLED[Dispositivo.ModLED_Fan] = GestioneLuminosità(el.Nome, Dispositivo.LumLED[Dispositivo.ModLED_Fan], true);
+                        //if (btn.Tag.ToString() == "Spento")
+                        //{
+                        //    Dispositivo.LumLED[Dispositivo.ModLED_Fan] = el.Luminosità;
+                        //    TrackLuminosità.IsEnabled = false;
+                        //}
+                        //else if (Dispositivo.LumLED[Dispositivo.ModLED_Fan] == 0)
+                        //{
+                        //    Dispositivo.LumLED[Dispositivo.ModLED_Fan] = 128;
+                        //    TrackLuminosità.IsEnabled = true;
+                        //    TrackLuminosità.Value = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
+                        //}
+
                         SelectButton(btn);
                         UI_dati();
                     }
@@ -874,7 +906,36 @@ namespace MicroCenter.Pagine.HubPC
 
 
 
+        private int GestioneLuminosità(string Ncolore, int LumLED, bool tipo)
+        {
+            if (Ncolore == "Spento")
+            {
+                //   Dispositivo.LumLED[Dispositivo.ModLED_Fan] = 0;
+                TrackLuminosità.IsEnabled = false;
+                TrackLuminosità.Value = TrackLuminosità.Minimum;
+                return 0;
+            }
+            // else if (Dispositivo.LumLED[Dispositivo.ModLED_Fan] == 0)
+            // {
+            //   Dispositivo.LumLED[Dispositivo.ModLED_Fan] = 128;
+            if (tipo)
+            {
+                LumLED = (LumLED > 0) ? LumLED : 128;
+                //TrackLuminosità.Value = LumLED;
+            }
+            else
+            {
+                LumLED = (LumLED > 0) ? LumLED : ((LumLED != 0) ? 128 : 0);
+                //TrackLuminosità.Value = LumLED;
 
+            }
+            TrackLuminosità.Value = (LumLED >= TrackLuminosità.Minimum) ? LumLED : TrackLuminosità.Minimum;
+            TrackLuminosità.IsEnabled = true;
+            return LumLED;
+            //   return 128;
+            //}
+
+        }
 
 
 
@@ -890,7 +951,7 @@ namespace MicroCenter.Pagine.HubPC
 
         private void TrackLuminosità_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (Dispositivo.StatoConnessione && UI_Load)
+            if (Dispositivo.StatoConnessione && UI_Load && Dispositivo.LumLED[Dispositivo.ModLED_Fan] != 0)
             {
                 Dispositivo.LumLED[Dispositivo.ModLED_Fan] = (int)TrackLuminosità.Value;
                 UI_dati();

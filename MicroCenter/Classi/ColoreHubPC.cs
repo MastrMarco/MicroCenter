@@ -39,7 +39,8 @@ namespace MicroCenter.Classi
         public int? ID_posizione { get; set; }
         public string Nome { get; set; }
         public int Colore { get; set; }
-        public int Saturazione { get; set; }
+       // public int Saturazione { get; set; }
+        public int Luminosità { get; set; }
         public bool UI_stato { get; set; }
         public string Tipo { get; set; }
 

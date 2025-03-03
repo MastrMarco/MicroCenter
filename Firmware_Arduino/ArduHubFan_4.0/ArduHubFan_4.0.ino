@@ -1,5 +1,5 @@
 //****************************************************************************************************************************//
-//-------------------          By  MastrMarco    Versione 1.09      ISCRIVITI AL CANALE YOUTUBE       ------------------------//
+//-------------------          By  MastrMarco    Versione 2.00      ISCRIVITI AL CANALE YOUTUBE       ------------------------//
 //
 //                                   Per Arduino Nano ATMega 328P [NEW / OLD] Boot loader
 //
@@ -20,7 +20,7 @@ String Stato_Software = "D";  //Commpatibbilità-Debug (D)
 
 byte Arduino = 2;             // Tipo di arduino   |1 = Nano OLD / 2 = Nano NEW / 3 = UNO
 byte Progetto = 5;            // Progetto          |4 = HubFan_3.0 / 5 = HubFan_4.0
-const float Versione = 1.09;  // Versione Software |
+const float Versione = 2.00;  // Versione Software |
 //
 //------------------------------------- Memorizza i Dati impostati dal utente
 //EEPROM interna di Arduino 1 Kbyte
@@ -133,11 +133,11 @@ byte RPM_Fan4;
 //                            0
 unsigned long TimerVirtuale = 0;  // Aniamzione Avvio millis()
 //                                                     V  V  V  V
-//                                      0  1  2  3  4  5  6  7  8    9 10 11 12 13 14
-unsigned long ResetTimerVirtuale[9] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+//                                      0  1  2  3  4  5  6  7  8
+unsigned long ResetTimerVirtuale[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 //                                                 V   V   V   X   V   X    V    V   V   V
-//                         0   1    2     3    4   5   6   7   8   9  10   11   12  13  14
-int DelayVirtuale[15] = { 40, 200, 300, 1000, 40, 10, 20, 200, 1, 50, 30, 1000, 60, 15, 30 };
+//                       0   1    2     3    4   5   6   7   8   9  10   11   12  13  14
+int DelayVirtuale[] = { 40, 200, 300, 1000, 40, 10, 20, 200, 1, 50, 30, 1000, 60, 15, 30 };
 //
 //------------------------------------- Seriale di avvio
 //
