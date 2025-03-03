@@ -56,13 +56,17 @@ namespace MicroCenter.Pagine.HubPC
         {
             InitializeComponent();
 
-            CreaBottoniGruppiElementi();
-            GenerateColorButtons();
-            GenerateAniamzioneButtons();
 
 
             if (Dispositivo.StatoConnessione)
             {
+                // Genera i bottoni Colorati
+                GenerateColorButtons();
+                GenerateAniamzioneButtons();
+                CreaBottoniGruppiElementi();
+                GestioneLuminosità("", Dispositivo.LumLED[Dispositivo.ModLED_Fan], false);
+
+
                 TrackCommand();
 
 
@@ -71,14 +75,18 @@ namespace MicroCenter.Pagine.HubPC
                 LaTemp.Text = Br_Temperatura.Value.ToString() + "°C";
 
                 UI_Load = true;
+
+                ElementoDato();
+               // ClearTextBlock();
+                UI_dati();
             }
 
             DataContext = this; // Imposta il DataContext per il binding
 
-            ElementoDato();
+            // ElementoDato();
             //  ClearTextBlock();
 
-            UI_dati();
+            // UI_dati();
         }
 
 
@@ -89,9 +97,7 @@ namespace MicroCenter.Pagine.HubPC
             {
                 if (Dispositivo.ModLED_Fan < 5) TrackVelocità.Value = Dispositivo.FanSpeed[Dispositivo.ModLED_Fan];
                 TrackLuminosità.Value = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
-
                 // Br_Temperatura.Value = Dispositivo.TempDS;
-
                 // UI_Load = true;
             }
         }
@@ -156,7 +162,6 @@ namespace MicroCenter.Pagine.HubPC
         private void UI_dati()
         {
             //Gestione visualizazione dati Elemento selezionato
-            //  if (ListLaDatiElementov.Children.Count > 0 && ListLaDatiElementov.Children[0] is TextBlock firstButton)
             if (ListLaDatiElementov.Children.Count > 0)
             {
                 for (int i = 0; i < ListLaDatiElementov.Children.Count; i++)
@@ -234,7 +239,7 @@ namespace MicroCenter.Pagine.HubPC
             var co = ListColore.FindElement("", categoria, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && c.Saturazione == Dispositivo.Saturazione[Dispositivo.ModLED_Fan] && Dispositivo.LumLED[Dispositivo.ModLED_Fan] > 0);
             categoria = "Animazioni";
             var ListAnimazione = new Lib_JSON_CRUD_3<Animazioni>(filePathColori);
-            var an = ListAnimazione.FindElement("", categoria, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan]);
+            var an = ListAnimazione.FindElement("", categoria, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && Dispositivo.LumLED[Dispositivo.ModLED_Fan] == 0);
 
 
             if (co != null)
@@ -504,9 +509,9 @@ namespace MicroCenter.Pagine.HubPC
                             Dispositivo.ModLED_Fan = _list[i].Mod_LED_Fan;
                             ClearTextBlock();
                             ElementoDato();
+                            GenerateAniamzioneButtons();
                             UI_dati();
                             TrackCommand();
-                            GenerateAniamzioneButtons();
                             GestioneLuminosità("", Dispositivo.LumLED[Dispositivo.ModLED_Fan], false);
                         }
                     }
@@ -646,10 +651,10 @@ namespace MicroCenter.Pagine.HubPC
                         Dispositivo.ModLED_Fan = _list[0].Mod_LED_Fan;
                         ClearTextBlock();
                         ElementoDato();
+                        GenerateAniamzioneButtons();
                         SelectButtonGrupElementi(btn);
                         UI_dati();
                         TrackCommand();
-                        GenerateAniamzioneButtons();
                         GestioneLuminosità("", Dispositivo.LumLED[Dispositivo.ModLED_Fan], false);
 
                     }
@@ -660,7 +665,7 @@ namespace MicroCenter.Pagine.HubPC
         private Button selectedButtonGrup = null;
         private void SelectButtonGrupElementi(Button button)
         {
-            if (selectedButton != null)
+            if (selectedButtonGrup != null)
             {
                 selectedButtonGrup.BorderBrush = Brushes.Transparent; // Ripristina il precedente pulsante
             }
@@ -670,8 +675,7 @@ namespace MicroCenter.Pagine.HubPC
 
 
 
-
-
+        //****
         // Crea otto bottoni Colorati
         private void GenerateColorButtons()
         {
@@ -733,54 +737,11 @@ namespace MicroCenter.Pagine.HubPC
                 }
             }
         }
-        // Al Click
-        private void BtnColor_Click(object sender, RoutedEventArgs e)
-        {
-            string categoria = "Colori";
-
-            if (sender is Button btn)
-            {
-
-                var _list = new Lib_JSON_CRUD_3<Colori>(filePathColori);
-
-                var el = _list.FindElement("", categoria, c => c.Nome == btn.Tag.ToString());
-
-                if (el != null)
-                {
-                    if (SerialPort.IsOpen)
-                    {
-                        Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = el.Colore;
-                        Dispositivo.Saturazione[Dispositivo.ModLED_Fan] = el.Saturazione;
-                        //if (Dispositivo.LumLED[Dispositivo.ModLED_Fan] == 0)
-                        //{
-                        //    Dispositivo.LumLED[Dispositivo.ModLED_Fan] = 128;
-                        //    TrackLuminosità.IsEnabled = true;
-                        //    TrackLuminosità.Value = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
-                        //}
-                        Dispositivo.LumLED[Dispositivo.ModLED_Fan] = GestioneLuminosità(el.Nome, Dispositivo.LumLED[Dispositivo.ModLED_Fan], true);
-
-                        SelectButton(btn);
-                        UI_dati();
-                    }
-                }
-                else
-                {
-
-                }
-
-            }
-
-        }
-
         // Crea bottoni Animazione
         private void GenerateAniamzioneButtons()
         {
             List<string> colors = new List<string>();
             List<int> colorsCode = new List<int>();
-
-            //var _animazioni = new Lib_JSON_CRUD<ColoreHubPC>(filePathColori);
-            //var list = _animazioni.GetData();
-
 
             // Usa Lib_JSON_CRUD con la classe Ventola
             var _colori = new Lib_JSON_CRUD_3<Animazioni>(filePathColori);
@@ -839,6 +800,39 @@ namespace MicroCenter.Pagine.HubPC
                 }
             }
         }
+
+        // Al Click
+        private void BtnColor_Click(object sender, RoutedEventArgs e)
+        {
+            string categoria = "Colori";
+
+            if (sender is Button btn)
+            {
+
+                var _list = new Lib_JSON_CRUD_3<Colori>(filePathColori);
+
+                var el = _list.FindElement("", categoria, c => c.Nome == btn.Tag.ToString());
+
+                if (el != null)
+                {
+                    if (SerialPort.IsOpen)
+                    {
+                        Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = el.Colore;
+                        Dispositivo.Saturazione[Dispositivo.ModLED_Fan] = el.Saturazione;
+                        Dispositivo.LumLED[Dispositivo.ModLED_Fan] = GestioneLuminosità(el.Nome, Dispositivo.LumLED[Dispositivo.ModLED_Fan], true);
+
+                        SelectButton(btn);
+                        UI_dati();
+                    }
+                }
+                else
+                {
+
+                }
+
+            }
+
+        }
         private void BtnAnimazioni_Click(object sender, RoutedEventArgs e)
         {
             string categoria = "Animazioni";
@@ -856,18 +850,6 @@ namespace MicroCenter.Pagine.HubPC
                     {
                         Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] = el.Colore;
                         Dispositivo.LumLED[Dispositivo.ModLED_Fan] = GestioneLuminosità(el.Nome, Dispositivo.LumLED[Dispositivo.ModLED_Fan], true);
-                        //if (btn.Tag.ToString() == "Spento")
-                        //{
-                        //    Dispositivo.LumLED[Dispositivo.ModLED_Fan] = el.Luminosità;
-                        //    TrackLuminosità.IsEnabled = false;
-                        //}
-                        //else if (Dispositivo.LumLED[Dispositivo.ModLED_Fan] == 0)
-                        //{
-                        //    Dispositivo.LumLED[Dispositivo.ModLED_Fan] = 128;
-                        //    TrackLuminosità.IsEnabled = true;
-                        //    TrackLuminosità.Value = Dispositivo.LumLED[Dispositivo.ModLED_Fan];
-                        //}
-
                         SelectButton(btn);
                         UI_dati();
                     }
@@ -880,6 +862,10 @@ namespace MicroCenter.Pagine.HubPC
             }
 
         }
+        //****
+
+
+
 
         // Grafica Selezione Colore
         private Button selectedButton = null;
@@ -930,7 +916,7 @@ namespace MicroCenter.Pagine.HubPC
 
             }
             TrackLuminosità.Value = (LumLED >= TrackLuminosità.Minimum) ? LumLED : TrackLuminosità.Minimum;
-            TrackLuminosità.IsEnabled = true;
+            TrackLuminosità.IsEnabled = (LumLED == 0) ? false : true;
             return LumLED;
             //   return 128;
             //}
