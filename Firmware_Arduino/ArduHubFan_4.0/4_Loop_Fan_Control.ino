@@ -3,99 +3,50 @@
 //*****************************************************************************************************************************//
 
 void Void_Fan_Mod() {
-  //--------------------------Controllo Speed RPM Fan----------------------
-  //A Fan1
-  if (!PinA_pre && PinA) {
-    Count_RPM_1++;
-    PinA_pre = PinA;
-  }
-  if (PinA_pre && !PinA) {
-    PinA_pre = PinA;
-  }
-  //B Fan2
-  if (!PinB_pre && PinB) {
-    Count_RPM_2++;
-    PinB_pre = PinB;
-  }
-  if (PinB_pre && !PinB) {
-    PinB_pre = PinB;
-  }
-  //C Fan3
-  if (!PinC_pre && PinC) {
-    Count_RPM_3++;
-    PinC_pre = PinC;
-  }
-  if (PinC_pre && !PinC) {
-    PinC_pre = PinC;
-  }
-  //D Fan4
-  if (!PinD_pre && PinD) {
-    Count_RPM_4++;
-    PinD_pre = PinD;
-  }
-  if (PinD_pre && !PinD) {
-    PinD_pre = PinD;
-  }
-  //--
+  //-------------------------- Controllo Speed RPM Fan ----------------------
+  if (!PinA_pre && PinA) Count_RPM_1++;
+  PinA_pre = PinA;
+
+  if (!PinB_pre && PinB) Count_RPM_2++;
+  PinB_pre = PinB;
+
+  if (!PinC_pre && PinC) Count_RPM_3++;
+  PinC_pre = PinC;
+
+  if (!PinD_pre && PinD) Count_RPM_4++;
+  PinD_pre = PinD;
+
   if (millis() >= (ResetTimerVirtuale[5] + DelayVirtuale[11])) {
     ResetTimerVirtuale[5] = millis();
-    RPM_Fan1 = Count_RPM_1;  // * 60;
+    RPM_Fan1 = Count_RPM_1;
     Count_RPM_1 = 0;
-    RPM_Fan2 = Count_RPM_2;  // * 60;
+    RPM_Fan2 = Count_RPM_2;
     Count_RPM_2 = 0;
-    RPM_Fan3 = Count_RPM_3;  // * 60;
+    RPM_Fan3 = Count_RPM_3;
     Count_RPM_3 = 0;
-    RPM_Fan4 = Count_RPM_4;  // * 60;
+    RPM_Fan4 = Count_RPM_4;
     Count_RPM_4 = 0;
   }
-  //----------------------------Controllo Speed Fan-----------------------
 
-  if (S_Pro_12V == true) {
+  //---------------------------- Controllo Speed Fan -----------------------
+  if (S_Pro_12V) {
     SetAllVentola(0);
+    return;
+  }
+
+  if ((millis() < (StartFanPower + DelayFanPower)) && ControlloFan) {
+    SetAllVentola(255);
   } else {
-
-    if ((millis() < (StartFanPower + DelayFanPower)) and (ControlloFan == true)) {
-      SetAllVentola(255);
+    if (ModLED_Fan == 0 && Fan_Mod_Speed[0] == 0) {
+      SetAllVentola(FanSpeed[0]);
     } else {
-
-      if (ModLED_Fan == 0 and Fan_Mod_Speed[0] == 0) {
-        SetAllVentola(FanSpeed[0]);
-      }
-
-
-      // if (ModLED_Fan > 0) {  //and (StatoFan_Mod_All == 1)
-      //   if (Fan_Mod_Speed[1] == 0) {
-      //     analogWrite(PWM_Fan_1, FanSpeed[1]);
-      //   }
-      //   if (Fan_Mod_Speed[2] == 0) {
-      //     analogWrite(PWM_Fan_2, FanSpeed[2]);
-      //   }
-      //   if (Fan_Mod_Speed[3] == 0) {
-      //     analogWrite(PWM_Fan_3, FanSpeed[3]);
-      //   }
-      //   if (Fan_Mod_Speed[4] == 0) {
-      //     analogWrite(PWM_Fan_4, FanSpeed[4]);
-      //   }
-      // }
-
-      // if (ModLED_Fan > 0) {  //and (StatoFan_Mod_All == 1)
-      if (ModLED_Fan == 1) {
-        analogWrite(PWM_Fan_1, FanSpeed[ModLED_Fan]);
-      }
-      if (ModLED_Fan == 2) {
-        analogWrite(PWM_Fan_2, FanSpeed[ModLED_Fan]);
-      }
-      if (ModLED_Fan == 3) {
-        analogWrite(PWM_Fan_3, FanSpeed[ModLED_Fan]);
-      }
-      if (ModLED_Fan == 4) {
-        analogWrite(PWM_Fan_4, FanSpeed[ModLED_Fan]);
-      }
-      //}
+      if (ModLED_Fan == 1) analogWrite(PWM_Fan_1, FanSpeed[ModLED_Fan]);
+      if (ModLED_Fan == 2) analogWrite(PWM_Fan_2, FanSpeed[ModLED_Fan]);
+      if (ModLED_Fan == 3) analogWrite(PWM_Fan_3, FanSpeed[ModLED_Fan]);
+      if (ModLED_Fan == 4) analogWrite(PWM_Fan_4, FanSpeed[ModLED_Fan]);
     }
   }
 }
-
 
 void SetAllVentola(byte PWM) {
   analogWrite(PWM_Fan_1, PWM);

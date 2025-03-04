@@ -62,8 +62,8 @@ float V12 = 0;
 bool EN_OV = 0;  // 0 = False / 1 = True
 
 // Stato protezione della Alimentazione 12v 5v
-bool S_Pro_5V = true;   // 0 = False / 1 = True
-bool S_Pro_12V = true;  // 0 = False / 1 = True
+bool S_Pro_5V = false;   // 0 = False / 1 = True
+bool S_Pro_12V = false;  // 0 = False / 1 = True
 
 // Tensione Limite Protezione LED
 bool PowerLimitLED = false;  // True = Protezione LED Attiva
@@ -135,7 +135,7 @@ unsigned long TimerVirtuale = 0;  // Aniamzione Avvio millis()
 //                                                     V  V  V  V
 //                                      0  1  2  3  4  5  6  7  8
 unsigned long ResetTimerVirtuale[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-//                                                 V   V   V   X   V   X    V    V   V   V
+//                                               V   V   V   X   V   X    V    V   V   V
 //                       0   1    2     3    4   5   6   7   8   9  10   11   12  13  14
 int DelayVirtuale[] = { 40, 200, 300, 1000, 40, 10, 20, 200, 1, 50, 30, 1000, 60, 15, 30 };
 //

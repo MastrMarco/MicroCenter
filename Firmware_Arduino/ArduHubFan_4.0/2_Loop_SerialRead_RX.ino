@@ -4,163 +4,98 @@
 
 //Avvio Sistema di lettura dati in arrivo dalla Seriale
 void DatiRXloop(int i, String DatoRX) {
+  int valore = DatoRX.toInt();  // Converte una volta sola
+
+  //
+  if (i == 0) {
+    // ---------------------------- Boot di avvio / verifica connessione seriale
+    if (valore == 100 && Debug != 1) {
+      Boot_SetUp = valore;
+    }
+    return;
+  }
+  //
+  if (Boot_SetUp != 100) return;
+  if (DatoRX == "") return;
+
+
+
   switch (i) {
-    case 0:
-      // ---------------------------- Boot di avvio / verifica connesione seriale
-      if (DatoRX.toInt() == 100) {
-        if (Debug != 1) {
-          Boot_SetUp = DatoRX.toInt();
-        }
+    case 1:
+      // ---------------------------- Seleziona Elemento
+      if (valore >= 0 && valore <= 9 && ModLED_Fan != valore) {
+        PowerLimitLED_Stato = false;
+        ModLED_Fan = valore;
       }
       break;
-      //
-      if (Boot_SetUp == 100) {
 
-
-        case 1:
-          if (DatoRX != "") {
-            // ---------------------------- Seleziona Elemento
-            if ((ModLED_Fan != DatoRX.toInt()) and (DatoRX.toInt() >= 0) and (DatoRX.toInt() <= 9)) {
-              PowerLimitLED_Stato = false;
-              ModLED_Fan = DatoRX.toInt();
-             // if (ModLED_Fan < 5) ModFAN_SPEED = ModLED_Fan;
-            }
-          }
-          break;
-
-
-        case 2:
-          if (DatoRX != "") {
-            // ---------------------------- Luminosità
-            if (LumLED[ModLED_Fan] != DatoRX.toInt()) {
-              LumLED[ModLED_Fan] = DatoRX.toInt();
-              TimerVAREF = millis();  // Ricalcola  Tensione AREF
-            }
-          }
-          break;
-
-
-        case 3:
-          if (DatoRX != "") {
-            // ---------------------------- Colore
-            if ((ColoreLED[ModLED_Fan] != DatoRX.toInt()) and (DatoRX.toInt() < 700)) {
-              PowerLimitLED_Stato = false;
-              ColoreLED[ModLED_Fan] = DatoRX.toInt();
-              TimerVAREF = millis();  // Ricalcola  Tensione AREF
-            }
-          }
-          break;
-
-
-        case 4:
-          if (DatoRX != "") {
-            // ---------------------------- Saturazione Bianco / Nero
-            if ((Saturazione[ModLED_Fan] != DatoRX.toInt()) and (DatoRX.toInt() >= 0) and (DatoRX.toInt() <= 255)) {
-              PowerLimitLED_Stato = false;
-              Saturazione[ModLED_Fan] = DatoRX.toInt();
-            }
-          }
-          break;
-
-
-        case 5:
-          if (DatoRX != "") {
-            // ---------------------------- Velocità Ventole
-           // if ((ModLED_Fan < 5) and (FanSpeed[ModLED_Fan] != DatoRX.toInt()) and (DatoRX.toInt() >= 0) and (DatoRX.toInt() <= 255) and (Fan_Mod_Speed[ModLED_Fan] == 0)) {
-            if (ModLED_Fan < 5){
-              FanSpeed[ModLED_Fan] = DatoRX.toInt();
-              TimerVAREF = millis();  // Ricalcola  Tensione AREF
-            }
-          }
-          break;
-
-
-        case 6:
-          // ----------------------------
-          break;
-
-
-        case 7:
-          // ----------------------------
-          break;
-
-
-        case 8:
-          // ----------------------------
-          break;
-
-
-        case 9:
-          if (DatoRX != "") {
-            // if (Animation_RGBS[0] != DatoRX.toInt()) {
-            Animation_RGBS[0] = DatoRX.toInt();
-            //  }
-          }
-          break;
-
-
-        case 10:
-          if (DatoRX != "") {
-            // ---------------------------- Attiva / Disattiva Memorizazzione dati utente O Configura HUB
-            if ((ROM_Dati != DatoRX.toInt()) and (DatoRX.toInt() < 4)) {
-              // ROM_Dati = DatoRX.toInt();
-              if (DatoRX.toInt() < 3) EEPROM.update(EEPROMaddress[0], DatoRX.toInt());
-            }
-          }
-
-          // switch (DatoRX.toInt()) {
-          //   case 0:
-          //     // ----------------------------
-          //     break;
-          //      case 0:
-          //     // ----------------------------
-          //     break;
-          //      case 0:
-          //     // ----------------------------
-          //     break;
-          // }
-          break;
-
-
-        case 11:
-          if (DatoRX != "") {
-            // ---------------------------- Attiva / Disattiva protezione Alimentazione 5V - 12V
-            if ((EN_OV != DatoRX.toInt()) and (DatoRX.toInt() < 3)) {
-              EN_OV = DatoRX.toInt();
-            }
-          }
-          break;
-
-
-        case 12:
-          if (DatoRX != "") {
-            // ---------------------------- Attiva / Disattiva protezione limite luminosità LED
-            if ((PowerLimitLED != DatoRX.toInt()) and (DatoRX.toInt() < 3)) {
-              PowerLimitLED = DatoRX.toInt();
-            }
-          }
-          break;
-
-
-        case 13:
-          if (DatoRX != "") {
-            // ---------------------------- Configura i Dispositivi connessi
-            if (DatoRX.toInt() > 0 and valLED != DatoRX.toInt()) {
-              valLED = DatoRX.toInt();
-            }
-          }
-          break;
-
-
-        case 14:
-
-          break;
-        case 15:
-
-          break;
-        case 16:
-
-          break;
+    case 2:
+      // ---------------------------- Luminosità
+      if (LumLED[ModLED_Fan] != valore) {
+        LumLED[ModLED_Fan] = valore;
+        TimerVAREF = millis();  // Ricalcola Tensione AREF
       }
+      break;
+
+    case 3:
+      // ---------------------------- Colore
+      if (valore < 700 && ColoreLED[ModLED_Fan] != valore) {
+        PowerLimitLED_Stato = false;
+        ColoreLED[ModLED_Fan] = valore;
+        TimerVAREF = millis();  // Ricalcola Tensione AREF
+      }
+      break;
+
+    case 4:
+      // ---------------------------- Saturazione Bianco / Nero
+      if (valore >= 0 && valore <= 255 && Saturazione[ModLED_Fan] != valore) {
+        PowerLimitLED_Stato = false;
+        Saturazione[ModLED_Fan] = valore;
+      }
+      break;
+
+    case 5:
+      // ---------------------------- Velocità Ventole
+      if (ModLED_Fan < 5) {
+        FanSpeed[ModLED_Fan] = valore;
+        TimerVAREF = millis();  // Ricalcola Tensione AREF
+      }
+      break;
+
+    case 9:
+      // ---------------------------- Animazione RGB
+      Animation_RGBS[0] = valore;
+      break;
+
+    case 10:
+      // ---------------------------- Memorizzazione dati utente
+      if (valore < 4) {
+        EEPROM.update(EEPROMaddress[0], valore);
+      }
+      break;
+
+    case 11:
+      // ---------------------------- Protezione Alimentazione 5V - 12V
+      if (valore < 3 && EN_OV != valore) {
+        EN_OV = valore;
+      }
+      break;
+
+    case 12:
+      // ---------------------------- Protezione limite luminosità LED
+      if (valore < 3 && PowerLimitLED != valore) {
+        PowerLimitLED = valore;
+      }
+      break;
+
+    case 13:
+      // ---------------------------- Configurazione dispositivi connessi
+      if (valore > 0 && valLED != valore) {
+        valLED = valore;
+      }
+      break;
+
+    default:
+      break;
   }
 }

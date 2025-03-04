@@ -29,9 +29,10 @@ void Reset_LED() {
 //Serve a creare una strisca LED Unica pre le varie Animnazioni
 void ArrayLED() {
   //Reset_Array
-  for (byte s = 1; s <= 9; s++) {
-    NUM_LEDS_ALL[s] = 0;
-  }
+  memset(NUM_LEDS_ALL, 0, sizeof(NUM_LEDS_ALL));
+ // for (byte s = 1; s <= 9; s++) {
+  //  NUM_LEDS_ALL[s] = 0;
+ // }
 
   for (byte s = 1; s <= 9; s++) {
     NUM_LEDS_ALL[s] = NUM_LEDS_ALL[s] + NUM_LEDS_OUT[s];
@@ -39,69 +40,74 @@ void ArrayLED() {
       NUM_LEDS_ALL[s + 1] = NUM_LEDS_ALL[s];
     }
   }
+  // NUM_LEDS_ALL[0] = NUM_LEDS_OUT[0];  // Inizializza il primo valore
+  // for (byte s = 1; s < 9; s++) {      // Usa "< 9" per non superare i limiti
+  //   NUM_LEDS_ALL[s] = NUM_LEDS_ALL[s - 1] + NUM_LEDS_OUT[s];
+  // }
 }
 
 //Avvio loop dove ci sono tutte le modalità LED
 void Void_LED_Mod() {
   //----------------------------------------------------------------------
-  if (S_Pro_5V == true) {
+  if (S_Pro_5V) {
     Reset_LED();
+    return;
+  }
 
-  } else {
+  LumLED_Set();
 
-    LumLED_Set();
+  if ((ModLED_Fan == 0) || (ModLED_Fan == 0 && Boot_SetUp == 0)) {
 
-    if ((ModLED_Fan == 0) or (ModLED_Fan == 0 and Boot_SetUp == 0)) {
-
-      if ((ColoreLED[0] <= 512) and (BRIGHTNESS == 255)) {
-        //Imposta la modalità dei LED
-        //                      Colore,  Saturazione,  Intensità
-        ParallelStripLED((ColoreLED[0] * H_P), Saturazione[0], LumLED[0]);
-      }
-
-      if (BRIGHTNESS == LumLED[0]) {
-        switch (ColoreLED[0]) {
-          case 600:
-            RGB_Mod_Fan_All = 1;  //Modalità 1 = RGB Effetto Ciclo Discontinuo
-            // (Animazione, Delay)
-            RGB_Animazioni(2, 9);
-            break;
-          case 601:
-            RGB_Mod_Fan_All = 2;  //Modalità 2 = RGB Effetto Transizione*
-            RGB_Animazioni(0, 7);
-            break;
-          case 602:
-            RGB_Mod_Fan_All = 3;  //Modalità 3 = RGB Effetto RainBow*
-            RGB_Animazioni(1, 5);
-            break;
-          case 603:
-            RGB_Mod_Fan_All = 4;  //Modalità 4 = Effetto Music*
-            RGB_Musica();
-            break;
-          case 604:
-            RGB_Mod_Fan_All = 5;  //Modalità 5 = Effetto Temperatura*
-            RGB_Animazioni(4, 6);
-            break;
-          case 605:
-            RGB_Mod_Fan_All = 6;  //Modalità 6 = Effetto Festività*
-            RGB_Animazioni(5, 13);
-            break;
-        }
-      }
+    if ((ColoreLED[0] <= 512) and (BRIGHTNESS == 255)) {
+      //Imposta la modalità dei LED
+      //                      Colore,  Saturazione,  Intensità
+      ParallelStripLED((ColoreLED[0] * H_P), Saturazione[0], LumLED[0]);
     }
 
-    if ((ModLED_Fan > 0) or (ColoreLED[ModLED_Fan] <= 512)) {
-      RGB_Mod_Fan_All = 0;
-    }
-
-    if (((ModLED_Fan > 0) and (ColoreLED[ModLED_Fan] <= 512)) and (BRIGHTNESS == 255)) {
-      //Colore per ogni singolo elemento
-      //                                           Colore,             Saturazione,      Intensità
-      for (byte s = 1; s <= 9; s++) {
-        Strip[s - 1].fill(Strip[s - 1].ColorHSV((ColoreLED[s] * H_P), Saturazione[s], LumLED[s]));  //Modalità RGB HSV
-      }
+    if (BRIGHTNESS == LumLED[0]) {
+      RGB_Animazioni(ColoreLED[0]);
+      // switch (ColoreLED[0]) {
+      //   case 600:
+      //     RGB_Mod_Fan_All = 1;  //Modalità 1 = RGB Effetto Ciclo Discontinuo
+      //     // (Animazione, Delay)
+      //     RGB_Animazioni(2, 9);
+      //     break;
+      //   case 601:
+      //     RGB_Mod_Fan_All = 2;  //Modalità 2 = RGB Effetto Transizione*
+      //     RGB_Animazioni(0, 7);
+      //     break;
+      //   case 602:
+      //     RGB_Mod_Fan_All = 3;  //Modalità 3 = RGB Effetto RainBow*
+      //     RGB_Animazioni(1, 5);
+      //     break;
+      //   case 603:
+      //     RGB_Mod_Fan_All = 4;  //Modalità 4 = Effetto Music*
+      //     RGB_Musica();
+      //     break;
+      //   case 604:
+      //     RGB_Mod_Fan_All = 5;  //Modalità 5 = Effetto Temperatura*
+      //     RGB_Animazioni(4, 6);
+      //     break;
+      //   case 605:
+      //     RGB_Mod_Fan_All = 6;  //Modalità 6 = Effetto Festività*
+      //     RGB_Animazioni(5, 13);
+      //     break;
+      // }
     }
   }
+
+  if (ModLED_Fan > 0 || ColoreLED[ModLED_Fan] <= 512) {
+    RGB_Mod_Fan_All = 0;
+  }
+
+  if (((ModLED_Fan > 0) && (ColoreLED[ModLED_Fan] <= 512)) && (BRIGHTNESS == 255)) {
+    //Colore per ogni singolo elemento
+    //                                           Colore,             Saturazione,      Intensità
+    for (byte s = 0; s < 9; s++) {
+      Strip[s].fill(Strip[s].ColorHSV((ColoreLED[s + 1] * H_P), Saturazione[s + 1], LumLED[s + 1]));  //Modalità RGB HSV
+    }
+  }
+
   /******************************--------------------------------------------***********************************************/
 }
 
