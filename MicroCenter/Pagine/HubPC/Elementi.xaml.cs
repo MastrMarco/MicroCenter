@@ -1,8 +1,11 @@
 ﻿using MicroCenter.Classi;
+using MicroCenter.Finestre;
+using MicroCenter.Lingue;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
@@ -77,7 +80,7 @@ namespace MicroCenter.Pagine.HubPC
                 UI_Load = true;
 
                 ElementoDato();
-               // ClearTextBlock();
+                // ClearTextBlock();
                 UI_dati();
             }
 
@@ -87,7 +90,12 @@ namespace MicroCenter.Pagine.HubPC
             //  ClearTextBlock();
 
             // UI_dati();
+
+            //Visualizza l'impostazione Memorizata e la esegue
+            SetLinguaPaginaTitoli(Set_Lingua());
         }
+
+
 
 
         //Aggirna posizione TrackBar Luminosità e Velocità ventole
@@ -947,6 +955,80 @@ namespace MicroCenter.Pagine.HubPC
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Visualizza l'impostazione Memorizata e la esegue
+        //SetLinguaPaginaTitoli(Set_Lingua());
+        
+
+
+        //Traduzione 
+
+        static public string Set_Lingua()
+        {
+            switch (Properties.Settings.Default.Lingua)
+            {
+                case "Italiano":
+                    return "";
+
+                case "English":
+                    return "en";
+
+                default:
+                    return "";
+            }
+        }
+
+        public void SetLinguaPaginaTitoli(string linguaSet)
+        {
+            Lingua.Culture = new CultureInfo(linguaSet);
+
+            LaColore.Text = Lingua.selezionaColore;
+            LaVentole.Text = Lingua.velocitàVentole;
+            LaLuminosità.Text = Lingua.lum;
+            LaFunzioni_LED.Text = Lingua.animazioniRGB;
+        }
+
+        //private string ConnessioneDispositivo(bool stato)
+        //{
+        //    Lingua.Culture = new CultureInfo(Set_Lingua());
+        //    if (!stato)
+        //    {
+        //        return Lingua.statoConnessioneNo;
+        //    }
+        //    else
+        //    {
+        //        return Lingua.statoConnessioneSi;
+        //    }
+        //}
+
+
+        //public static InfoSerialData window2;
+
+        //private void btnInfoSerialData(object sender, RoutedEventArgs e)
+        //{
+        //    if (window2 == null) // Evita di aprire più finestre
+        //    {
+        //        window2 = new InfoSerialData();
+        //        window2.Show();
+        //    }
+
+        //}
 
     }
 }

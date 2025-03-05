@@ -186,4 +186,88 @@
   <data name="datiSeriali" xml:space="preserve">
     <value>Dati Seriali</value>
   </data>
+  <data name="colore" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="lum" xml:space="preserve">
+    <value>Luminosità</value>
+  </data>
+  <data name="manuale" xml:space="preserve">
+    <value>Manuale</value>
+  </data>
+  <data name="velocità" xml:space="preserve">
+    <value>Velocità</value>
+  </data>
+  <data name="rpm" xml:space="preserve">
+    <value>RPM</value>
+  </data>
+  <data name="selezionaColore" xml:space="preserve">
+    <value>Seleziona Colore</value>
+  </data>
+  <data name="velocitàVentole" xml:space="preserve">
+    <value>Velocità Ventole</value>
+  </data>
+  <data name="animazioniRGB" xml:space="preserve">
+    <value>Animazioni RGB</value>
+  </data>
+  <data name="EL_HUB" xml:space="preserve">
+    <value>HUB</value>
+  </data>
+  <data name="EL_Ventole" xml:space="preserve">
+    <value>Ventole</value>
+  </data>
+  <data name="EL_Dissipatore" xml:space="preserve">
+    <value>Dissipatore</value>
+  </data>
+  <data name="EL_SchedaVideo" xml:space="preserve">
+    <value>Scheda Video</value>
+  </data>
+  <data name="EL_StrisciaLED" xml:space="preserve">
+    <value>Striscia LED</value>
+  </data>
+  <data name="H_Bianco" xml:space="preserve">
+    <value>Bianco</value>
+  </data>
+  <data name="H_Rosso" xml:space="preserve">
+    <value>Rosso</value>
+  </data>
+  <data name="H_Verde" xml:space="preserve">
+    <value>Verde</value>
+  </data>
+  <data name="H_Blu" xml:space="preserve">
+    <value>Blu</value>
+  </data>
+  <data name="H_Arancione" xml:space="preserve">
+    <value>Arancione</value>
+  </data>
+  <data name="H_Fucsia" xml:space="preserve">
+    <value>Fucsia</value>
+  </data>
+  <data name="H_Giallo" xml:space="preserve">
+    <value>Giallo</value>
+  </data>
+  <data name="H_Celeste" xml:space="preserve">
+    <value>Celeste</value>
+  </data>
+  <data name="A_Spento" xml:space="preserve">
+    <value>Spento</value>
+  </data>
+  <data name="A_Transizione" xml:space="preserve">
+    <value>Transizione</value>
+  </data>
+  <data name="A_RainBow" xml:space="preserve">
+    <value>RainBow</value>
+  </data>
+  <data name="A_Mix" xml:space="preserve">
+    <value>Mix</value>
+  </data>
+  <data name="A_Discontinuo" xml:space="preserve">
+    <value>Discontinuo</value>
+  </data>
+  <data name="A_Musica" xml:space="preserve">
+    <value>Musica</value>
+  </data>
+  <data name="A_Temperatura" xml:space="preserve">
+    <value>Temperatura</value>
+  </data>
 </root>

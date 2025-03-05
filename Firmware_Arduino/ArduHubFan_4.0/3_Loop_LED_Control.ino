@@ -29,10 +29,10 @@ void Reset_LED() {
 //Serve a creare una strisca LED Unica pre le varie Animnazioni
 void ArrayLED() {
   //Reset_Array
-  memset(NUM_LEDS_ALL, 0, sizeof(NUM_LEDS_ALL));
- // for (byte s = 1; s <= 9; s++) {
-  //  NUM_LEDS_ALL[s] = 0;
- // }
+  // memset(NUM_LEDS_ALL, 0, sizeof(NUM_LEDS_ALL));
+  for (byte s = 1; s <= 9; s++) {
+    NUM_LEDS_ALL[s] = 0;
+  }
 
   for (byte s = 1; s <= 9; s++) {
     NUM_LEDS_ALL[s] = NUM_LEDS_ALL[s] + NUM_LEDS_OUT[s];

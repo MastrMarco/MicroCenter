@@ -61,6 +61,87 @@ namespace MicroCenter.Lingue {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Discontinuo.
+        /// </summary>
+        internal static string A_Discontinuo {
+            get {
+                return ResourceManager.GetString("A_Discontinuo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Mix.
+        /// </summary>
+        internal static string A_Mix {
+            get {
+                return ResourceManager.GetString("A_Mix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Musica.
+        /// </summary>
+        internal static string A_Musica {
+            get {
+                return ResourceManager.GetString("A_Musica", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a RainBow.
+        /// </summary>
+        internal static string A_RainBow {
+            get {
+                return ResourceManager.GetString("A_RainBow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Spento.
+        /// </summary>
+        internal static string A_Spento {
+            get {
+                return ResourceManager.GetString("A_Spento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Temperatura.
+        /// </summary>
+        internal static string A_Temperatura {
+            get {
+                return ResourceManager.GetString("A_Temperatura", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Transizione.
+        /// </summary>
+        internal static string A_Transizione {
+            get {
+                return ResourceManager.GetString("A_Transizione", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Animazioni RGB.
+        /// </summary>
+        internal static string animazioniRGB {
+            get {
+                return ResourceManager.GetString("animazioniRGB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Colore.
+        /// </summary>
+        internal static string colore {
+            get {
+                return ResourceManager.GetString("colore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Dati Seriali.
         /// </summary>
         internal static string datiSeriali {
@@ -75,6 +156,51 @@ namespace MicroCenter.Lingue {
         internal static string donazioni {
             get {
                 return ResourceManager.GetString("donazioni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Dissipatore.
+        /// </summary>
+        internal static string EL_Dissipatore {
+            get {
+                return ResourceManager.GetString("EL_Dissipatore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a HUB.
+        /// </summary>
+        internal static string EL_HUB {
+            get {
+                return ResourceManager.GetString("EL_HUB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Scheda Video.
+        /// </summary>
+        internal static string EL_SchedaVideo {
+            get {
+                return ResourceManager.GetString("EL_SchedaVideo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Striscia LED.
+        /// </summary>
+        internal static string EL_StrisciaLED {
+            get {
+                return ResourceManager.GetString("EL_StrisciaLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ventole.
+        /// </summary>
+        internal static string EL_Ventole {
+            get {
+                return ResourceManager.GetString("EL_Ventole", resourceCulture);
             }
         }
         
@@ -102,6 +228,78 @@ namespace MicroCenter.Lingue {
         internal static string github {
             get {
                 return ResourceManager.GetString("github", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Arancione.
+        /// </summary>
+        internal static string H_Arancione {
+            get {
+                return ResourceManager.GetString("H_Arancione", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Bianco.
+        /// </summary>
+        internal static string H_Bianco {
+            get {
+                return ResourceManager.GetString("H_Bianco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Blu.
+        /// </summary>
+        internal static string H_Blu {
+            get {
+                return ResourceManager.GetString("H_Blu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Celeste.
+        /// </summary>
+        internal static string H_Celeste {
+            get {
+                return ResourceManager.GetString("H_Celeste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Fucsia.
+        /// </summary>
+        internal static string H_Fucsia {
+            get {
+                return ResourceManager.GetString("H_Fucsia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Giallo.
+        /// </summary>
+        internal static string H_Giallo {
+            get {
+                return ResourceManager.GetString("H_Giallo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Rosso.
+        /// </summary>
+        internal static string H_Rosso {
+            get {
+                return ResourceManager.GetString("H_Rosso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Verde.
+        /// </summary>
+        internal static string H_Verde {
+            get {
+                return ResourceManager.GetString("H_Verde", resourceCulture);
             }
         }
         
@@ -160,6 +358,24 @@ namespace MicroCenter.Lingue {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Luminosità.
+        /// </summary>
+        internal static string lum {
+            get {
+                return ResourceManager.GetString("lum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Manuale.
+        /// </summary>
+        internal static string manuale {
+            get {
+                return ResourceManager.GetString("manuale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Modifica il Tema.
         /// </summary>
         internal static string modificailTema {
@@ -192,6 +408,24 @@ namespace MicroCenter.Lingue {
         internal static string nomeprogetto {
             get {
                 return ResourceManager.GetString("nomeprogetto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a RPM.
+        /// </summary>
+        internal static string rpm {
+            get {
+                return ResourceManager.GetString("rpm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Seleziona Colore.
+        /// </summary>
+        internal static string selezionaColore {
+            get {
+                return ResourceManager.GetString("selezionaColore", resourceCulture);
             }
         }
         
@@ -255,6 +489,24 @@ namespace MicroCenter.Lingue {
         internal static string tema {
             get {
                 return ResourceManager.GetString("tema", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Velocità.
+        /// </summary>
+        internal static string velocità {
+            get {
+                return ResourceManager.GetString("velocità", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Velocità Ventole.
+        /// </summary>
+        internal static string velocitàVentole {
+            get {
+                return ResourceManager.GetString("velocitàVentole", resourceCulture);
             }
         }
         
