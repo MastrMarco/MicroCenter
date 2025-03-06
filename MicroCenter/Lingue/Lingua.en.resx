@@ -186,19 +186,19 @@
   <data name="datiSeriali" xml:space="preserve">
     <value>Serial Data</value>
   </data>
-  <data name="colore" xml:space="preserve">
+  <data name="T_Colore" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="lum" xml:space="preserve">
+  <data name="T_Luminosità" xml:space="preserve">
     <value>Brightness</value>
   </data>
-  <data name="manuale" xml:space="preserve">
+  <data name="Manuale" xml:space="preserve">
     <value>Manual</value>
   </data>
-  <data name="velocità" xml:space="preserve">
+  <data name="T_Velocità" xml:space="preserve">
     <value>Speed</value>
   </data>
-  <data name="rpm" xml:space="preserve">
+  <data name="T_RPM" xml:space="preserve">
     <value>RPM</value>
   </data>
   <data name="selezionaColore" xml:space="preserve">
@@ -210,19 +210,19 @@
   <data name="animazioniRGB" xml:space="preserve">
     <value>RGB Animations</value>
   </data>
-  <data name="EL_HUB" xml:space="preserve">
+  <data name="ELG_HUB" xml:space="preserve">
     <value>HUB</value>
   </data>
-  <data name="EL_Ventole" xml:space="preserve">
+  <data name="ELG_Ventole" xml:space="preserve">
     <value>Fans</value>
   </data>
-  <data name="EL_Dissipatore" xml:space="preserve">
+  <data name="ELG_Dissipatore" xml:space="preserve">
     <value>Heatsink</value>
   </data>
-  <data name="EL_SchedaVideo" xml:space="preserve">
+  <data name="ELG_Scheda Video" xml:space="preserve">
     <value>Video Card</value>
   </data>
-  <data name="EL_StrisciaLED" xml:space="preserve">
+  <data name="ELG_Striscia LED" xml:space="preserve">
     <value>LED strip</value>
   </data>
   <data name="H_Bianco" xml:space="preserve">
@@ -269,5 +269,29 @@
   </data>
   <data name="A_Temperatura" xml:space="preserve">
     <value>Temperature</value>
+  </data>
+  <data name="T_Gestione Rotazione" xml:space="preserve">
+    <value>Rotation Management</value>
+  </data>
+  <data name="ELG_Ventola 1" xml:space="preserve">
+    <value>Fan 1</value>
+  </data>
+  <data name="ELG_Ventola 2" xml:space="preserve">
+    <value>Fan 2</value>
+  </data>
+  <data name="ELG_Ventola 3" xml:space="preserve">
+    <value>Fan 3</value>
+  </data>
+  <data name="ELG_Ventola 4" xml:space="preserve">
+    <value>Fan 4</value>
+  </data>
+  <data name="ELG_Dissipatore Ventola CPU 1" xml:space="preserve">
+    <value>CPU Fan Heatsink 1</value>
+  </data>
+  <data name="ELG_Dissipatore Ventola CPU 2" xml:space="preserve">
+    <value>CPU Fan Heatsink 2</value>
+  </data>
+  <data name="ELG_Dissipatore Pompa CPU" xml:space="preserve">
+    <value>CPU Pump Heatsink</value>
   </data>
 </root>

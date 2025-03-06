@@ -18,25 +18,25 @@
     {
       "Ventole": [
         {
-          "Nome": "Ventole 1",
+          "Nome": "Ventola 1",
           "Mod_LED_Fan": 1,
           "LED": true,
           "FAN": true
         },
         {
-          "Nome": "Ventole 2",
+          "Nome": "Ventola 2",
           "Mod_LED_Fan": 2,
           "LED": true,
           "FAN": true
         },
         {
-          "Nome": "Ventole 3",
+          "Nome": "Ventola 3",
           "Mod_LED_Fan": 3,
           "LED": true,
           "FAN": true
         },
         {
-          "Nome": "Ventole 4",
+          "Nome": "Ventola 4",
           "Mod_LED_Fan": 4,
           "LED": true,
           "FAN": true
@@ -70,7 +70,7 @@
 
 
     {
-      "Scheda_Video": [
+      "Scheda Video": [
         {
           "Nome": "Scheda Video",
           "Mod_LED_Fan": 8,
@@ -82,9 +82,9 @@
 
 
     {
-      "Strisca_LED": [
+      "Striscia LED": [
         {
-          "Nome": "Strisca LED",
+          "Nome": "Striscia LED",
           "Mod_LED_Fan": 9,
           "LED": true
         }

@@ -13,6 +13,7 @@ using System.Linq.Expressions;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -185,7 +186,7 @@ namespace MicroCenter.Pagine.HubPC
                             var el = _list.FindElement("", categorial, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan] && c.Saturazione == Dispositivo.Saturazione[Dispositivo.ModLED_Fan] && Dispositivo.LumLED[Dispositivo.ModLED_Fan] > 0);
                             if (el != null)
                             {
-                                item.Text = el.Nome;
+                                item.Text = Get_Traduzione("H_" + el.Nome);
                             }
                             else
                             {
@@ -194,7 +195,7 @@ namespace MicroCenter.Pagine.HubPC
                                 var _el = __list.FindElement("", categorial, c => c.Colore == Dispositivo.ColoreLED[Dispositivo.ModLED_Fan]);
                                 if (_el != null)
                                 {
-                                    item.Text = _el.Nome;
+                                    item.Text = Get_Traduzione("A_" + _el.Nome);
                                 }
                                 else
                                 {
@@ -215,7 +216,7 @@ namespace MicroCenter.Pagine.HubPC
                         {
                             // Modalità Rotazione - Controllo Ventole
                             // item.Text = Dispositivo.[Dispositivo.ModLED_Fan].ToString();
-                            item.Text = "Manuale";
+                            item.Text = Get_Traduzione("Manuale");
                         }
                         else if (ListDatiElemento_Full[3] == item.Tag.ToString())
                         {
@@ -389,7 +390,7 @@ namespace MicroCenter.Pagine.HubPC
 
 
                 // Titolo Elemento Selezionato
-                LaNomeElemento.Text = _list[0].Nome;
+                LaNomeElemento.Text = Get_Traduzione("ELG_" + _list[0].Nome);
 
 
                 // Lista di Dati testo
@@ -399,7 +400,7 @@ namespace MicroCenter.Pagine.HubPC
                     TextBlock text = new TextBlock
                     {
                         Name = $"La_Txt_{i}",
-                        Text = ls[i],
+                        Text = Get_Traduzione("T_" + ls[i]),
                         HorizontalAlignment = HorizontalAlignment.Left,
                         FontSize = 16,
                         FontWeight = FontWeights.Bold,
@@ -469,12 +470,12 @@ namespace MicroCenter.Pagine.HubPC
                             //Height = 25,
                             //Width = 45,
                             Margin = new Thickness(15, 0, 15, 0), // Aggiunge un margine di 10
-                            Content = sottoelementi[i].Nome,
+                            Content = Get_Traduzione("ELG_" + sottoelementi[i].Nome),
                             Tag = sottoelementi[i].Nome,
                             VerticalAlignment = VerticalAlignment.Center,
                             HorizontalAlignment = HorizontalAlignment.Center,
                             Cursor = System.Windows.Input.Cursors.Hand,
-                            ToolTip = new Label { Content = sottoelementi[i].Nome },
+                            ToolTip = new Label { Content = Get_Traduzione("ELG_" + sottoelementi[i].Nome) },
                             BorderThickness = new Thickness(1),
                             BorderBrush = Brushes.Transparent // Nessun bordo iniziale
                             //    Style = (Style)FindResource("IconButtonsForms") // Stile preso dalle risorse
@@ -610,16 +611,16 @@ namespace MicroCenter.Pagine.HubPC
             {
                 Button btn = new Button
                 {
-                    Name = nome,
+                    Name = nome.Replace(" ", ""),
                     Height = 80,
                     Width = 80,
                     Margin = new Thickness(mrg, 0, mrg, 0), // Aggiunge un margine di 10
-                    Content = nome,
+                    Content = Get_Traduzione("ELG_" + nome),
                     Tag = nome,
                     VerticalAlignment = VerticalAlignment.Center,
                     HorizontalAlignment = HorizontalAlignment.Center,
                     Cursor = System.Windows.Input.Cursors.Hand,
-                    ToolTip = new Label { Content = nome },
+                    ToolTip = new Label { Content = Get_Traduzione("ELG_" + nome) },
                     BorderThickness = new Thickness(1),
                     BorderBrush = Brushes.Transparent // Nessun bordo iniziale
                     //    Style = (Style)FindResource("IconButtonsForms") // Stile preso dalle risorse
@@ -647,7 +648,7 @@ namespace MicroCenter.Pagine.HubPC
                 string gruppo = GetNomeElemento(versione);
                 if (sender is Button btn)
                 {
-                    string Newcategoria = btn.Name;
+                    string Newcategoria = btn.Tag.ToString();
                     // Usa Lib_JSON_CRUD con la classe Ventola
                     var list = new Lib_JSON_CRUD_3<InfoElementi>(filePathElementi);
                     // Stampare gli elementi principali
@@ -724,7 +725,7 @@ namespace MicroCenter.Pagine.HubPC
                     Height = 15,
                     Width = 24,
                     Margin = new Thickness(10),
-                    ToolTip = new Label { Content = colors[i] },
+                    ToolTip = new Label { Content = Get_Traduzione("H_" + colors[i]) }, //**colors[i]**//
                     Tag = colors[i],
                     Background = new SolidColorBrush(buttoncolor),
                     BorderThickness = new Thickness(1),
@@ -780,7 +781,7 @@ namespace MicroCenter.Pagine.HubPC
                     Height = 35,
                     Width = 35,
                     Margin = new Thickness(10),
-                    ToolTip = new Label { Content = colors[i] },
+                    ToolTip = new Label { Content = Get_Traduzione("A_" + colors[i]) },
                     Tag = colors[i],
                     // Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colors[i])),
                     HorizontalAlignment = HorizontalAlignment.Center,
@@ -963,20 +964,6 @@ namespace MicroCenter.Pagine.HubPC
 
 
 
-
-
-
-
-
-
-
-
-
-        //Visualizza l'impostazione Memorizata e la esegue
-        //SetLinguaPaginaTitoli(Set_Lingua());
-        
-
-
         //Traduzione 
 
         static public string Set_Lingua()
@@ -1000,35 +987,21 @@ namespace MicroCenter.Pagine.HubPC
 
             LaColore.Text = Lingua.selezionaColore;
             LaVentole.Text = Lingua.velocitàVentole;
-            LaLuminosità.Text = Lingua.lum;
+            LaLuminosità.Text = Lingua.T_Luminosità;
             LaFunzioni_LED.Text = Lingua.animazioniRGB;
         }
 
-        //private string ConnessioneDispositivo(bool stato)
-        //{
-        //    Lingua.Culture = new CultureInfo(Set_Lingua());
-        //    if (!stato)
-        //    {
-        //        return Lingua.statoConnessioneNo;
-        //    }
-        //    else
-        //    {
-        //        return Lingua.statoConnessioneSi;
-        //    }
-        //}
+        private string Get_Traduzione(string ChiaveParola)
+        {
+            
+            Lingua.Culture = new CultureInfo(Set_Lingua());
+            CultureInfo culture = new CultureInfo(Set_Lingua());
+            ChiaveParola = Lingua.ResourceManager.GetString(ChiaveParola, culture);
 
+            return (ChiaveParola != null) ? ChiaveParola : "ErroreTraduzione";
 
-        //public static InfoSerialData window2;
-
-        //private void btnInfoSerialData(object sender, RoutedEventArgs e)
-        //{
-        //    if (window2 == null) // Evita di aprire più finestre
-        //    {
-        //        window2 = new InfoSerialData();
-        //        window2.Show();
-        //    }
-
-        //}
+        }
+        //*****************
 
     }
 }

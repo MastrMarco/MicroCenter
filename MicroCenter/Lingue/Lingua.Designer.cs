@@ -133,15 +133,6 @@ namespace MicroCenter.Lingue {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a Colore.
-        /// </summary>
-        internal static string colore {
-            get {
-                return ResourceManager.GetString("colore", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Cerca una stringa localizzata simile a Dati Seriali.
         /// </summary>
         internal static string datiSeriali {
@@ -162,45 +153,108 @@ namespace MicroCenter.Lingue {
         /// <summary>
         ///   Cerca una stringa localizzata simile a Dissipatore.
         /// </summary>
-        internal static string EL_Dissipatore {
+        internal static string ELG_Dissipatore {
             get {
-                return ResourceManager.GetString("EL_Dissipatore", resourceCulture);
+                return ResourceManager.GetString("ELG_Dissipatore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Dissipatore Pompa CPU.
+        /// </summary>
+        internal static string ELG_Dissipatore_Pompa_CPU {
+            get {
+                return ResourceManager.GetString("ELG_Dissipatore Pompa CPU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Dissipatore Ventola CPU 1.
+        /// </summary>
+        internal static string ELG_Dissipatore_Ventola_CPU_1 {
+            get {
+                return ResourceManager.GetString("ELG_Dissipatore Ventola CPU 1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Dissipatore Ventola CPU 2.
+        /// </summary>
+        internal static string ELG_Dissipatore_Ventola_CPU_2 {
+            get {
+                return ResourceManager.GetString("ELG_Dissipatore Ventola CPU 2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Cerca una stringa localizzata simile a HUB.
         /// </summary>
-        internal static string EL_HUB {
+        internal static string ELG_HUB {
             get {
-                return ResourceManager.GetString("EL_HUB", resourceCulture);
+                return ResourceManager.GetString("ELG_HUB", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Cerca una stringa localizzata simile a Scheda Video.
         /// </summary>
-        internal static string EL_SchedaVideo {
+        internal static string ELG_Scheda_Video {
             get {
-                return ResourceManager.GetString("EL_SchedaVideo", resourceCulture);
+                return ResourceManager.GetString("ELG_Scheda Video", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Cerca una stringa localizzata simile a Striscia LED.
         /// </summary>
-        internal static string EL_StrisciaLED {
+        internal static string ELG_Striscia_LED {
             get {
-                return ResourceManager.GetString("EL_StrisciaLED", resourceCulture);
+                return ResourceManager.GetString("ELG_Striscia LED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ventola 1.
+        /// </summary>
+        internal static string ELG_Ventola_1 {
+            get {
+                return ResourceManager.GetString("ELG_Ventola 1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ventola 2.
+        /// </summary>
+        internal static string ELG_Ventola_2 {
+            get {
+                return ResourceManager.GetString("ELG_Ventola 2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ventola 3.
+        /// </summary>
+        internal static string ELG_Ventola_3 {
+            get {
+                return ResourceManager.GetString("ELG_Ventola 3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ventola 4.
+        /// </summary>
+        internal static string ELG_Ventola_4 {
+            get {
+                return ResourceManager.GetString("ELG_Ventola 4", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Cerca una stringa localizzata simile a Ventole.
         /// </summary>
-        internal static string EL_Ventole {
+        internal static string ELG_Ventole {
             get {
-                return ResourceManager.GetString("EL_Ventole", resourceCulture);
+                return ResourceManager.GetString("ELG_Ventole", resourceCulture);
             }
         }
         
@@ -358,20 +412,11 @@ namespace MicroCenter.Lingue {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a Luminosità.
-        /// </summary>
-        internal static string lum {
-            get {
-                return ResourceManager.GetString("lum", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Cerca una stringa localizzata simile a Manuale.
         /// </summary>
-        internal static string manuale {
+        internal static string Manuale {
             get {
-                return ResourceManager.GetString("manuale", resourceCulture);
+                return ResourceManager.GetString("Manuale", resourceCulture);
             }
         }
         
@@ -408,15 +453,6 @@ namespace MicroCenter.Lingue {
         internal static string nomeprogetto {
             get {
                 return ResourceManager.GetString("nomeprogetto", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a RPM.
-        /// </summary>
-        internal static string rpm {
-            get {
-                return ResourceManager.GetString("rpm", resourceCulture);
             }
         }
         
@@ -475,6 +511,51 @@ namespace MicroCenter.Lingue {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Colore.
+        /// </summary>
+        internal static string T_Colore {
+            get {
+                return ResourceManager.GetString("T_Colore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Gestione Rotazione.
+        /// </summary>
+        internal static string T_Gestione_Rotazione {
+            get {
+                return ResourceManager.GetString("T_Gestione Rotazione", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Luminosità.
+        /// </summary>
+        internal static string T_Luminosità {
+            get {
+                return ResourceManager.GetString("T_Luminosità", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a RPM.
+        /// </summary>
+        internal static string T_RPM {
+            get {
+                return ResourceManager.GetString("T_RPM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Velocità.
+        /// </summary>
+        internal static string T_Velocità {
+            get {
+                return ResourceManager.GetString("T_Velocità", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Telegram.
         /// </summary>
         internal static string telegram {
@@ -489,15 +570,6 @@ namespace MicroCenter.Lingue {
         internal static string tema {
             get {
                 return ResourceManager.GetString("tema", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una stringa localizzata simile a Velocità.
-        /// </summary>
-        internal static string velocità {
-            get {
-                return ResourceManager.GetString("velocità", resourceCulture);
             }
         }
         
