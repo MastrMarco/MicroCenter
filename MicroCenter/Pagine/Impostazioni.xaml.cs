@@ -125,6 +125,11 @@ namespace MicroCenter.Pagine
 
             LabInformazioni.Content = Lingua.info;
             LabInformazioniInfo.Content = Lingua.infoSorgente;
+
+
+            //Reset Pagine
+            MainWindow.connessionePage = null;
+            MainWindow.ArduinoPage = null;
         }
 
 

@@ -83,10 +83,10 @@ namespace MicroCenter
 
 
 
-        private Impostazioni? ImpostazioniPage = null;
-        private Connessione? connessionePage = null;
+        private static Impostazioni? ImpostazioniPage = null;
+        public static Connessione? connessionePage = null;
         //private Arduino? ArduinoPage = null;
-        private Elementi? ArduinoPage = null;
+        public static Elementi? ArduinoPage = null;
 
         //Visualiza le Impostazioni
         private void btnImpostazioni_Click(object sender, RoutedEventArgs e)
@@ -128,6 +128,9 @@ namespace MicroCenter
             LabInfoPagine.Content = Lingua.fArduino;
             LabToolTipArduino.Content = Lingua.fArduino;
         }
+
+
+
 
 
     }

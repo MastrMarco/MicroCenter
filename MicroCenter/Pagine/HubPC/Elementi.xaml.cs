@@ -1,31 +1,10 @@
 ﻿using MicroCenter.Classi;
-using MicroCenter.Finestre;
 using MicroCenter.Lingue;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using System.Globalization;
-using System.IO;
 using System.IO.Ports;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Text.Json;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Interop;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static System.Net.Mime.MediaTypeNames;
 using Path = System.IO.Path;
 
 namespace MicroCenter.Pagine.HubPC
@@ -74,7 +53,7 @@ namespace MicroCenter.Pagine.HubPC
                 TrackCommand();
 
 
-                Br_Temperatura.Maximum = Dispositivo.TempDS;
+                Br_Temperatura.Maximum = (Dispositivo.TempDS > 0) ? Dispositivo.TempDS : 1;
                 Br_Temperatura.Value = Dispositivo.TempDS;
                 LaTemp.Text = Br_Temperatura.Value.ToString() + "°C";
 
@@ -993,7 +972,7 @@ namespace MicroCenter.Pagine.HubPC
 
         private string Get_Traduzione(string ChiaveParola)
         {
-            
+
             Lingua.Culture = new CultureInfo(Set_Lingua());
             CultureInfo culture = new CultureInfo(Set_Lingua());
             ChiaveParola = Lingua.ResourceManager.GetString(ChiaveParola, culture);
