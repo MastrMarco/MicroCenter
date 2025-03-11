@@ -594,18 +594,18 @@ namespace MicroCenter.Pagine.HubPC
                     Height = 80,
                     Width = 80,
                     Margin = new Thickness(mrg, 0, mrg, 0), // Aggiunge un margine di 10
-                    Content = Get_Traduzione("ELG_" + nome),
+                    //Content = Get_Traduzione("ELG_" + nome),
                     Tag = nome,
                     VerticalAlignment = VerticalAlignment.Center,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    Cursor = System.Windows.Input.Cursors.Hand,
+                    //Cursor = System.Windows.Input.Cursors.Hand,
                     ToolTip = new Label { Content = Get_Traduzione("ELG_" + nome) },
-                    BorderThickness = new Thickness(1),
-                    BorderBrush = Brushes.Transparent // Nessun bordo iniziale
-                    //    Style = (Style)FindResource("IconButtonsForms") // Stile preso dalle risorse
+                    //BorderThickness = new Thickness(1),
+                    //BorderBrush = Brushes.Transparent, // Nessun bordo iniziale
+                        Style = (Style)FindResource("ButtonsHUB") // Stile preso dalle risorse
                 };
 
-                // btn.SetResourceReference(Button.ContentProperty, "IconaUSBConnetti");
+                 btn.SetResourceReference(Button.ContentProperty, btn.Tag.ToString()); //Imposta Icona Bottoni
 
 
                 btn.Click += BtnGruppiElementi_Click;

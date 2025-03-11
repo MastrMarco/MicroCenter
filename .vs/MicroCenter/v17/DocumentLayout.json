@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\pagine\\hubpc\\elementi.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\stile_elementi\\stilebottoni.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\stile_elementi\\stilebottoni.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|d:\\progettigithub\\microcenter\\microcenter\\classi\\arduhubfan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF4BD229-34CD-44EC-898F-08F684C9CD56}|MicroCenter\\MicroCenter.csproj|solutionrelative:microcenter\\classi\\arduhubfan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,7 +34,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Lib_JSON_CRUD_3.cs",
               "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\Lib_JSON_CRUD_3.cs",
               "RelativeDocumentMoniker": "MicroCenter\\Classi\\Lib_JSON_CRUD_3.cs",
@@ -43,7 +47,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ArduHubFan.cs",
               "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Classi\\ArduHubFan.cs",
               "RelativeDocumentMoniker": "MicroCenter\\Classi\\ArduHubFan.cs",
@@ -63,9 +67,21 @@
               "RelativeDocumentMoniker": "MicroCenter\\Pagine\\HubPC\\Elementi.xaml.cs",
               "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Pagine\\HubPC\\Elementi.xaml.cs",
               "RelativeToolTip": "MicroCenter\\Pagine\\HubPC\\Elementi.xaml.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAcwDcAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAACwCAAAAAAAAAAAowF4CAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-07T18:50:14.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StileBottoni.xaml",
+              "DocumentMoniker": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Stile_Elementi\\StileBottoni.xaml",
+              "RelativeDocumentMoniker": "MicroCenter\\Stile_Elementi\\StileBottoni.xaml",
+              "ToolTip": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\Stile_Elementi\\StileBottoni.xaml",
+              "RelativeToolTip": "MicroCenter\\Stile_Elementi\\StileBottoni.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-11T09:19:23.659Z",
               "EditorCaption": ""
             }
           ]
