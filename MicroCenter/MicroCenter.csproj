@@ -49,14 +49,31 @@
     <None Update="Dati\HUB_PC\Colori.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Immagini_Icone\Immagini\BtnLED_Discontinuo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Immagini_Icone\Immagini\BtnLED_halloween.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Immagini_Icone\Immagini\BtnLED_Musica.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Immagini_Icone\Immagini\BtnLED_RainBow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Immagini_Icone\Immagini\BtnLED_Spento.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Immagini_Icone\Immagini\BtnLED_Temperatura.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Immagini_Icone\Immagini\BtnLED_Transizione.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Immagini_Icone\Immagini\" />
   </ItemGroup>
 
   <ItemGroup>

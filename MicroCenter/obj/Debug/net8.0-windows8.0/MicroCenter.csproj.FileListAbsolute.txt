@@ -73,3 +73,10 @@ D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows8.0\refint\Mic
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows8.0\MicroCenter.pdb
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows8.0\MicroCenter.genruntimeconfig.cache
 D:\ProgettiGitHub\MicroCenter\MicroCenter\obj\Debug\net8.0-windows8.0\ref\MicroCenter.dll
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Debug\net8.0-windows8.0\Immagini_Icone\Immagini\BtnLED_Spento.png
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Debug\net8.0-windows8.0\Immagini_Icone\Immagini\BtnLED_Discontinuo.png
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Debug\net8.0-windows8.0\Immagini_Icone\Immagini\BtnLED_halloween.png
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Debug\net8.0-windows8.0\Immagini_Icone\Immagini\BtnLED_Musica.png
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Debug\net8.0-windows8.0\Immagini_Icone\Immagini\BtnLED_RainBow.png
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Debug\net8.0-windows8.0\Immagini_Icone\Immagini\BtnLED_Temperatura.png
+D:\ProgettiGitHub\MicroCenter\MicroCenter\bin\Debug\net8.0-windows8.0\Immagini_Icone\Immagini\BtnLED_Transizione.png

@@ -1,10 +1,12 @@
 ﻿using MicroCenter.Classi;
 using MicroCenter.Lingue;
 using System.Globalization;
+using System.IO;
 using System.IO.Ports;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Path = System.IO.Path;
 
 namespace MicroCenter.Pagine.HubPC
@@ -602,10 +604,14 @@ namespace MicroCenter.Pagine.HubPC
                     ToolTip = new Label { Content = Get_Traduzione("ELG_" + nome) },
                     //BorderThickness = new Thickness(1),
                     //BorderBrush = Brushes.Transparent, // Nessun bordo iniziale
-                        Style = (Style)FindResource("ButtonsHUB") // Stile preso dalle risorse
+                        Style = (Style)FindResource("ButtonsHUB_Ico") // Stile preso dalle risorse
                 };
 
-                 btn.SetResourceReference(Button.ContentProperty, btn.Tag.ToString()); //Imposta Icona Bottoni
+
+               
+
+
+                  btn.SetResourceReference(Button.ContentProperty, btn.Tag.ToString()); //Imposta Icona Bottoni
 
 
                 btn.Click += BtnGruppiElementi_Click;
@@ -765,8 +771,10 @@ namespace MicroCenter.Pagine.HubPC
                     // Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colors[i])),
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
-                    BorderThickness = new Thickness(1),
-                    BorderBrush = Brushes.Transparent // Nessun bordo iniziale
+                    // BorderThickness = new Thickness(1),
+                    // BorderBrush = Brushes.Transparent, // Nessun bordo iniziale
+                    Style = (Style)FindResource("ButtonsHUB_Img"), // Stile preso dalle risorse
+                     Content = new BitmapImage(new Uri(System.IO.Path.GetFullPath(@"Immagini_Icone\Immagini\BtnLED_Spento.png"), UriKind.Absolute))
                 };
 
                 button.Click += BtnAnimazioni_Click;
