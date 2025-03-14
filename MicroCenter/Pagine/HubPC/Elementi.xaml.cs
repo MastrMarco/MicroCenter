@@ -604,14 +604,14 @@ namespace MicroCenter.Pagine.HubPC
                     ToolTip = new Label { Content = Get_Traduzione("ELG_" + nome) },
                     //BorderThickness = new Thickness(1),
                     //BorderBrush = Brushes.Transparent, // Nessun bordo iniziale
-                        Style = (Style)FindResource("ButtonsHUB_Ico") // Stile preso dalle risorse
+                    Style = (Style)FindResource("ButtonsHUB_Ico") // Stile preso dalle risorse
                 };
 
 
-               
 
 
-                  btn.SetResourceReference(Button.ContentProperty, btn.Tag.ToString()); //Imposta Icona Bottoni
+
+                btn.SetResourceReference(Button.ContentProperty, btn.Tag.ToString()); //Imposta Icona Bottoni
 
 
                 btn.Click += BtnGruppiElementi_Click;
@@ -774,8 +774,18 @@ namespace MicroCenter.Pagine.HubPC
                     // BorderThickness = new Thickness(1),
                     // BorderBrush = Brushes.Transparent, // Nessun bordo iniziale
                     Style = (Style)FindResource("ButtonsHUB_Img"), // Stile preso dalle risorse
-                     Content = new BitmapImage(new Uri(System.IO.Path.GetFullPath(@"Immagini_Icone\Immagini\BtnLED_Spento.png"), UriKind.Absolute))
                 };
+                // Cerca Icona Aniamzione
+                string imgIcon = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Immagini_Icone", "Immagini", $"BtnLED_{button.Tag.ToString()}.png");
+
+                // Imposta Icona
+                if (File.Exists(imgIcon))
+                {
+                    button.Content = new BitmapImage(new Uri(imgIcon, UriKind.Absolute));
+                }
+
+
+
 
                 button.Click += BtnAnimazioni_Click;
 

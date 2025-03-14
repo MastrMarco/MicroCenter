@@ -52,7 +52,7 @@
     <None Update="Immagini_Icone\Immagini\BtnLED_Discontinuo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Immagini_Icone\Immagini\BtnLED_halloween.png">
+    <None Update="Immagini_Icone\Immagini\BtnLED_Mix.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Immagini_Icone\Immagini\BtnLED_Musica.png">

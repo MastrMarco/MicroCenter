@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8n+fFxM6EGk=",
+  "dgSpecHash": "ctv8Y302g0U=",
   "success": true,
   "projectFilePath": "D:\\ProgettiGitHub\\MicroCenter\\MicroCenter\\MicroCenter.csproj",
   "expectedPackageFiles": [
@@ -24,10 +24,7 @@
     "C:\\Users\\marco\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\9.0.0\\runtime.osx-x64.runtime.native.system.io.ports.9.0.0.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\system.codedom\\9.0.0\\system.codedom.9.0.0.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\system.io.ports\\9.0.0\\system.io.ports.9.0.0.nupkg.sha512",
-    "C:\\Users\\marco\\.nuget\\packages\\system.management\\9.0.0\\system.management.9.0.0.nupkg.sha512",
-    "C:\\Users\\marco\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\8.0.13\\microsoft.netcore.app.runtime.win-x86.8.0.13.nupkg.sha512",
-    "C:\\Users\\marco\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\8.0.13\\microsoft.windowsdesktop.app.runtime.win-x86.8.0.13.nupkg.sha512",
-    "C:\\Users\\marco\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\8.0.13\\microsoft.aspnetcore.app.runtime.win-x86.8.0.13.nupkg.sha512"
+    "C:\\Users\\marco\\.nuget\\packages\\system.management\\9.0.0\\system.management.9.0.0.nupkg.sha512"
   ],
   "logs": []
 }
