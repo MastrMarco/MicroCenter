@@ -1,0 +1,115 @@
+{
+
+  "Colori": [
+    {
+      "Nome": "Bianco",
+      "Colore": 20,
+      "Saturazione": 0,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Rosso",
+      "Colore": 0,
+      "Saturazione": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Verde",
+      "Colore": 171,
+      "Saturazione": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Blu",
+      "Colore": 341,
+      "Saturazione": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Arancione",
+      "Colore": 20,
+      "Saturazione": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Fucsia",
+      "Colore": 427,
+      "Saturazione": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Giallo",
+      "Colore": 85,
+      "Saturazione": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Celeste",
+      "Colore": 256,
+      "Saturazione": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    }
+  ],
+
+
+  "Animazioni": [
+    {
+      "Nome": "Spento",
+      "Colore": 20,
+      "Luminosità": 0,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Transizione",
+      "Colore": 601,
+      "Luminosità": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "RainBow",
+      "Colore": 602,
+      "Luminosità": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Temperatura",
+      "Colore": 604,
+      "Luminosità": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Musica",
+      "Colore": 603,
+      "Luminosità": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Discontinuo",
+      "Colore": 600,
+      "Luminosità": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    },
+    {
+      "Nome": "Mix",
+      "Colore": 605,
+      "Luminosità": 255,
+      "UI_stato": true,
+      "Tipo": "Default"
+    }
+  ]
+
+}

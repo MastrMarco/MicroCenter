@@ -17,6 +17,7 @@ void DatiRXloop(int i, String DatoRX) {
   //
   if (Boot_SetUp != 100) return;
   if (DatoRX == "") return;
+  if (valore == 0 && DatoRX != "0") return;
 
 
 
