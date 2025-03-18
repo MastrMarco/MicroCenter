@@ -116,6 +116,7 @@ namespace MicroCenter.Pagine
                 _serialPort.Open();
 
 
+
                 if (!isRunning)
                 {
                     StartTimer_Click(null, null);

@@ -3,9 +3,11 @@ using MicroCenter.Lingue;
 using System.Globalization;
 using System.IO;
 using System.IO.Ports;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using Path = System.IO.Path;
 
@@ -550,10 +552,6 @@ namespace MicroCenter.Pagine.HubPC
             //jsonManager.AddElement(versione, categoria, nuovaVentola);
 
 
-            // Stampare il contenuto della categoria "Ventole"
-            // var ventole = jsonManager.GetContenutoElemento(versione, categoria);
-
-
             // var _list = new Lib_JSON_CRUD_3<InfoElementi>(filePathColori);
             string GruppoElementoSelezionato = "";
             foreach (var index in elementiPrincipali)
@@ -590,6 +588,10 @@ namespace MicroCenter.Pagine.HubPC
 
             foreach (string nome in elementiPrincipali)
             {
+
+                // Stampare il contenuto della categoria "elementi"
+                var elemento = list.GetContenutoElemento(versione, nome);
+
                 Button btn = new Button
                 {
                     Name = nome.Replace(" ", ""),
@@ -602,12 +604,15 @@ namespace MicroCenter.Pagine.HubPC
                     HorizontalAlignment = HorizontalAlignment.Center,
                     //Cursor = System.Windows.Input.Cursors.Hand,
                     ToolTip = new Label { Content = Get_Traduzione("ELG_" + nome) },
-                    //BorderThickness = new Thickness(1),
-                    //BorderBrush = Brushes.Transparent, // Nessun bordo iniziale
-                    Style = (Style)FindResource("ButtonsHUB_Ico") // Stile preso dalle risorse
+                    BorderThickness = new Thickness(2),
+                    BorderBrush = Brushes.Transparent, // Nessun bordo iniziale
+                    Style = (Style)FindResource("ButtonsHUB_Ico"), // Stile preso dalle risorse
+                    Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0)), // Colore rosso in RGB
                 };
 
 
+                //StackPanelContainer.SetResourceReference(Button.ForegroundProperty, "PrimaryTextColor");
+                btn.Foreground = new SolidColorBrush(RGB__HSV.ConvertHsvToRgb(Dispositivo.ColoreLED[elemento[0].Mod_LED_Fan], Dispositivo.Saturazione[elemento[0].Mod_LED_Fan], 255)); // Colore rosso in RGB
 
 
 
@@ -615,6 +620,7 @@ namespace MicroCenter.Pagine.HubPC
 
 
                 btn.Click += BtnGruppiElementi_Click;
+
 
                 StackPanelContainer.Children.Add(btn); // Aggiunge il bottone al contenitore
 
@@ -643,28 +649,52 @@ namespace MicroCenter.Pagine.HubPC
                     if (Newcategoria != gruppo)
                     {
                         Dispositivo.ModLED_Fan = _list[0].Mod_LED_Fan;
-                        ClearTextBlock();
+                        ClearTextBlock();  // Pulisci Elementi WPF
                         ElementoDato();
                         GenerateAniamzioneButtons();
                         SelectButtonGrupElementi(btn);
                         UI_dati();
                         TrackCommand();
                         GestioneLuminosità("", Dispositivo.LumLED[Dispositivo.ModLED_Fan], false);
-
+                        // btn.Foreground = new SolidColorBrush(RGB__HSV.ConvertHsvToRgb(Dispositivo.ColoreLED[Dispositivo.ModLED_Fan], Dispositivo.Saturazione[Dispositivo.ModLED_Fan], 255)); // Colore rosso in RGB
                     }
                 }
             }
         }
         // Grafica Selezione Colore
-        private Button selectedButtonGrup = null;
+        private Button? selectedButtonGrup = null;
         private void SelectButtonGrupElementi(Button button)
         {
             if (selectedButtonGrup != null)
             {
-                selectedButtonGrup.BorderBrush = Brushes.Transparent; // Ripristina il precedente pulsante
+                var border = (Border)selectedButtonGrup.Template.FindName("bd", selectedButtonGrup);
+                // Ripristina il precedente pulsante Rimuovi l'ombra
+                border.Tag = false;
             }
             selectedButtonGrup = button;
-            selectedButtonGrup.BorderBrush = Brushes.Black; // Evidenzia il pulsante selezionato
+
+            var borderNew = (Border)selectedButtonGrup.Template.FindName("bd", selectedButtonGrup);
+            // Ripristina il precedente pulsante Rimuovi l'ombra
+            if (borderNew == null)
+            {
+                // Evento per applicare lo stato "cliccato" quando il template è pronto
+                button.Loaded += (s, e) =>
+                {
+                    var button = (Button)s;
+                    var border = (Border)button.Template.FindName("bd", button);
+
+                    if (border != null)
+                    {
+                        border.Tag = true; // Imposta lo stato "cliccato" di default
+                    }
+                };
+
+            }
+            else
+            {
+                borderNew.Tag = true;
+            }
+
         }
 
 
