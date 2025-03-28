@@ -6,6 +6,12 @@
     <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#C0C9EA"/>
     <SolidColorBrush x:Key="SecundaryBackgroundColor" Color="#EDF4FF"/>
     <SolidColorBrush x:Key="TertiaryBackgroundColor" Color="#FFFFFF"/>
+    
+    <!-- Item Select-->
+    <SolidColorBrush x:Key="PrimaryItemColor"
+                     Color="Blue" />
+
+    <SolidColorBrush x:Key="TertiaryItemColor" Color="Gray" />
 
     <!-- System Colors -->
     <!-- Typograhy Colors -->

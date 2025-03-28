@@ -12,7 +12,7 @@
                     <Ellipse  Stroke="Black"
                           StrokeThickness="1"
                           Name="Ellipse" 
-                          Fill="OrangeRed" />
+                          Fill="{DynamicResource TertiaryBackgroundColor}" />
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Ellipse" Property="Fill" Value="Orange"/>
@@ -43,13 +43,13 @@
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
                         <Border Name="PART_Border"
-                           BorderBrush="Black" BorderThickness="1"
-                           Padding="2"
-                           CornerRadius="2"
+                           BorderBrush="Black" BorderThickness="0"
+                           Padding="3"
+                           CornerRadius="4"
                           Grid.Row="1" Grid.Column="1"
                            Width="{TemplateBinding Width}"
                            Height="{TemplateBinding Height}"
-                           Background="GreenYellow"
+                           Background="{DynamicResource PrimaryBackgroundColor}"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Center" />
                         <Track Name="PART_Track"

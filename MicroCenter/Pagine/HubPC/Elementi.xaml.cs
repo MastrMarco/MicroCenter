@@ -627,7 +627,8 @@ namespace MicroCenter.Pagine.HubPC
 
                 if (nome == GruppoElementoSelezionato) // Se il pulsante è "Red", lo selezioniamo di default
                 {
-                    SelectButtonGrupElementi(btn);
+
+                    SelectButtonGrupElementi(btn);                   
                 }
             }
         }
@@ -694,6 +695,9 @@ namespace MicroCenter.Pagine.HubPC
             {
                 borderNew.Tag = true;
             }
+
+            Info_Elementi_ico.Data = (Geometry)FindResource(button.Tag.ToString());
+            Info_Elementi_ico.Fill = button.Foreground;
 
         }
 

@@ -199,18 +199,21 @@
                         <!-- Effetto di ombra quando cliccato -->
                         <DataTrigger Binding="{Binding ElementName=bd, Path=Tag}"
                                      Value="True">
-                            <Setter TargetName="bd"
+                            <!--<Setter TargetName="bd"
                                     Property="BorderBrush"
-                                    Value="Blue" />
+                                    Value="Blue" />-->
                             <Setter TargetName="bd"
                                     Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect Color="Blue"
+                                    <DropShadowEffect Color="DarkGray"
                                                       BlurRadius="10"
                                                       ShadowDepth="0"
-                                                      Opacity="0.7" />
+                                                      Opacity="1" />
                                 </Setter.Value>
                             </Setter>
+
+                            <Setter Property="Background"
+                                    Value="{DynamicResource TertiaryBackgroundColor}" />
                         </DataTrigger>
 
                         <!-- Stato Mouse Passa sopra -->
@@ -219,8 +222,8 @@
                             <Setter TargetName="bd"
                                     Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect Color="Blue"
-                                                      BlurRadius="20"
+                                    <DropShadowEffect  Color="DarkGray"
+                                                       BlurRadius="20"
                                                       ShadowDepth="0"
                                                       Opacity="1" />
                                 </Setter.Value>
